@@ -9092,8 +9092,9 @@ GameObject:
   - component: {fileID: 1500693627}
   - component: {fileID: 1500693629}
   - component: {fileID: 1500693628}
+  - component: {fileID: 1500693630}
   m_Layer: 5
-  m_Name: Active Abilities
+  m_Name: Active Ability
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9139,7 +9140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Display a small image representing the active abilities
+  m_text: ' Active Ability: None'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9166,8 +9167,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 17.66
+  m_fontSizeBase: 17.66
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9216,6 +9217,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500693626}
   m_CullTransparentMesh: 1
+--- !u!114 &1500693630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500693626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9981bf0e6b5bbe9428208d20191e0ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1835353216}
 --- !u!1 &1776521715
 GameObject:
   m_ObjectHideFlags: 0
@@ -11591,6 +11605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2d602038d2f22b4e8acecfde3b335db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  absorbRadius: 2
 --- !u!1 &2008648101
 GameObject:
   m_ObjectHideFlags: 0
@@ -11882,6 +11897,14 @@ PrefabInstance:
     - target: {fileID: 5948265257653386009, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
       propertyPath: m_TagString
       value: Campfire
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948265257653386010, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948265257653386010, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -136134617
       objectReference: {fileID: 0}
     - target: {fileID: 5948265257653386011, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
       propertyPath: m_RootOrder
