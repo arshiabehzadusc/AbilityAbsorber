@@ -8,10 +8,11 @@ public class AbilityManager : MonoBehaviour
 {
     private string selectedAbility = "none"; // can be "fire", "screech", or "ram"
     private Dictionary<string, bool> unlockedAbilities;
+    public float absorbRadius = 2f;
 
     void Start() {
         unlockedAbilities = new Dictionary<string, bool>();
-        unlockedAbilities["fire"] = true;
+        unlockedAbilities["fire"] = false;
         unlockedAbilities["screech"] = false;
         unlockedAbilities["ram"] = false;
 
@@ -28,6 +29,8 @@ public class AbilityManager : MonoBehaviour
     
 
     void Update() {
+
+        // Select ability
         if (Input.GetKeyDown(KeyCode.Alpha1) && unlockedAbilities["fire"]) {
             selectedAbility = "fire";
             Debug.Log("selected ability changed to " + selectedAbility);
@@ -40,8 +43,34 @@ public class AbilityManager : MonoBehaviour
             selectedAbility = "ram";
             Debug.Log("selected ability changed to " + selectedAbility);
         }
+
+
+        // Absorb ability
+        if (Input.GetKeyDown(KeyCode.E)) {
+            checkNearbyAbilityAvailable("Campfire", "fire");
+            checkNearbyAbilityAvailable("BatEnemy", "screech");
+            checkNearbyAbilityAvailable("RockEnemy", "ram");
+        }
         
         
+    }
+
+    // for example, check if campfire is nearby enough to absorb fire ability
+    void checkNearbyAbilityAvailable(string tag, string ability) {
+        Vector3 positionToCheck = transform.position;
+        GameObject[] campfireObjects = GameObject.FindGameObjectsWithTag(tag); // Find objects by tag
+
+        foreach (GameObject campfireObject in campfireObjects)
+        {
+            Vector3 campfirePosition = campfireObject.transform.position;
+            float distance = Vector3.Distance(positionToCheck, campfirePosition);
+
+            if (distance <= absorbRadius)
+            {
+                unlockedAbilities[ability] = true;
+                Debug.Log("Unlocked " + ability);
+            }
+        }
     }
 }
 
