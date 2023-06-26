@@ -22,36 +22,39 @@ public class BatShockWave : MonoBehaviour
 
     private void Update()
     {
-        // Check if the timer has reached zero
-        if (spawnTimer <= 0)
-        {
-            // Spawn the prefab in front of the enemy
-            Vector3 spawnPosition = shockWaveSpawn.position;
-            waveObject = Instantiate(shockWave, spawnPosition, Quaternion.identity);
-            // Reset the timer and set a new spawn delay
-            SetRandomSpawnDelay();
-            spawnTimer = currentSpawnDelay;
-        }
-        else
-        {
-            // Decrease the timer
-            spawnTimer -= Time.deltaTime;
-        }
+        if (batScript.getIsCorpse() == false) {
 
-        if (waveObject != null)
-        {
-            waveObject.transform.position = shockWaveSpawn.position;
-            if (!batScript.isLeft)
+            // Check if the timer has reached zero
+            if (spawnTimer <= 0)
             {
-                // Flip the sprite to face right
-                waveObject.transform.localScale = new Vector3(4f, 4f, 1f);
+                // Spawn the prefab in front of the enemy
+                Vector3 spawnPosition = shockWaveSpawn.position;
+                waveObject = Instantiate(shockWave, spawnPosition, Quaternion.identity);
+                // Reset the timer and set a new spawn delay
+                SetRandomSpawnDelay();
+                spawnTimer = currentSpawnDelay;
             }
             else
             {
-                // Flip the sprite to face left
-                waveObject.transform.localScale = new Vector3(-4f, 4f, 1f);
+                // Decrease the timer
+                spawnTimer -= Time.deltaTime;
             }
-            Destroy(waveObject, 3f);
+
+            if (waveObject != null)
+            {
+                waveObject.transform.position = shockWaveSpawn.position;
+                if (!batScript.isLeft)
+                {
+                    // Flip the sprite to face right
+                    waveObject.transform.localScale = new Vector3(4f, 4f, 1f);
+                }
+                else
+                {
+                    // Flip the sprite to face left
+                    waveObject.transform.localScale = new Vector3(-4f, 4f, 1f);
+                }
+                Destroy(waveObject, 3f);
+            }
         }
     }
 

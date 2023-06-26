@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class fire_ability : MonoBehaviour
 {
-    public float fire_radius = 1f;
+    
     public float damage = 1f;
     public float duration = 0.5f;
     private AbilityManager abilityManager;

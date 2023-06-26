@@ -139,7 +139,7 @@ MonoBehaviour:
   rotationSpeed: 200
   fire: {fileID: 0}
   objectTag: FireAbility
-  maxLives: 3
+  maxLives: 1
 --- !u!61 &6257651749798134505
 BoxCollider2D:
   m_ObjectHideFlags: 0
