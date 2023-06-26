@@ -196,6 +196,32 @@ Transform:
   m_Father: {fileID: 1459434819}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &143794015 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5948265257653386009, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
+  m_PrefabInstance: {fileID: 5948265259240616952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &143794018
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143794015}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1171cde1328a34a9f8a4aef47f36db5f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &177420535
 GameObject:
   m_ObjectHideFlags: 0
@@ -13318,6 +13344,30 @@ PrefabInstance:
     - target: {fileID: 5948265257653386009, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
       propertyPath: m_TagString
       value: Campfire
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948265257653386010, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
+      propertyPath: m_Size.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948265257653386010, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
+      propertyPath: m_Size.y
+      value: 1.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948265257653386010, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3adadcebeef034abf9a7b142b147d05f, type: 3}
+    - target: {fileID: 5948265257653386010, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948265257653386010, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948265257653386010, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5948265257653386010, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
       propertyPath: m_SortingLayer
