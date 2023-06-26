@@ -49,7 +49,7 @@ public class AbilityManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) {
             checkNearbyAbilityAvailable("Campfire", "fire");
             checkNearbyAbilityAvailable("BatEnemy", "screech");
-            checkNearbyAbilityAvailable("RockEnemy", "ram");
+           // checkNearbyAbilityAvailable("RockEnemy", "ram");
         }
         
         

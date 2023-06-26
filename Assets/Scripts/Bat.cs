@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SearchService;
 
 public class Bat : MonoBehaviour
 {
@@ -10,9 +11,15 @@ public class Bat : MonoBehaviour
     public Transform playerTransform;
     public bool isLeft;
     public float rotationSpeed = 200f;
+    public GameObject fire;
+    public string objectTag = "FireAbility";
+
+    private float health;
+    public float maxLives = 3f;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        health = maxLives;
     }
 
     private void Start()
@@ -68,6 +75,28 @@ public class Bat : MonoBehaviour
         // Generate a random position within the jitter range
         Vector2 randomOffset = Random.insideUnitCircle * jitterRange;
         return (Vector2)transform.position + randomOffset;
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        fire = GameObject.FindGameObjectWithTag(objectTag);
+        if (other.gameObject == fire)
+        {
+            TakeDamage(1f);
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        if (health > 0)
+        {
+            health -= damage;
+            print(health);
+        }
+        if (health <=0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }
 

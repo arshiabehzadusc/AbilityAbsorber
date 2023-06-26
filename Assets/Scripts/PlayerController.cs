@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
             health -= damage;
             healthLabel.text = "Health: " + health;
         }
-        else
+        if (health <= 0)
         {
             gameObject.SetActive(false);
         }
