@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f; // Speed of player movement.
     private Rigidbody2D rb;  // Reference to Rigidbody2D component.
-
+    
     // Use this for initialization
     void Start()
     {
@@ -25,5 +25,20 @@ public class PlayerMovement : MonoBehaviour
 
         // Apply movement to the Rigidbody2D
         rb.velocity = movement * speed;
+    }
+
+    public void Knock(float knockTime)
+    { 
+        StartCoroutine(KnockCo(knockTime));
+    }
+    
+    private IEnumerator KnockCo(float knockTime)
+    {
+        if (rb != null)
+        {
+            yield return new WaitForSeconds(knockTime);
+            rb.velocity = Vector2.zero;
+            print("works2");
+        }
     }
 }
