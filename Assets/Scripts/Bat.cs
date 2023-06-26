@@ -14,8 +14,14 @@ public class Bat : MonoBehaviour
     public GameObject fire;
     public string objectTag = "FireAbility";
 
+    private bool is_corpse = false; 
+
     private float health;
     public float maxLives = 3f;
+    public Renderer renderer;
+    
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -26,46 +32,50 @@ public class Bat : MonoBehaviour
     {
         // Set the initial target position
         targetPosition = GetRandomPosition();
+        renderer = GetComponent<Renderer>();
     }
 
     private void Update()
     {
-        // Check if the enemy has reached the target position
-        if (Vector2.Distance(transform.position, targetPosition) <= 0.1f)
-        {
-            // Get a new random target position
-            targetPosition = GetRandomPosition();
-        }
+        if (is_corpse == false) {
 
-        // Move towards the target position
-        Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        //print("direction 1: " + direction);
-        // Avoid walls
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, LayerMask.GetMask("Obstacle"));
-        if (hit.collider != null)
-        {
-            // Calculate a new direction away from the wall
-            direction = Vector2.Reflect(direction, hit.normal);
-            //print("direction 2: " + direction);
-            targetPosition = GetRandomPosition();
-        }
-
-        rb.velocity = direction * speed;
-        
-        //flip player sprite towards player
-        if (playerTransform != null)
-        {
-            if (transform.position.x < playerTransform.position.x)
+            // Check if the enemy has reached the target position
+            if (Vector2.Distance(transform.position, targetPosition) <= 0.1f)
             {
-                // Flip the sprite to face right
-                transform.localScale = new Vector3(5f, 5f, 1f);
-                isLeft = false;
+                // Get a new random target position
+                targetPosition = GetRandomPosition();
             }
-            else
+
+            // Move towards the target position
+            Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
+            //print("direction 1: " + direction);
+            // Avoid walls
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, LayerMask.GetMask("Obstacle"));
+            if (hit.collider != null)
             {
-                // Flip the sprite to face left
-                transform.localScale = new Vector3(-5f, 5f, 1f);
-                isLeft = true;
+                // Calculate a new direction away from the wall
+                direction = Vector2.Reflect(direction, hit.normal);
+                //print("direction 2: " + direction);
+                targetPosition = GetRandomPosition();
+            }
+
+            rb.velocity = direction * speed;
+            
+            //flip player sprite towards player
+            if (playerTransform != null)
+            {
+                if (transform.position.x < playerTransform.position.x)
+                {
+                    // Flip the sprite to face right
+                    transform.localScale = new Vector3(5f, 5f, 1f);
+                    isLeft = false;
+                }
+                else
+                {
+                    // Flip the sprite to face left
+                    transform.localScale = new Vector3(-5f, 5f, 1f);
+                    isLeft = true;
+                }
             }
         }
     }
@@ -95,8 +105,26 @@ public class Bat : MonoBehaviour
         }
         if (health <=0)
         {
-            gameObject.SetActive(false);
+            // Destroy object - gameObject.SetActive(false);
+
+            // make into corpse
+            Debug.Log("killed bat");
+            is_corpse = true;
+            rb.velocity = new Vector2(0f, 0f);
+            Color color = HexToColor("372E2E");
+            renderer.material.color = color;
         }
+    }
+
+    public bool getIsCorpse() {
+        return is_corpse;
+    }
+
+    private Color HexToColor(string hex)
+    {
+        Color color = Color.black;
+        ColorUtility.TryParseHtmlString("#" + hex, out color);
+        return color;
     }
 }
 

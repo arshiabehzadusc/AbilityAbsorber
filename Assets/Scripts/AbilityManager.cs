@@ -9,13 +9,13 @@ public class AbilityManager : MonoBehaviour
     private string selectedAbility = "none"; // can be "fire", "screech", or "ram"
     private Dictionary<string, bool> unlockedAbilities;
     public float absorbRadius = 2f;
+    public GameObject MessageToPlayer;
 
     void Start() {
         unlockedAbilities = new Dictionary<string, bool>();
         unlockedAbilities["fire"] = false;
         unlockedAbilities["screech"] = false;
         unlockedAbilities["ram"] = false;
-
     }
 
     public string getSelectedAbility() {
@@ -68,7 +68,14 @@ public class AbilityManager : MonoBehaviour
             if (distance <= absorbRadius)
             {
                 unlockedAbilities[ability] = true;
-                Debug.Log("Unlocked " + ability);
+                MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
+                
+                messageToPlayer.DisplayAbilityUnlocked("fire", 1);
+                
+                if (ability.Equals("screech"))
+                    messageToPlayer.DisplayAbilityUnlocked("screech", 2);
+                if (ability == "ram")
+                    messageToPlayer.DisplayAbilityUnlocked("ram", 3);
             }
         }
     }
