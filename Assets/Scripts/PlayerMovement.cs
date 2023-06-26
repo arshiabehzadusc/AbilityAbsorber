@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f; // Speed of player movement.
     private Rigidbody2D rb;  // Reference to Rigidbody2D component.
-
+    
     // Use this for initialization
     void Start()
     {

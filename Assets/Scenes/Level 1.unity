@@ -8917,7 +8917,7 @@ GameObject:
   - component: {fileID: 718327489}
   - component: {fileID: 718327488}
   m_Layer: 5
-  m_Name: Health Location
+  m_Name: Health Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11656,6 +11656,7 @@ GameObject:
   - component: {fileID: 1835353223}
   - component: {fileID: 1835353222}
   - component: {fileID: 1835353224}
+  - component: {fileID: 1835353225}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11823,6 +11824,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectTag: Shockwave
   pushForce: 50
+--- !u!114 &1835353225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835353216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae5142a16fc948b69ef1324e8af2a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLabel: {fileID: 718327488}
+  maxLives: 3
 --- !u!1 &2008648101
 GameObject:
   m_ObjectHideFlags: 0

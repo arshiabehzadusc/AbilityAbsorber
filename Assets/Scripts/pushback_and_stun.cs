@@ -11,10 +11,22 @@ public class pushback_and_stun : MonoBehaviour
     private int counter = 0;
     private int pushTime = 2;
     PlayerMovement playerMovement;
+    private PlayerController playerController;
 
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        playerController = GetComponent<PlayerController>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        shockWave = GameObject.FindGameObjectWithTag(objectTag);
+        if (other.gameObject == shockWave)
+        {
+            print("works");
+            playerController.TakeDamage(0.5f);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D other)
@@ -22,7 +34,6 @@ public class pushback_and_stun : MonoBehaviour
         shockWave = GameObject.FindGameObjectWithTag(objectTag);
         if (other.gameObject == shockWave)
         {
-            print("works");
             Vector2 dir = other.transform.position - transform.position;
             // We then get the opposite (-Vector3) and normalize it
             dir = -dir.normalized;
@@ -37,6 +48,7 @@ public class pushback_and_stun : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        shockWave = GameObject.FindGameObjectWithTag(objectTag);
         if (other.gameObject == shockWave)
         {
             StartCoroutine(Unstun());
