@@ -3,8 +3,8 @@ using UnityEngine;
 public class BatShockWave : MonoBehaviour
 {
     public GameObject shockWave;
-    public float minSpawnDelay = 5f;
-    public float maxSpawnDelay = 8f;
+    public float minSpawnDelay = 6f;
+    public float maxSpawnDelay = 9f;
     public Transform shockWaveSpawn;
     public Transform playerTransform;
     private float spawnTimer;
@@ -44,14 +44,14 @@ public class BatShockWave : MonoBehaviour
             if (!batScript.isLeft)
             {
                 // Flip the sprite to face right
-                waveObject.transform.localScale = new Vector3(6f, 6f, 4f);
+                waveObject.transform.localScale = new Vector3(4f, 4f, 1f);
             }
             else
             {
                 // Flip the sprite to face left
-                waveObject.transform.localScale = new Vector3(-6f, 6f, 1f);
+                waveObject.transform.localScale = new Vector3(-4f, 4f, 1f);
             }
-            Destroy(waveObject, 2f);
+            Destroy(waveObject, 3f);
         }
     }
 

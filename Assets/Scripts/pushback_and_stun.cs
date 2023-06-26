@@ -25,6 +25,8 @@ public class pushback_and_stun : MonoBehaviour
         if (other.gameObject == shockWave)
         {
             playerController.TakeDamage(0.5f);
+            playerMovement.enabled = false;
+            StartCoroutine(Unstun());
         }
     }
 
@@ -41,18 +43,24 @@ public class pushback_and_stun : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 GetComponent<Rigidbody2D>().AddForce(dir*pushForce);
             }
-            playerMovement.enabled = false;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        shockWave = GameObject.FindGameObjectWithTag(objectTag);
-        if (other.gameObject == shockWave)
-        {
-            StartCoroutine(Unstun());
-        }
-    }
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     shockWave = GameObject.FindGameObjectWithTag(objectTag);
+    //     if (shockWave != null)
+    //     {
+    //         if (other.gameObject == shockWave)
+    //         {
+    //             StartCoroutine(Unstun());
+    //         }
+    //     }
+    //     else
+    //     {
+    //         print("couldnt unstun.");
+    //     }
+    // }
 
     private IEnumerator Unstun()
     {

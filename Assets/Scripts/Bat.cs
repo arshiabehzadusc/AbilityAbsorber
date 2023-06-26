@@ -41,7 +41,7 @@ public class Bat : MonoBehaviour
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
         //print("direction 1: " + direction);
         // Avoid walls
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, LayerMask.GetMask("Wall"));
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, LayerMask.GetMask("Obstacle"));
         if (hit.collider != null)
         {
             // Calculate a new direction away from the wall
