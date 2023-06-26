@@ -24,7 +24,6 @@ public class pushback_and_stun : MonoBehaviour
         shockWave = GameObject.FindGameObjectWithTag(objectTag);
         if (other.gameObject == shockWave)
         {
-            print("works");
             playerController.TakeDamage(0.5f);
         }
     }
