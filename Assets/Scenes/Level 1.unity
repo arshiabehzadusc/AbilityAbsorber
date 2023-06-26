@@ -12794,6 +12794,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectTag: Shockwave
   pushForce: 50
+--- !u!114 &1835353225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835353216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ae5142a16fc948b69ef1324e8af2a6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLabel: {fileID: 718327488}
+  maxLives: 3
 --- !u!1 &1971879368
 GameObject:
   m_ObjectHideFlags: 0
