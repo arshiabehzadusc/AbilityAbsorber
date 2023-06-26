@@ -26,4 +26,19 @@ public class PlayerMovement : MonoBehaviour
         // Apply movement to the Rigidbody2D
         rb.velocity = movement * speed;
     }
+
+    public void Knock(float knockTime)
+    { 
+        StartCoroutine(KnockCo(knockTime));
+    }
+    
+    private IEnumerator KnockCo(float knockTime)
+    {
+        if (rb != null)
+        {
+            yield return new WaitForSeconds(knockTime);
+            rb.velocity = Vector2.zero;
+            print("works2");
+        }
+    }
 }

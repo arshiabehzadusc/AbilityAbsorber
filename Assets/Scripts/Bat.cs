@@ -7,7 +7,9 @@ public class Bat : MonoBehaviour
 
     private Vector2 targetPosition;      // The target position for the next movement
     private Rigidbody2D rb;
-
+    public Transform playerTransform;
+    public bool isLeft;
+    public float rotationSpeed = 200f;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -30,18 +32,35 @@ public class Bat : MonoBehaviour
 
         // Move towards the target position
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        print("direction 1: " + direction);
+        //print("direction 1: " + direction);
         // Avoid walls
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, LayerMask.GetMask("Wall"));
         if (hit.collider != null)
         {
             // Calculate a new direction away from the wall
             direction = Vector2.Reflect(direction, hit.normal);
-            print("direction 2: " + direction);
+            //print("direction 2: " + direction);
             targetPosition = GetRandomPosition();
         }
 
         rb.velocity = direction * speed;
+        
+        //flip player sprite towards player
+        if (playerTransform != null)
+        {
+            if (transform.position.x < playerTransform.position.x)
+            {
+                // Flip the sprite to face right
+                transform.localScale = new Vector3(5f, 5f, 1f);
+                isLeft = false;
+            }
+            else
+            {
+                // Flip the sprite to face left
+                transform.localScale = new Vector3(-5f, 5f, 1f);
+                isLeft = true;
+            }
+        }
     }
 
     private Vector2 GetRandomPosition()
@@ -51,3 +70,4 @@ public class Bat : MonoBehaviour
         return (Vector2)transform.position + randomOffset;
     }
 }
+

@@ -8648,6 +8648,7 @@ GameObject:
   - component: {fileID: 600271445}
   - component: {fileID: 600271447}
   - component: {fileID: 600271446}
+  - component: {fileID: 600271448}
   m_Layer: 0
   m_Name: bat_1
   m_TagString: Untagged
@@ -8718,7 +8719,8 @@ Transform:
   m_LocalPosition: {x: 5.22, y: 1.19, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 682954470}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8734,13 +8736,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1e43703d7df34c9dadb0b6b88077056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 5
+  speed: 2
   jitterRange: 2
-  smoothTime: 0.3
-  avoidWallDistance: 2
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  playerTransform: {fileID: 1835353218}
+  isLeft: 0
+  rotationSpeed: 200
 --- !u!50 &600271446
 Rigidbody2D:
   serializedVersion: 4
@@ -8761,7 +8761,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &600271447
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8788,6 +8788,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.12}
   m_EdgeRadius: 0
+--- !u!114 &600271448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600271442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a6c822d141294c93ab4e61b1297f96f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shockWave: {fileID: 5392248659044626730, guid: 44dcf30d1a8484d39b71069de68a9215, type: 3}
+  minSpawnDelay: 3
+  maxSpawnDelay: 6
+  shockWaveSpawn: {fileID: 682954470}
+  playerTransform: {fileID: 1835353218}
+  playerMovement: {fileID: 0}
 --- !u!1 &615198953
 GameObject:
   m_ObjectHideFlags: 0
@@ -8854,7 +8872,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &682954469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 682954470}
+  m_Layer: 0
+  m_Name: shockWaveSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &682954470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682954469}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.81, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600271444}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &718327486
 GameObject:
@@ -11606,6 +11655,7 @@ GameObject:
   - component: {fileID: 1835353221}
   - component: {fileID: 1835353223}
   - component: {fileID: 1835353222}
+  - component: {fileID: 1835353224}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11706,7 +11756,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 0.05
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -11759,6 +11809,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   absorbRadius: 2
+--- !u!114 &1835353224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835353216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226568629a5504b48a62f110127f88a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectTag: Shockwave
+  pushForce: 50
 --- !u!1 &2008648101
 GameObject:
   m_ObjectHideFlags: 0
@@ -12029,7 +12093,7 @@ RectTransform:
   - {fileID: 718327487}
   - {fileID: 1500693627}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12065,7 +12129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5948265257653386011, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5948265257653386011, guid: 4262f98feddcacd429296e2e3e29a682, type: 3}
       propertyPath: m_LocalPosition.x
