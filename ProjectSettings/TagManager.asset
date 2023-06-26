@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Campfire
   - Shockwave
+  - FireAbility
   layers:
   - Default
   - TransparentFX
