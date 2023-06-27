@@ -8,6 +8,7 @@ TagManager:
   - Shockwave
   - FireAbility
   - BatEnemy
+  - RockEnemy
   layers:
   - Default
   - TransparentFX
