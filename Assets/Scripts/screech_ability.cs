@@ -22,9 +22,11 @@ public class screech_ability : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && abilityManager.getSelectedAbility() == "screech")
         {
-            Vector3 spawnPosition = shockWaveSpawn.position;
-            waveObject = Instantiate(shockWave, spawnPosition, Quaternion.identity);
-            
+            if (waveObject == null)
+            {
+                Vector3 spawnPosition = shockWaveSpawn.position;
+                waveObject = Instantiate(shockWave, spawnPosition, Quaternion.identity);
+            }
         }
 
         if (waveObject != null)
