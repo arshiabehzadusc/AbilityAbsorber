@@ -9,6 +9,8 @@ TagManager:
   - FireAbility
   - BatEnemy
   - Enemy
+  - ScreechBlock
+  - ShockwavePlayer
   layers:
   - Default
   - TransparentFX
