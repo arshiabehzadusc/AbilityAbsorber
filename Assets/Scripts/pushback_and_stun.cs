@@ -24,8 +24,17 @@ public class pushback_and_stun : MonoBehaviour
         shockWave = GameObject.FindGameObjectWithTag(objectTag);
         if (other.gameObject == shockWave)
         {
-            playerController.TakeDamage(0.5f);
-            playerMovement.enabled = false;
+            if (gameObject.CompareTag("Player"))
+            {
+                playerController.TakeDamage(0.5f);
+                playerMovement.enabled = false;
+            } 
+            else if (gameObject.CompareTag("Enemy"))
+            {
+                print("works");
+                //TODO: add once rock enemy 
+            }
+
             StartCoroutine(Unstun());
         }
     }
@@ -46,28 +55,19 @@ public class pushback_and_stun : MonoBehaviour
         }
     }
 
-    // private void OnTriggerExit2D(Collider2D other)
-    // {
-    //     shockWave = GameObject.FindGameObjectWithTag(objectTag);
-    //     if (shockWave != null)
-    //     {
-    //         if (other.gameObject == shockWave)
-    //         {
-    //             StartCoroutine(Unstun());
-    //         }
-    //     }
-    //     else
-    //     {
-    //         print("couldnt unstun.");
-    //     }
-    // }
-
     private IEnumerator Unstun()
     {
         yield return new WaitForSeconds(1f);
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         yield return new WaitForSeconds(1f);
-        playerMovement.enabled = true;
+        if (gameObject.CompareTag("Player"))
+        {
+            playerMovement.enabled = true;
+        } 
+        else if (gameObject.CompareTag("Enemy"))
+        {
+            //TODO: add once rock enemy
+        }
     }
     
 
