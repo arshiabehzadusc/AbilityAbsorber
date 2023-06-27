@@ -49,7 +49,7 @@ public class RockEnemy : MonoBehaviour
         // If the enemy is hit by a 'screech' or 'fire' tagged object
         // add the implementation of screech ability and respective tag to break the shield
         //fire ability works
-        if(other.gameObject.CompareTag("ScreechAbility") && rockShield.activeSelf)
+        if(other.gameObject.CompareTag("ShockwavePlayer") && rockShield.activeSelf)
         {
             // Disable the rock shield
             rockShield.SetActive(false);

@@ -9,6 +9,9 @@ TagManager:
   - FireAbility
   - BatEnemy
   - RockEnemy
+  - ShockwavePlayer
+  - ScreechBlock
+  - Wall
   layers:
   - Default
   - TransparentFX

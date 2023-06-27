@@ -45,10 +45,14 @@ public class AbilityManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha2) && unlockedAbilities["screech"]) {
             selectedAbility = "screech";
             Debug.Log("selected ability changed to " + selectedAbility);
+            flare.SetActive(false);
+            flame.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && unlockedAbilities["ram"]) {
             selectedAbility = "ram";
             Debug.Log("selected ability changed to " + selectedAbility);
+            flare.SetActive(false);
+            flame.SetActive(false);
         }
 
 

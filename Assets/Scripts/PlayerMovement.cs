@@ -6,7 +6,9 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 5f; // Speed of player movement.
     private Rigidbody2D rb;  // Reference to Rigidbody2D component.
-    
+
+    public bool isMovingLeft;
+
     // Use this for initialization
     void Start()
     {
@@ -25,6 +27,17 @@ public class PlayerMovement : MonoBehaviour
 
         // Apply movement to the Rigidbody2D
         rb.velocity = movement * speed;
+
+        if (rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-0.3f, 0.3f, 1f);
+            isMovingLeft = true;
+        } 
+        else if (rb.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(0.3f, 0.3f, 1f);
+            isMovingLeft = false;
+        }
     }
 
     public void Knock(float knockTime)
@@ -42,3 +55,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 }
+
