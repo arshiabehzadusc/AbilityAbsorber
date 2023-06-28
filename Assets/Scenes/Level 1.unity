@@ -14978,7 +14978,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthLabel: {fileID: 718327488}
-  maxLives: 2
+  maxLives: 7
   sendtogoogle: {fileID: 1835353227}
 --- !u!114 &1835353226
 MonoBehaviour:
