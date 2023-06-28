@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI healthLabel;
     private float health;
     public float maxLives = 3f;
-
+    public SendToGoogle sendtogoogle;
     private RockEnemy rockEnemy;
     // Start is called before the first frame update
     void Start()
@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
         health = maxLives;
         healthLabel.text = "Health: " + health;
         gameObject.SetActive(true);
+        sendtogoogle = GetComponent<SendToGoogle>();
+
     }
 
     // Update is called once per frame
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviour
         }
         if (health <= 0)
         {
+            Vector2 playerposition = transform.position;
+            sendtogoogle.Send(System.DateTime.Now, playerposition);
             gameObject.SetActive(false);
         }
     }
