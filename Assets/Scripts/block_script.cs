@@ -7,6 +7,7 @@ public class block_script : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Vector3 start_position;
+    public GameObject emptyBlocking;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,6 +39,14 @@ public class block_script : MonoBehaviour
         if (!collision.gameObject.CompareTag("ShockwavePlayer")&& transform.position == start_position)
         {
             rb.constraints &= ~RigidbodyConstraints2D.FreezeAll;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("ShockwavePlayer"))
+        {
+            Destroy(emptyBlocking);
         }
     }
 }

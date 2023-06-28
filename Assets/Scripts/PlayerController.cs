@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour
         health = maxLives;
         healthLabel.text = "Health: " + health;
         gameObject.SetActive(true);
-        rockEnemy = GetComponent<RockEnemy>();
     }
 
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        rockEnemy = collision.gameObject.GetComponent<RockEnemy>();
         if (collision.gameObject.CompareTag("RockEnemy") && !rockEnemy.is_corpse)
         {
             TakeDamage(1f);
