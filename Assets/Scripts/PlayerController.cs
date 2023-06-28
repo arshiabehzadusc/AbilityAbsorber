@@ -26,13 +26,13 @@ public class PlayerController : MonoBehaviour
         rockEnemy = collision.gameObject.GetComponent<RockEnemy>();
         if (collision.gameObject.CompareTag("RockEnemy") && !rockEnemy.is_corpse)
         {
-            TakeDamage(1f);
+            TakeDamage(1f, "rock");
         }
     }
     
     
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, string enemy)
     {
         if (health > 0)
         {
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         if (health <= 0)
         {
             Vector2 playerposition = transform.position;
-            sendtogoogle.Send(System.DateTime.Now, playerposition);
+            sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
             gameObject.SetActive(false);
         }
     }

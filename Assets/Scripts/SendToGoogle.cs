@@ -21,20 +21,20 @@ public class SendToGoogle : MonoBehaviour
 
     }
 
-    public void Send(DateTime deadtime, Vector2 deadposition)
+    public void Send(DateTime deadtime, Vector2 deadposition, string enemy)
     {
         Debug.Log("try to send to google form");
 
-        StartCoroutine(Post(deadtime.ToString(), deadposition.ToString()));
+        StartCoroutine(Post(deadtime.ToString(), deadposition.ToString(), enemy));
     }
 
-    private IEnumerator Post(string deadtime, string deadposition)
+    private IEnumerator Post(string deadtime, string deadposition, string enemy)
     {
         // Create the form and enter responses
         WWWForm form = new WWWForm();
         form.AddField("entry.2004368566", deadtime);
         form.AddField("entry.1825431539", deadposition);
-        form.AddField("entry.1728689000", "bat");
+        form.AddField("entry.1728689000", enemy);
         
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {

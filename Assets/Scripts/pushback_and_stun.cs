@@ -27,7 +27,7 @@ public class pushback_and_stun : MonoBehaviour
         {
             if (gameObject.CompareTag("Player"))
             {
-                playerController.TakeDamage(0.5f);
+                playerController.TakeDamage(0.5f, "bat");
                 playerMovement.enabled = false;
             }
             StartCoroutine(Unstun());
