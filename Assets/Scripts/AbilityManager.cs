@@ -12,6 +12,8 @@ public class AbilityManager : MonoBehaviour
     public GameObject MessageToPlayer;
     public GameObject flame; 
     public GameObject flare; 
+    public GameObject batForm;
+    public GameObject UIActiveBat;
     public GameObject UIActiveFire;
 
     void Start() {
@@ -36,6 +38,8 @@ public class AbilityManager : MonoBehaviour
         // Select ability
         if (Input.GetKeyDown(KeyCode.Alpha1) && unlockedAbilities["fire"]) {
             selectedAbility = "fire";
+            batForm.SetActive(false);
+            UIActiveBat.SetActive(false);
             flare.SetActive(true);
             flame.SetActive(true);
             UIActiveFire.SetActive(true);
@@ -47,6 +51,9 @@ public class AbilityManager : MonoBehaviour
             Debug.Log("selected ability changed to " + selectedAbility);
             flare.SetActive(false);
             flame.SetActive(false);
+            UIActiveFire.SetActive(false);
+            batForm.SetActive(true);
+            UIActiveBat.SetActive(true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && unlockedAbilities["ram"]) {
             selectedAbility = "ram";
