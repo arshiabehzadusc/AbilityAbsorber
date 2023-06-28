@@ -11,10 +11,12 @@ public class SendToGoogle : MonoBehaviour
     private string deadtime;
     private string deadposition;
     private DateTime startTime;
+    private AbilityManager abilityManager;
 
     void Start()
     {
         this.startTime = DateTime.Now;
+        abilityManager = GetComponent<AbilityManager>();
     }
 
     // Update is called once per frame
@@ -27,18 +29,19 @@ public class SendToGoogle : MonoBehaviour
     {
         Debug.Log("try to send to google form");
         TimeSpan timePlayed = DateTime.Now - this.startTime;
-        StartCoroutine(Post(deadtime.ToString(), deadposition.ToString(), enemy,timePlayed.ToString()));
+        string ability = abilityManager.getSelectedAbility().ToUpper();
+        StartCoroutine(Post(deadtime.ToString(), deadposition.ToString(), enemy,timePlayed.ToString(), ability));
     }
 
-    private IEnumerator Post(string deadtime, string deadposition, string enemy,string timePlayed)
+    private IEnumerator Post(string deadtime, string deadposition, string enemy,string timePlayed,string ability)
     {
         // Create the form and enter responses
         WWWForm form = new WWWForm();
         form.AddField("entry.2004368566", deadtime);
         form.AddField("entry.1825431539", deadposition);
-
         form.AddField("entry.1728689000", enemy);
         form.AddField("entry.370185319", timePlayed);
+        form.AddField("entry.1648837221", ability);
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {
