@@ -29,6 +29,7 @@ public class block_script : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (!collision.gameObject.CompareTag("ShockwavePlayer")&& transform.position == start_position)
+
         {
             rb.velocity = Vector2.zero; 
         }
