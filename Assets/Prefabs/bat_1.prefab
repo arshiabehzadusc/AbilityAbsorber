@@ -140,6 +140,7 @@ MonoBehaviour:
   fire: {fileID: 0}
   objectTag: FireAbility
   maxLives: 1
+  renderer: {fileID: 0}
 --- !u!61 &6257651749798134505
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6c822d141294c93ab4e61b1297f96f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shockWave: {fileID: 5392248659044626730, guid: 44dcf30d1a8484d39b71069de68a9215, type: 3}
+  shockWave: {fileID: 7008291687587324292, guid: 6305073280331450c8be4accbd5a1b06, type: 3}
   minSpawnDelay: 3
   maxSpawnDelay: 6
   shockWaveSpawn: {fileID: 6257651749644117592}

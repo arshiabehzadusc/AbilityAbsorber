@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI healthLabel;
     private float health;
     public float maxLives = 3f;
+
+    private RockEnemy rockEnemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +19,16 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        rockEnemy = collision.gameObject.GetComponent<RockEnemy>();
+        if (collision.gameObject.CompareTag("RockEnemy") && !rockEnemy.is_corpse)
+        {
+            TakeDamage(1f);
+        }
     }
+    
+    
 
     public void TakeDamage(float damage)
     {
