@@ -11481,7 +11481,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Move:  WASD/arrows \nAbsorb Nearby Ability:  E\nEquip: 1-3
+  m_text: 'Move:  WASD/arrows \nAbsorb Nearby Ability:  E\nEquip: 1,2
 
     Use Ability: 
     Space \nMenu:  Esc'
