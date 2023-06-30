@@ -12,6 +12,7 @@ TagManager:
   - ShockwavePlayer
   - ScreechBlock
   - Wall
+  - BlocksBlock
   layers:
   - Default
   - TransparentFX
