@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         rockEnemy = collision.gameObject.GetComponent<RockEnemy>();
-        if (collision.gameObject.CompareTag("RockEnemy") && !rockEnemy.is_corpse)
+        if (collision.gameObject.CompareTag("RockEnemy") && !rockEnemy.get_is_corpse())
         {
             TakeDamage(1f, "rock");
         }

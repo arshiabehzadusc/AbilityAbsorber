@@ -35,11 +35,7 @@ public class RockEnemy : MonoBehaviour
 
     void Update()
     {
-        if(is_corpse==true)
-        {
-            StartCoroutine(ActivateAndDeactivateFlame());
-            is_corpse = false;
-        }
+        
     }
 
     
@@ -98,20 +94,24 @@ public class RockEnemy : MonoBehaviour
                Torch1.SetActive(true); //make the torche puzzle visible
                Torch2.SetActive(true);
 
+               StartCoroutine(ActivateAndDeactivateFlame());
+
             }
         }
     }
 
-   IEnumerator ActivateAndDeactivateFlame()
+    IEnumerator ActivateAndDeactivateFlame()
     {
         // Set flame active
         rockOnFire.SetActive(true);
 
-        // Wait for 3 seconds
-        yield return new WaitForSeconds(3f);
+        // Wait for 1 second
+        yield return new WaitForSeconds(1f);
 
         // Set flame inactive
         rockOnFire.SetActive(false);
+
+
     }        
 
     private Color HexToColor(string hex)
@@ -119,6 +119,10 @@ public class RockEnemy : MonoBehaviour
         Color color = Color.black;
         ColorUtility.TryParseHtmlString("#" + hex, out color);
         return color;
+    }
+
+    public bool get_is_corpse() {
+        return is_corpse;
     }
 
 }

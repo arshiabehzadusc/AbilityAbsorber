@@ -88,11 +88,11 @@ public class AbilityManager : MonoBehaviour
                 unlockedAbilities[ability] = true;
                 MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
                 
-                messageToPlayer.DisplayAbilityUnlocked("fire", 1);
-                
+                if (ability.Equals("fire"))
+                    messageToPlayer.DisplayAbilityUnlocked("fire", 1);
                 if (ability.Equals("screech"))
                     messageToPlayer.DisplayAbilityUnlocked("screech", 2);
-                if (ability == "ram")
+                if (ability.Equals("ram"))
                     messageToPlayer.DisplayAbilityUnlocked("ram", 3);
             }
         }

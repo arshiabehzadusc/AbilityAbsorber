@@ -10523,7 +10523,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162071784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 35.16, y: -4, z: 0}
+  m_LocalPosition: {x: 53.06, y: -3.94, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11458,8 +11458,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 301.8, y: 139}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 327.48303, y: 139}
+  m_SizeDelta: {x: 251.3661, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1405513198
 MonoBehaviour:
@@ -11481,8 +11481,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'WASD/arrows: movement \n E: absorb nearby ability \n Space: use ability
-    \n Esc: menu'
+  m_text: 'Move:  WASD/arrows \nAbsorb Nearby Ability:  E\nEquip: 1-3
+
+    Use Ability: 
+    Space \nMenu:  Esc'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
