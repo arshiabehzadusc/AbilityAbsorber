@@ -10,7 +10,7 @@ public class RoomSwitch : MonoBehaviour {
     private CameraMovement cam;
     public GameObject Banner;
     
-    //public AbilityManager abilityManager;
+    
 
 
 	// Use this for initialization
@@ -31,10 +31,7 @@ public class RoomSwitch : MonoBehaviour {
             cam.maxPosition += cameraChange;
             other.transform.position += playerChange;
             Banner.SetActive(true);
-            /*if(abilityManager.unlockedAbilities["fire"])
-            {
-                EnemiesBannerBanner.SetActive(true);
-            }*/
+            Time.timeScale = 0;
         }
     }
 
