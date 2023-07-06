@@ -155,7 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: -22, y: 0}
   playerChange: {x: -3, y: 0, z: 0}
-  Banner: {fileID: 0}
 --- !u!61 &70344922
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12410,7 +12409,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: 22, y: 0}
   playerChange: {x: 3, y: 0, z: 0}
-  Banner: {fileID: 439519870}
 --- !u!61 &579658001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15191,7 +15189,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: -22, y: 0}
   playerChange: {x: -3, y: 0, z: 0}
-  Banner: {fileID: 0}
 --- !u!61 &1373895908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16234,7 +16231,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: 22, y: 0}
   playerChange: {x: 3, y: 0, z: 0}
-  Banner: {fileID: 170061674}
 --- !u!61 &1628368959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16639,15 +16635,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277745, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277745, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277745, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.3333333
+      value: 1.6666666
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277745, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16881,7 +16877,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: -22, y: 0}
   playerChange: {x: -3, y: 0, z: 0}
-  Banner: {fileID: 0}
 --- !u!61 &1725486754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20587,7 +20582,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: 22, y: 0}
   playerChange: {x: 3, y: 0, z: 0}
-  Banner: {fileID: 1561974074}
 --- !u!61 &2008648103
 BoxCollider2D:
   m_ObjectHideFlags: 0
