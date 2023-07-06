@@ -8,7 +8,7 @@ public class RoomSwitch : MonoBehaviour {
     public Vector2 cameraChange;
     public Vector3 playerChange;
     private CameraMovement cam;
-    public GameObject Banner;
+    //public GameObject Banner;
     
     
 
@@ -30,8 +30,8 @@ public class RoomSwitch : MonoBehaviour {
             cam.minPosition += cameraChange;
             cam.maxPosition += cameraChange;
             other.transform.position += playerChange;
-            Banner.SetActive(true);
-            Time.timeScale = 0;
+            //Banner.SetActive(true);
+            //Time.timeScale = 0;
         }
     }
 
