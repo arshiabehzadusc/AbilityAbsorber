@@ -22,7 +22,7 @@ public class glass : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("here");
+        //Debug.Log("here");
         if (other.gameObject.CompareTag("ShockwavePlayer"))
         {
             //explosionEffect.Play();

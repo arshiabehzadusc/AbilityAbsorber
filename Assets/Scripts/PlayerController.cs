@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     public float maxLives = 3f;
     public SendToGoogle sendtogoogle;
     private RockEnemy rockEnemy;
-   
+    public MessageToPlayer messageToPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour
         }
         if (health <= 0)
         {
+            messageToPlayer.DisplayDied();
             Vector2 playerposition = transform.position;
             sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
             gameObject.SetActive(false);

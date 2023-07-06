@@ -20,8 +20,8 @@ public class Bat : MonoBehaviour
     public float maxLives = 3f;
     public Renderer renderer;
     Transform glassShield;
-    
 
+    
 
     private void Awake()
     {

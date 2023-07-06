@@ -69,6 +69,7 @@ public class AbilityManager : MonoBehaviour
             checkNearbyAbilityAvailable("BatEnemy", "screech");
            // checkNearbyAbilityAvailable("RockEnemy", "ram");
         }
+
         
         
     }
