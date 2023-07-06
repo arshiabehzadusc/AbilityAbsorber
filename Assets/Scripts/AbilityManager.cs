@@ -7,7 +7,7 @@ using UnityEngine;
 public class AbilityManager : MonoBehaviour
 {
     private string selectedAbility = "none"; // can be "fire", "screech", or "ram"
-    private Dictionary<string, bool> unlockedAbilities;
+    public Dictionary<string, bool> unlockedAbilities;//changed from private to public so that TutorialManager script can check if ability was obtained
     public float absorbRadius = 2f;
     public GameObject MessageToPlayer;
     public GameObject flame; 
