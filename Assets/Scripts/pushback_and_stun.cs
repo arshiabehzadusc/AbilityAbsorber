@@ -52,7 +52,7 @@ public class pushback_and_stun : MonoBehaviour
         
         if (other.gameObject == shockWave && !gameObject.CompareTag("ScreechBlock") )
         {
-            print("doesnt work");
+            //print("doesnt work");
             Vector2 dir = other.transform.position - transform.position;
             // We then get the opposite (-Vector3) and normalize it
             dir = -dir.normalized;
@@ -66,7 +66,7 @@ public class pushback_and_stun : MonoBehaviour
         {
             if (other.gameObject == shockWavePlayer)
             {
-                print("works well");
+                //print("works well");
                 Vector2 dir = other.transform.position - transform.position;
                 // We then get the opposite (-Vector3) and normalize it
                 dir = -dir.normalized;

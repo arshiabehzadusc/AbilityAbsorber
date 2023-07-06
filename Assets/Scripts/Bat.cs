@@ -19,6 +19,7 @@ public class Bat : MonoBehaviour
     private float health;
     public float maxLives = 3f;
     public Renderer renderer;
+    Transform glassShield;
     
 
 
@@ -33,6 +34,7 @@ public class Bat : MonoBehaviour
         // Set the initial target position
         targetPosition = GetRandomPosition();
         renderer = GetComponent<Renderer>();
+        glassShield = transform.Find("Glass");
     }
 
     private void Update()
@@ -98,21 +100,23 @@ public class Bat : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (health > 0)
-        {
-            health -= damage;
-            print(health);
-        }
-        if (health <=0)
-        {
-            // Destroy object - gameObject.SetActive(false);
+        if (glassShield == null || !glassShield.gameObject.activeSelf) {
+            if (health > 0)
+            {
+                health -= damage;
+                print(health);
+            }
+            if (health <=0)
+            {
+                // Destroy object - gameObject.SetActive(false);
 
-            // make into corpse
-            Debug.Log("killed bat");
-            is_corpse = true;
-            rb.velocity = new Vector2(0f, 0f);
-            Color color = HexToColor("372E2E");
-            renderer.material.color = color;
+                // make into corpse
+                Debug.Log("killed bat");
+                is_corpse = true;
+                rb.velocity = new Vector2(0f, 0f);
+                Color color = HexToColor("372E2E");
+                renderer.material.color = color;
+            }
         }
     }
 
