@@ -155,7 +155,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: -22, y: 0}
   playerChange: {x: -3, y: 0, z: 0}
-  Banner: {fileID: 0}
 --- !u!61 &70344922
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12452,7 +12451,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: 22, y: 0}
   playerChange: {x: 3, y: 0, z: 0}
-  Banner: {fileID: 0}
 --- !u!61 &579658001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14204,7 +14202,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: -22, y: 0}
   playerChange: {x: -3, y: 0, z: 0}
-  Banner: {fileID: 0}
 --- !u!61 &1373895908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14934,7 +14931,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: 22, y: 0}
   playerChange: {x: 3, y: 0, z: 0}
-  Banner: {fileID: 0}
 --- !u!61 &1628368959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15368,7 +15364,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: -22, y: 0}
   playerChange: {x: -3, y: 0, z: 0}
-  Banner: {fileID: 0}
 --- !u!61 &1725486754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18553,25 +18548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fabca09aeb385b4cbd2845d994240d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1917396545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917396524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7f97b22224e6364aa29e41588a6002f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  WelcomeBanner: {fileID: 2042143448}
-  MovementBanner: {fileID: 0}
-  InteractionBanner: {fileID: 0}
-  AbilityBanner: {fileID: 0}
-  EnemiesBanner: {fileID: 0}
-  BossEnemyBanner: {fileID: 0}
-  abilityManager: {fileID: 0}
 --- !u!1 &1971879368
 GameObject:
   m_ObjectHideFlags: 0
@@ -18738,7 +18714,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: 22, y: 0}
   playerChange: {x: 3, y: 0, z: 0}
-  Banner: {fileID: 0}
 --- !u!61 &2008648103
 BoxCollider2D:
   m_ObjectHideFlags: 0
