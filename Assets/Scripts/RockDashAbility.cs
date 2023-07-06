@@ -19,20 +19,19 @@ public class RockDashAbility : MonoBehaviour
 
     private void Update()
     {
-        if (player.transform.position.x > 34.2)
+        
+        if (dashTime <= 0)
         {
-            if (dashTime <= 0)
-            {
-                // Find the direction to the player
+            // Find the direction to the player
 
-                direction = (player.transform.position - transform.position).normalized;
-                dashTime = startDashTime;
-            }
-            else
-            {
-                dashTime -= Time.deltaTime;
-                rb.velocity = direction * dashSpeed;
-            }
+            direction = (player.transform.position - transform.position).normalized;
+            dashTime = startDashTime;
         }
+        else
+        {
+            dashTime -= Time.deltaTime;
+            rb.velocity = direction * dashSpeed;
+        }
+        
     }
 }
