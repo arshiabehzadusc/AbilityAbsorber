@@ -9,17 +9,20 @@ public class Level1Complete : MonoBehaviour
     public GameObject torchFire1;
     public GameObject torchFire2;
     public GameObject level1Exit;
+    public GameObject player;
+    private SendToGoogle sendtogoogle;
     //private RockEnemy rockEnemyScript;
 
-    private void Start()
+    void Start()
     {
+        sendtogoogle = player.GetComponent<SendToGoogle>();
         // Assumes RockEnemy script is attached to the same GameObject
-       // rockEnemyScript = GetComponent<RockEnemy>();
+        // rockEnemyScript = GetComponent<RockEnemy>();
 
-       /* if (rockEnemyScript == null)
-        {
-            Debug.LogError("No RockEnemy script found on this GameObject.");
-        }*/
+        /* if (rockEnemyScript == null)
+         {
+             Debug.LogError("No RockEnemy script found on this GameObject.");
+         }*/
     }
 
 
@@ -30,6 +33,7 @@ public class Level1Complete : MonoBehaviour
         {
              if (torchFire1.activeInHierarchy && torchFire2.activeInHierarchy)
             {
+                sendtogoogle.Send(System.DateTime.Now, transform.position, "WIN");
                 level1CompleteUI.SetActive(true);
             }
         }
