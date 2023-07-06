@@ -19,7 +19,15 @@ public class MessageToPlayer : MonoBehaviour
         textMeshProUI.text = "Unlocked: " + new_ability.ToUpper() + "\nPress " + slot.ToString() + " to equip.";
         Invoke("Clear", 3f);
     }
-    void Clear() {
+    public void DisplayDied() {
+        Debug.Log("player died");
+        textMeshProUI.text = "You died\nPress Esc";
+        //Invoke("Clear", 3f);
+    }
+
+
+
+    private void Clear() {
         textMeshProUI.text = "";
     }
 }
