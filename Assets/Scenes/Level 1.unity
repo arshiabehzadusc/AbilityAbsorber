@@ -12188,6 +12188,7 @@ MonoBehaviour:
   torchFire1: {fileID: 313981211}
   torchFire2: {fileID: 1381050419}
   level1Exit: {fileID: 403465448}
+  player: {fileID: 1917396524}
 --- !u!1 &452423408
 GameObject:
   m_ObjectHideFlags: 0

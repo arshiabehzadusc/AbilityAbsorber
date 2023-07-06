@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public float getHealthy()
+    {
+        return health;
+    }
+
     // Update is called once per frame
     private void OnCollisionEnter2D(Collision2D collision)
     {
