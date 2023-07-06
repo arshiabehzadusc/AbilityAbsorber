@@ -44,6 +44,10 @@ public class Level1Complete : MonoBehaviour
        SceneManager.LoadScene("Main Menu");
     }
 
+    public void GoToNextLevel()
+    {
+       SceneManager.LoadScene("Level 2");
+    }
 
 
 
