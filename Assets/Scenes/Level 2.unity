@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: -22, y: 0}
   playerChange: {x: -3, y: 0, z: 0}
+  Banner: {fileID: 0}
 --- !u!61 &70344922
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12451,6 +12452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: 22, y: 0}
   playerChange: {x: 3, y: 0, z: 0}
+  Banner: {fileID: 0}
 --- !u!61 &579658001
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14202,6 +14204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: -22, y: 0}
   playerChange: {x: -3, y: 0, z: 0}
+  Banner: {fileID: 0}
 --- !u!61 &1373895908
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -14931,6 +14934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: 22, y: 0}
   playerChange: {x: 3, y: 0, z: 0}
+  Banner: {fileID: 0}
 --- !u!61 &1628368959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15364,6 +15368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: -22, y: 0}
   playerChange: {x: -3, y: 0, z: 0}
+  Banner: {fileID: 0}
 --- !u!61 &1725486754
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18714,6 +18719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraChange: {x: 22, y: 0}
   playerChange: {x: 3, y: 0, z: 0}
+  Banner: {fileID: 0}
 --- !u!61 &2008648103
 BoxCollider2D:
   m_ObjectHideFlags: 0
