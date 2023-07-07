@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1200 height=650></canvas>
+      <canvas id="unity-canvas" width=1200 height=600></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -56,11 +56,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/alphabuildFINAL2.loader.js";
+      var loaderUrl = buildUrl + "/new_build.loader.js";
       var config = {
-        dataUrl: buildUrl + "/alphabuildFINAL2.data",
-        frameworkUrl: buildUrl + "/alphabuildFINAL2.framework.js",
-        codeUrl: buildUrl + "/alphabuildFINAL2.wasm",
+        dataUrl: buildUrl + "/new_build.data",
+        frameworkUrl: buildUrl + "/new_build.framework.js",
+        codeUrl: buildUrl + "/new_build.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Justin",
         productName: "MetamorphoForge",
@@ -94,7 +94,7 @@
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
         canvas.style.width = "1200px";
-        canvas.style.height = "650px";
+        canvas.style.height = "600px";
       }
 
       loadingBar.style.display = "block";
