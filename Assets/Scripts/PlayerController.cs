@@ -6,7 +6,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     public TextMeshProUGUI healthLabel;
-    private float health;
+    public float health;
     public float maxLives = 3f;
     public SendToGoogle sendtogoogle;
     private RockEnemy rockEnemy;
