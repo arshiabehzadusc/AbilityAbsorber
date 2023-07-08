@@ -12,7 +12,6 @@ public class flamable : MonoBehaviour
         fire = GameObject.FindGameObjectWithTag("FireAbility");
         if (other.gameObject == fire)
         {
-            print("works");
             Destroy(gameObject);
         }
     }
