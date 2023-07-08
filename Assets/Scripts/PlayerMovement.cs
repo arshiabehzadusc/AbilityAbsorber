@@ -54,5 +54,10 @@ public class PlayerMovement : MonoBehaviour
             print("works2");
         }
     }
+
+    public void setSpeed(float newspeed) {
+        speed = newspeed;
+    }
+
 }
 
