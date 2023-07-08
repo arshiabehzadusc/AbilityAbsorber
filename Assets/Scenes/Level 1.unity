@@ -16948,6 +16948,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 861798526}
     - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 96004614}
+    - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: UIActiveBat
       value: 
       objectReference: {fileID: 1396510856}
