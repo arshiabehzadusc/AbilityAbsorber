@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9222852712472904227}
   - component: {fileID: 6811247709240558490}
   m_Layer: 0
-  m_Name: Glue
+  m_Name: GluePuddle
   m_TagString: Glue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -312,7 +312,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 238827760759656855, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
       propertyPath: m_Name
-      value: Glue
+      value: GluePuddle
       objectReference: {fileID: 0}
     - target: {fileID: 9222852712472904227, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
       propertyPath: m_RootOrder
@@ -14785,7 +14785,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1351150577
 Rigidbody2D:
@@ -19459,6 +19459,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ae5142a16fc948b69ef1324e8af2a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1917396547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917396524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e56054db8f08db45b86f2da559b4821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gluePuddlePrefab: {fileID: 238827760759656855, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
 --- !u!1 &1929968431
 GameObject:
   m_ObjectHideFlags: 0
