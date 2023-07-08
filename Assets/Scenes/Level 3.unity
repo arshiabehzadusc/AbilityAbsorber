@@ -12142,13 +12142,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 403465448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 794bdc921b733f94784d092e972413a2, type: 3}
+  m_Script: {fileID: 11500000, guid: c72adf28880f6014980e5c0eab4515e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level1CompleteUI: {fileID: 847226063}
-  torchFire1: {fileID: 0}
-  torchFire2: {fileID: 0}
-  level3Exit: {fileID: 0}
+  level3CompleteUI: {fileID: 847226063}
+  level3Exit: {fileID: 403465448}
   player: {fileID: 1917396524}
 --- !u!1 &452423408
 GameObject:
@@ -12668,7 +12666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 847226064}
   m_Layer: 5
-  m_Name: Level 1 Complete UI
+  m_Name: Level 3 Complete UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13423,7 +13421,7 @@ GameObject:
   - component: {fileID: 1236251193}
   - component: {fileID: 1236251192}
   m_Layer: 5
-  m_Name: Level 1 Complete Text
+  m_Name: Level 3 Complete Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13469,7 +13467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1 Complete
+  m_text: Level 3 Complete
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -14864,7 +14862,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 403465451}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Level1Complete, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1

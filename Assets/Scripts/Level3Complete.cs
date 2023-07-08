@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Level2Complete : MonoBehaviour
+public class Level3Complete : MonoBehaviour
 {
-    public GameObject level2CompleteUI;
-    public GameObject level2Exit;
+    public GameObject level3CompleteUI;
+    public GameObject level3Exit;
     public GameObject player;
     
     //private RockEnemy rockEnemyScript;
@@ -27,7 +27,7 @@ public class Level2Complete : MonoBehaviour
 
     public void GoToNextLevel()
     {
-       SceneManager.LoadScene("Level 3");
+       SceneManager.LoadScene("Level 4");
     }
 
 
