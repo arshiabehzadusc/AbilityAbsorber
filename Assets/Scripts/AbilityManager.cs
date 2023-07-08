@@ -7,23 +7,30 @@ using UnityEngine.UI;
 // reads player input (1, 2, 3) to select ability.
 public class AbilityManager : MonoBehaviour
 {
-    private string selectedAbility = "none"; // can be "fire", "screech", or "ram"
+    private string selectedAbility = "none"; // can be fire, screech, glue, ram
     public Dictionary<string, bool> unlockedAbilities;//changed from private to public so that TutorialManager script can check if ability was obtained
     public float absorbRadius = 2f;
     public GameObject MessageToPlayer;
     public GameObject flame; 
     public GameObject flare; 
     public GameObject batForm;
+    public GameObject glueForm;
     public GameObject UIActiveBat;
     public GameObject UIActiveFire;
     private PlayerController playerController;
     public Healthbar healthBar;
+    private PlayerMovement playerMovement;
+
+
     void Start() {
         unlockedAbilities = new Dictionary<string, bool>();
         unlockedAbilities["fire"] = false;
         unlockedAbilities["screech"] = false;
+        unlockedAbilities["glue"] = false;
         unlockedAbilities["ram"] = false;
         playerController = GetComponent<PlayerController>();
+
+        playerMovement = GetComponent<PlayerMovement>();
         
     }
 
@@ -41,34 +48,52 @@ public class AbilityManager : MonoBehaviour
 
         // Select ability
         if (Input.GetKeyDown(KeyCode.Alpha1) && unlockedAbilities["fire"]) {
+            // set everything to fire
             selectedAbility = "fire";
-            batForm.SetActive(false);
-            UIActiveBat.SetActive(false);
+            Debug.Log("selected ability changed to " + selectedAbility);
             flare.SetActive(true);
             flame.SetActive(true);
             UIActiveFire.SetActive(true);
-            playerController.isBat = false;
             healthBar.setHealthBar("fire");
-            Debug.Log("selected ability changed to " + selectedAbility);
+
+            // set all others false
+            batForm.SetActive(false);
+            UIActiveBat.SetActive(false);
+            playerController.isBat = false;
+            glueForm.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && unlockedAbilities["screech"]) {
+            // set everything to screech/bat
             selectedAbility = "screech";
             Debug.Log("selected ability changed to " + selectedAbility);
+            batForm.SetActive(true);
+            playerController.isBat = true;
+            healthBar.setHealthBar("bat"); 
+            UIActiveBat.SetActive(true);
+
+            // set all others false
             flare.SetActive(false);
             flame.SetActive(false);
             UIActiveFire.SetActive(false);
-            batForm.SetActive(true);
-            UIActiveBat.SetActive(true);
-            playerController.isBat = true;
-            healthBar.setHealthBar("bat"); 
+            glueForm.SetActive(false);
+            
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && unlockedAbilities["ram"]) {
-            selectedAbility = "ram";
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && unlockedAbilities["glue"]) {
+            // set everything to glue
+            selectedAbility = "glue";
             Debug.Log("selected ability changed to " + selectedAbility);
+            glueForm.SetActive(true);
+            healthBar.setHealthBar("glue");
+            playerMovement.setSpeed(1f);
+
+
+            //set all others false
             flare.SetActive(false);
             flame.SetActive(false);
             playerController.isBat = false;
-            healthBar.setHealthBar("rock");
+            batForm.SetActive(false);
+            UIActiveBat.SetActive(false);
+
         }
 
 
@@ -76,6 +101,7 @@ public class AbilityManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E)) {
             checkNearbyAbilityAvailable("Campfire", "fire");
             checkNearbyAbilityAvailable("BatEnemy", "screech");
+            checkNearbyAbilityAvailable("Glue", "glue");
            // checkNearbyAbilityAvailable("RockEnemy", "ram");
         }
 
@@ -102,8 +128,8 @@ public class AbilityManager : MonoBehaviour
                     messageToPlayer.DisplayAbilityUnlocked("fire", 1);
                 if (ability.Equals("screech"))
                     messageToPlayer.DisplayAbilityUnlocked("screech", 2);
-                if (ability.Equals("ram"))
-                    messageToPlayer.DisplayAbilityUnlocked("ram", 3);
+                if (ability.Equals("glue"))
+                    messageToPlayer.DisplayAbilityUnlocked("glue", 3);
             }
         }
     }
