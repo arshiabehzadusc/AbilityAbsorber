@@ -19,6 +19,9 @@ public class AbilityManager : MonoBehaviour
     public GameObject UIActiveFire;
     private PlayerController playerController;
     public Healthbar healthBar;
+    private PlayerMovement playerMovement;
+
+
     void Start() {
         unlockedAbilities = new Dictionary<string, bool>();
         unlockedAbilities["fire"] = false;
@@ -26,6 +29,8 @@ public class AbilityManager : MonoBehaviour
         unlockedAbilities["glue"] = false;
         unlockedAbilities["ram"] = false;
         playerController = GetComponent<PlayerController>();
+
+        playerMovement = GetComponent<PlayerMovement>();
         
     }
 
@@ -79,6 +84,8 @@ public class AbilityManager : MonoBehaviour
             Debug.Log("selected ability changed to " + selectedAbility);
             glueForm.SetActive(true);
             healthBar.setHealthBar("glue");
+            playerMovement.setSpeed(1f);
+
 
             //set all others false
             flare.SetActive(false);
@@ -87,7 +94,6 @@ public class AbilityManager : MonoBehaviour
             batForm.SetActive(false);
             UIActiveBat.SetActive(false);
 
-            
         }
 
 

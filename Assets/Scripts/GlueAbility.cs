@@ -11,7 +11,7 @@ public class GlueAbility : MonoBehaviour
     void Start()
     {
         abilityManager = GetComponent<AbilityManager>();
-        player = GetComponent<Rigidbody2D>();
+        player = GetComponent<Rigidbody2D>(); 
     }
 
     

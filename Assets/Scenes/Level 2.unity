@@ -310,6 +310,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1557053058, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
+      propertyPath: m_Radius
+      value: 2.32
+      objectReference: {fileID: 0}
     - target: {fileID: 238827760759656855, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
       propertyPath: m_Name
       value: GluePuddle
@@ -14843,7 +14847,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1351150574}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53d47e94c63409240b15e696485f10b0, type: 3}
+  m_Script: {fileID: 11500000, guid: c5051b7b7c5506443bd82208bc7d5781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
@@ -14851,8 +14855,6 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   isLeft: 0
   rotationSpeed: 200
-  fire: {fileID: 0}
-  objectTag: FireAbility
   maxLives: 3
   renderer: {fileID: 0}
   player: {fileID: 1917396524}

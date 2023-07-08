@@ -13,8 +13,6 @@ public class Level2_Rock : MonoBehaviour
     public Transform playerTransform;
     public bool isLeft;
     public float rotationSpeed = 200f;
-    public GameObject fire;
-    public string objectTag = "FireAbility";
 
     private bool is_corpse = false;
 
@@ -23,8 +21,6 @@ public class Level2_Rock : MonoBehaviour
     public float maxLives = 3f;
     public Renderer renderer;
     public GameObject player;
-    Transform glassShield;
-
 
 
     private void Awake()
@@ -37,7 +33,6 @@ public class Level2_Rock : MonoBehaviour
     {
         // Set the initial target position
         renderer = GetComponent<Renderer>();
-        glassShield = transform.Find("Glass");
     }
 
     private void Update()
@@ -55,90 +50,41 @@ public class Level2_Rock : MonoBehaviour
                 rb.velocity = new Vector2(0, 0);
             }
 
-
-
-
-        }
-        //{
-
-        //// Check if the enemy has reached the target position
-        //if (Vector2.Distance(transform.position, targetPosition) <= 0.1f)
-        //{
-        //    // Get a new random target position
-        //    targetPosition = GetRandomPosition();
-        //}
-
-        //// Move towards the target position
-        //Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        ////print("direction 1: " + direction);
-        //// Avoid walls
-        //RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, LayerMask.GetMask("Obstacle"));
-        //if (hit.collider != null)
-        //{
-        //    // Calculate a new direction away from the wall
-        //    direction = Vector2.Reflect(direction, hit.normal);
-        //    //print("direction 2: " + direction);
-        //    targetPosition = GetRandomPosition();
-        //}
-
-        //rb.velocity = direction * speed;
-
-        //flip player sprite towards player
-        //if (playerTransform != null)
-        //{
-        //    if (transform.position.x < playerTransform.position.x)
-        //    {
-        //        // Flip the sprite to face right
-        //        transform.localScale = new Vector3(5f, 5f, 1f);
-        //        isLeft = false;
-        //    }
-        //    else
-        //    {
-        //        // Flip the sprite to face left
-        //        transform.localScale = new Vector3(-5f, 5f, 1f);
-        //        isLeft = true;
-        //    }
-        //}
-        //}
-    }
-
-    //private Vector2 GetRandomPosition()
-    //{
-    //    // Generate a random position within the jitter range
-    //    Vector2 randomOffset = Random.insideUnitCircle * jitterRange;
-    //    return (Vector2)transform.position + randomOffset;
-    //}
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        fire = GameObject.FindGameObjectWithTag(objectTag);
-        if (other.gameObject == fire)
-        {
-            TakeDamage(1f);
         }
     }
+
+        
+    // EVERY ENEMY NEAR GLUE SHOULD HAVE THIS METHOD
+    void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Glue")) {
+            Debug.Log("Rock stuck in glue");
+            speed = 0.3f;
+        }
+    }
+
 
     public void TakeDamage(float damage)
     {
-        if (glassShield == null || !glassShield.gameObject.activeSelf)
-        {
-            if (health > 0)
-            {
-                health -= damage;
-                print(health);
-            }
-            if (health <= 0)
-            {
-                // Destroy object - gameObject.SetActive(false);
+        // reset speed
+        speed = 2f;
 
-                // make into corpse
-                Debug.Log("killed bat");
-                is_corpse = true;
-                rb.velocity = new Vector2(0f, 0f);
-                Color color = HexToColor("372E2E");
-                renderer.material.color = color;
-            }
+        if (health > 0)
+        {
+            health -= damage;
+            print(health);
         }
+        if (health <= 0)
+        {
+            // Destroy object - gameObject.SetActive(false);
+
+            // make into corpse
+            Debug.Log("killed rock");
+            is_corpse = true;
+            rb.velocity = new Vector2(0f, 0f);
+            Color color = HexToColor("372E2E");
+            renderer.material.color = color;
+        }
+        
     }
 
     public bool getIsCorpse()
