@@ -3,6 +3,10 @@ Absorb abilities to beat enemies and levels
 
 GDD: https://docs.google.com/document/d/1c7I-VdCW1MTB08fkc7VJMxU1uMcE4KHy6QX9zAJy8kg/edit?usp=drive_link
 
-Alpha Build: https://arshiabehzadusc.github.io/AbilityAbsorber/
+Alpha Check-In Build: https://arshiabehzadusc.github.io/AlphaProgressCheckInBuild/
 
-Most Recent Build: https://arshiabehzadusc.github.io/MetamorphForgeBuildJuly2nd/
+Alpha Build: [https://arshiabehzadusc.github.io/AbilityAbsorber/](https://arshiabehzadusc.github.io/MetamorphForgeAlphaBuild/)
+
+Beta Week 1 Build: https://arshiabehzadusc.github.io/MetamorphForgeBuildJuly2nd/
+
+Beta Check-In Build: https://arshiabehzadusc.github.io/BetaProgressCheckBuild/

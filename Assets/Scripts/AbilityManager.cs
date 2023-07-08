@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 // reads player input (1, 2, 3) to select ability.
@@ -15,12 +16,15 @@ public class AbilityManager : MonoBehaviour
     public GameObject batForm;
     public GameObject UIActiveBat;
     public GameObject UIActiveFire;
-
+    private PlayerController playerController;
+    public Healthbar healthBar;
     void Start() {
         unlockedAbilities = new Dictionary<string, bool>();
         unlockedAbilities["fire"] = false;
         unlockedAbilities["screech"] = false;
         unlockedAbilities["ram"] = false;
+        playerController = GetComponent<PlayerController>();
+        
     }
 
     public string getSelectedAbility() {
@@ -43,7 +47,8 @@ public class AbilityManager : MonoBehaviour
             flare.SetActive(true);
             flame.SetActive(true);
             UIActiveFire.SetActive(true);
-
+            playerController.isBat = false;
+            healthBar.setHealthBar("fire");
             Debug.Log("selected ability changed to " + selectedAbility);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && unlockedAbilities["screech"]) {
@@ -54,12 +59,16 @@ public class AbilityManager : MonoBehaviour
             UIActiveFire.SetActive(false);
             batForm.SetActive(true);
             UIActiveBat.SetActive(true);
+            playerController.isBat = true;
+            healthBar.setHealthBar("bat"); 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && unlockedAbilities["ram"]) {
             selectedAbility = "ram";
             Debug.Log("selected ability changed to " + selectedAbility);
             flare.SetActive(false);
             flame.SetActive(false);
+            playerController.isBat = false;
+            healthBar.setHealthBar("rock");
         }
 
 
