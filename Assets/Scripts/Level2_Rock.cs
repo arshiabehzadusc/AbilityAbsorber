@@ -45,7 +45,7 @@ public class Level2_Rock : MonoBehaviour
         if (is_corpse == false)
         {
             Vector2 player_position = player.transform.position;
-            if (Vector2.Distance(transform.position, player_position) <= 5f)
+            if (Vector2.Distance(transform.position, player_position) <= 10f)
             {
                 direction = (player_position - (Vector2)transform.position).normalized;
                 rb.velocity = direction * speed;
