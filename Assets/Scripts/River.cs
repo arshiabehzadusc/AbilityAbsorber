@@ -17,7 +17,7 @@ public class River : MonoBehaviour
             if(flame.activeInHierarchy)
             {
                 // Call TakeDamage function from PlayerController script
-                playerController.TakeDamage(0.01f,"river");
+                playerController.TakeDamage(0.1f,"river");
                 Debug.Log("river dealt damage to player in fire form");
             }
         }

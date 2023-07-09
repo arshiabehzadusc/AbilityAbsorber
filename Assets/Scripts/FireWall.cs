@@ -17,7 +17,7 @@ public class FireWall : MonoBehaviour
             if(batform.activeInHierarchy)
             {
                 // Call TakeDamage function from PlayerController script
-                playerController.TakeDamage(0.01f,"firewall");
+                playerController.TakeDamage(0.1f,"firewall");
                 Debug.Log("firewall dealt damage to player in bat form");
             }
         }
