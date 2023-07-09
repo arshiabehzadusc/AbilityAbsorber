@@ -56,17 +56,27 @@ public class Level2_Rock : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Explosion")) {
+            print("rock killed by explosion");
             TakeDamage(maxLives);
+        }
+        else if (other.gameObject.CompareTag("ShockwavePlayer")) {
+            print("rock shattered by mega screech");
+            if (player.GetComponent<screech_ability>().getIsMegaScreech()) {
+                TakeDamage(maxLives);
+            }
         }
     }
 
 
-    // EVERY ENEMY NEAR GLUE SHOULD HAVE THIS METHOD
+    
     void OnCollisionEnter2D(Collision2D collision) {
+        // EVERY ENEMY NEAR GLUE SHOULD HAVE THIS GLUE
         if (collision.gameObject.CompareTag("Glue")) {
             Debug.Log("Rock stuck in glue");
             speed = 0.3f;
         }
+
+        
     }
 
 
