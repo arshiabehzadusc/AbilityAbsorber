@@ -91,9 +91,7 @@ public class Bat : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        fire = GameObject.FindGameObjectWithTag(objectTag);
-        if (other.gameObject == fire)
-        {
+        if (other.gameObject.CompareTag("FireAbility")) {
             TakeDamage(1f);
         }
     }

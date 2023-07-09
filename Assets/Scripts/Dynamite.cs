@@ -17,9 +17,10 @@ public class Dynamite : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.CompareTag("Fire")) {
-            // create circle fireball radius
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("FireAbility")) {
+            print("exploding dynamite");
+            // create circle dynamite explosion radius
             Vector2 spawnPosition = transform.position;
             GameObject newfire = Instantiate(explosionPrefab, spawnPosition, Quaternion.identity);
             Destroy(newfire, 2f);
