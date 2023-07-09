@@ -146,9 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5051b7b7c5506443bd82208bc7d5781, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 3
   jitterRange: 1
-  playerTransform: {fileID: 0}
   isLeft: 0
   rotationSpeed: 200
   maxLives: 3
