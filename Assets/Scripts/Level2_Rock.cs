@@ -34,15 +34,34 @@ public class Level2_Rock : MonoBehaviour
         renderer = GetComponent<Renderer>();
     }
 
+    bool canMove = true;
+
+    IEnumerator WaitForSecondsCoroutine(float seconds)
+    {
+        canMove = false;
+        yield return new WaitForSeconds(seconds);
+        canMove = true;
+    }
+
     private void Update()
     {
-        if (is_corpse == false)
+        if (is_corpse == false && canMove == true)
         {
             Vector2 player_position = player.transform.position;
             if (Vector2.Distance(transform.position, player_position) <= 10f)
             {
                 direction = (player_position - (Vector2)transform.position).normalized;
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, LayerMask.GetMask("Obstacle"));
+                if (hit.collider != null)
+                {
+                    // Calculate a new direction away from the wall
+                    direction = Vector2.Reflect(direction, hit.normal);
+                    StartCoroutine(WaitForSecondsCoroutine(0.5f)); // 
+                    //print("direction 2: " + direction);
+                }
+
                 rb.velocity = direction * speed;
+                
             }
             else
             {
@@ -52,7 +71,7 @@ public class Level2_Rock : MonoBehaviour
         }
     }
 
-        
+
     // EVERY ENEMY NEAR GLUE SHOULD HAVE THIS METHOD
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Glue")) {
