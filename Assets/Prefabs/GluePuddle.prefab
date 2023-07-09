@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9222852712472904227}
   - component: {fileID: 6811247709240558490}
   - component: {fileID: 1557053058}
+  - component: {fileID: 1210279330618629507}
   m_Layer: 0
   m_Name: GluePuddle
   m_TagString: Glue
@@ -101,3 +102,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 3.58
+--- !u!114 &1210279330618629507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238827760759656855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b474edca8efb8a4a821e95f4d67a1f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

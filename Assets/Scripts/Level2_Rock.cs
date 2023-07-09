@@ -60,10 +60,16 @@ public class Level2_Rock : MonoBehaviour
             TakeDamage(maxLives);
         }
         else if (other.gameObject.CompareTag("ShockwavePlayer")) {
+            speed = 2f;
+            print("freed rock from glue using screech");
             print("rock shattered by mega screech");
             if (player.GetComponent<screech_ability>().getIsMegaScreech()) {
                 TakeDamage(maxLives);
             }
+        }
+        else if (other.gameObject.CompareTag("FireAbility")) {
+            speed = 2f; //unsticks from glue
+            print("freed rock from glue using fire");
         }
     }
 
@@ -75,8 +81,6 @@ public class Level2_Rock : MonoBehaviour
             Debug.Log("Rock stuck in glue");
             speed = 0.3f;
         }
-
-        
     }
 
 
