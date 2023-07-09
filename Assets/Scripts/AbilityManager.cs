@@ -24,8 +24,8 @@ public class AbilityManager : MonoBehaviour
 
     void Start() {
         unlockedAbilities = new Dictionary<string, bool>();
-        unlockedAbilities["fire"] = true; //TODO change back to false
-        unlockedAbilities["screech"] = true; //TODO change back to false
+        unlockedAbilities["fire"] = false; //TODO change back to false
+        unlockedAbilities["screech"] = false; //TODO change back to false
         unlockedAbilities["glue"] = false;
         unlockedAbilities["ram"] = false;
         playerController = GetComponent<PlayerController>();

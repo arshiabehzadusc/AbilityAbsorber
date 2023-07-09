@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Level2BannerController : MonoBehaviour
 {
     public GameObject WelcomeBanner;
+    public GameObject AbilityChoicePanel;
     
     IEnumerator Start()
     {
@@ -20,6 +21,7 @@ public class Level2BannerController : MonoBehaviour
 
         // Hide the welcome banner.
         WelcomeBanner.SetActive(false);
+        AbilityChoicePanel.SetActive(true);
 
          // Resume the game.
         Time.timeScale = 1;
