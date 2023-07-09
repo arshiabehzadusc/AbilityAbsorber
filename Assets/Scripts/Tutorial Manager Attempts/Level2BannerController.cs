@@ -1,21 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class BannerController : MonoBehaviour
+public class Level2BannerController : MonoBehaviour
 {
     public GameObject WelcomeBanner;
-    public GameObject MovementBanner;
-    public GameObject InteractionBanner;
-    public GameObject AbilityBanner;
-    public GameObject EnemiesBanner;
-    public GameObject BossEnemyBanner;
-    public AbilityManager abilityManager; // Assuming this is set in the inspector.
-    private bool fireAbilityUnlocked = false;
-
+    
     IEnumerator Start()
     {
-        abilityManager = GetComponent<AbilityManager>();
-
+        
         // Pause the game.
         Time.timeScale = 0;
 
@@ -28,9 +21,13 @@ public class BannerController : MonoBehaviour
         // Hide the welcome banner.
         WelcomeBanner.SetActive(false);
 
-        // Display the movement banner.
-        MovementBanner.SetActive(true);
+         // Resume the game.
+        Time.timeScale = 1;
+
+        
     }
+
+/*
 
     void Update()
     {  
@@ -56,6 +53,12 @@ public class BannerController : MonoBehaviour
             if (AbilityBanner.activeInHierarchy)
             {
                 AbilityBanner.SetActive(false);
+                Time.timeScale = 1;
+            }
+
+            if (RiverBanner.activeInHierarchy)
+            {
+                RiverBanner.SetActive(false);
                 Time.timeScale = 1;
             }
 
@@ -94,6 +97,6 @@ public class BannerController : MonoBehaviour
             EnemiesBanner.SetActive(true);
         }
     }
-
+*/
    
 }
