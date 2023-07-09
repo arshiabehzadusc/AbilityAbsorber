@@ -22,8 +22,9 @@ public class Dynamite : MonoBehaviour
             print("exploding dynamite");
             // create circle dynamite explosion radius
             Vector2 spawnPosition = transform.position;
-            GameObject newfire = Instantiate(explosionPrefab, spawnPosition, Quaternion.identity);
-            Destroy(newfire, 2f);
+            GameObject explosion = Instantiate(explosionPrefab, spawnPosition, Quaternion.identity);
+            Destroy(explosion, 2f);
+            Destroy(this.gameObject);
         }
     }
 }
