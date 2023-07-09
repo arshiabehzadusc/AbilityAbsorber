@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public SendToGoogle sendtogoogle;
     public MessageToPlayer messageToPlayer;
     public bool isBat;
+    private GameObject enemy;
+    private Level2_Rock rockEnemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class PlayerController : MonoBehaviour
         healthLabel.text = "Health: " + health;
         gameObject.SetActive(true);
         sendtogoogle = GetComponent<SendToGoogle>();
+        enemy = GameObject.FindGameObjectWithTag("RockEnemy");
+        rockEnemy = enemy.GetComponent<Level2_Rock>();
     }
 
     public float getHealthy()
@@ -31,7 +35,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("RockEnemy"))
+        if (collision.gameObject.CompareTag("RockEnemy") && rockEnemy.getIsCorpse() == false)
         {
             TakeDamage(1f, "rock");
         }
