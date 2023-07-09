@@ -10,7 +10,6 @@ public class Level2_Rock : MonoBehaviour
 
     private Vector2 targetPosition;      // The target position for the next movement
     private Rigidbody2D rb;
-    public Transform playerTransform;
     public bool isLeft;
     public float rotationSpeed = 200f;
 
