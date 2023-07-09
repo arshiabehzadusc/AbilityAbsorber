@@ -24,7 +24,7 @@ public class AbilityManager : MonoBehaviour
 
     void Start() {
         unlockedAbilities = new Dictionary<string, bool>();
-        unlockedAbilities["fire"] = false;
+        unlockedAbilities["fire"] = true; //TODO change
         unlockedAbilities["screech"] = false;
         unlockedAbilities["glue"] = false;
         unlockedAbilities["ram"] = false;
@@ -55,6 +55,8 @@ public class AbilityManager : MonoBehaviour
             flame.SetActive(true);
             UIActiveFire.SetActive(true);
             healthBar.setHealthBar("fire");
+            playerMovement.setSpeed(5f); //reset speed to normal (if previously glue)
+
 
             // set all others false
             batForm.SetActive(false);
@@ -84,7 +86,7 @@ public class AbilityManager : MonoBehaviour
             Debug.Log("selected ability changed to " + selectedAbility);
             glueForm.SetActive(true);
             healthBar.setHealthBar("glue");
-            playerMovement.setSpeed(1f);
+            playerMovement.setSpeed(1f); // slow player down (must reset after if turn into something else)
 
 
             //set all others false

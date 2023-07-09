@@ -51,9 +51,16 @@ public class Level2_Rock : MonoBehaviour
             }
 
         }
+    }        
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Explosion")) {
+            TakeDamage(maxLives);
+        }
     }
 
-        
+
     // EVERY ENEMY NEAR GLUE SHOULD HAVE THIS METHOD
     void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Glue")) {
