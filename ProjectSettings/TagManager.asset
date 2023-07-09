@@ -16,6 +16,7 @@ TagManager:
   - Boss
   - Glue
   - Explosion
+  - Megaphone
   layers:
   - Default
   - TransparentFX

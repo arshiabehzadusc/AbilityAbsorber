@@ -19,6 +19,6 @@ public class ActiveAbility : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        textMeshProUI.text = "Equipped ability: \n" + abilityManager.getSelectedAbility().ToUpper();
+        textMeshProUI.text = "Equipped ability: " + abilityManager.getSelectedAbility().ToUpper();
     }
 }
