@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247869108161682701}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.112, y: 0.052, z: 0}
+  m_LocalPosition: {x: 0.115, y: 0.054, z: 0}
   m_LocalScale: {x: 0.040000003, y: 0.040000003, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 6257651749798134504}
   - component: {fileID: 6257651749798134502}
   - component: {fileID: 1747623164}
+  - component: {fileID: 1898902284}
   m_Layer: 0
   m_Name: bat_1
   m_TagString: BatEnemy
@@ -222,9 +223,6 @@ MonoBehaviour:
   jitterRange: 2
   playerTransform: {fileID: 0}
   isLeft: 0
-  rotationSpeed: 200
-  fire: {fileID: 0}
-  objectTag: FireAbility
   maxLives: 1
   renderer: {fileID: 0}
 --- !u!61 &6257651749798134505
@@ -313,3 +311,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1898902284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257651749798134508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
