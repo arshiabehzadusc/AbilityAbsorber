@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7950597091140253906}
   - component: {fileID: 2238639076482814846}
   - component: {fileID: -3890035199321452798}
+  - component: {fileID: 908784393699914876}
   m_Layer: 0
   m_Name: MagnetEnemy
   m_TagString: Untagged
@@ -102,3 +103,19 @@ MonoBehaviour:
   durationOfAttract: 3
   gapBetweenAttracts: 3
   magnetRadiusPrefab: {fileID: 5360126989470555742, guid: 087ab780669a79943ac17e0132e2d2d2, type: 3}
+--- !u!58 &908784393699914876
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203805844948907994}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 12.000002
