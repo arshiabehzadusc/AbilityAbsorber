@@ -12965,6 +12965,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20113477bfe62a046a7fc49474389422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrow: {fileID: 0}
+  FireAbilityInfo: {fileID: 0}
+  BatAbilityInfo: {fileID: 0}
 --- !u!1 &874146474
 GameObject:
   m_ObjectHideFlags: 0
@@ -14509,15 +14512,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277745, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277745, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277745, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3.3333333
+      value: 1.6666666
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277745, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18323,6 +18326,8 @@ MonoBehaviour:
   smoothing: 0.2
   maxPosition: {x: 1.3, y: 1.15}
   minPosition: {x: -1.3, y: -1.15}
+  overviewEndPoint: {x: 0, y: 0}
+  overviewSpeed: 1
 --- !u!114 &2108451820
 MonoBehaviour:
   m_ObjectHideFlags: 0
