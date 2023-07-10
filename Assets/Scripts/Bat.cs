@@ -17,13 +17,15 @@ public class Bat : MonoBehaviour
     public float maxLives = 3f;
     public Renderer renderer;
     Transform glassShield;
-
-    
+    private ShowDamage damageScript;
+    private Animator animator;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         health = maxLives;
+        damageScript = GetComponent<ShowDamage>();
+        animator = GetComponent<Animator>();
     }
 
     private void Start()
@@ -103,6 +105,7 @@ public class Bat : MonoBehaviour
             {
                 health -= damage;
                 print(health);
+                damageScript.TurnRed();
             }
             if (health <=0)
             {
@@ -114,6 +117,7 @@ public class Bat : MonoBehaviour
                 rb.velocity = new Vector2(0f, 0f);
                 Color color = HexToColor("372E2E");
                 renderer.material.color = color;
+                animator.enabled = false;
             }
         }
     }
