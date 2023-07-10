@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public bool isBat;
     private GameObject enemy;
     private Level2_Rock rockEnemy;
+    public PauseMenuController pmc;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,8 +45,11 @@ public class PlayerController : MonoBehaviour
             TakeDamage(3f, "SpinningHazard");
         }
     }
-    
-    
+
+    void Update()
+    {
+
+    }
 
     public void TakeDamage(float damage, string enemy)
     {
@@ -74,6 +79,7 @@ public class PlayerController : MonoBehaviour
             if (health <= 0)
             {
                 messageToPlayer.DisplayDied();
+                pmc.isDead = true;
                 Vector2 playerposition = transform.position;
                 sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
                 gameObject.SetActive(false);
