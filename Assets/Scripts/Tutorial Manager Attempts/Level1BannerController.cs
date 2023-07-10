@@ -32,14 +32,24 @@ public class Level1BannerController : MonoBehaviour
 
         // Hide the welcome banner.
         WelcomeBanner.SetActive(false);
+        Time.timeScale = 1;
 
         // Check if the name of the current scene is 'level 1' as in tutorial, so so , diaply movement banner
         if(currentScene.name == "Level 1")
         {
             // Display the movement banner.
-            MovementBanner.SetActive(true);
+            // Subscribe to overview movement complete event
+            CameraMovement.OnOverviewComplete += DisplayMovementBanner;
         }
         
+    }
+
+    void DisplayMovementBanner() {
+        // Unsubscribe from event
+        CameraMovement.OnOverviewComplete -= DisplayMovementBanner;
+
+        // Display the movement banner.
+        MovementBanner.SetActive(true);
     }
 
     void Update()

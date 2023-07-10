@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,16 +9,45 @@ public class CameraMovement : MonoBehaviour {
     public float smoothing;
     public Vector2 maxPosition;
     public Vector2 minPosition;
+    public Vector2 overviewEndPoint; // Add this to set the end point in the Inspector
+    public float overviewSpeed = 1f;
+    private bool gameStarted = false;
+    private Vector3 originalPosition; // To remember the original position
 
+    public static event Action OnOverviewComplete;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void LateUpdate () {
-        if(transform.position != target.position)
+    void Start () {
+        originalPosition = transform.position; // Store the original position at the start
+        StartCoroutine(StartGameOverview());
+    }
+
+    IEnumerator StartGameOverview() {
+        Vector3 endPosition = new Vector3(overviewEndPoint.x, overviewEndPoint.y, transform.position.z);
+
+        // lerp to the end position
+        float t = 0;
+        while (t < 1) {
+            t += Time.deltaTime * overviewSpeed;
+            transform.position = Vector3.Lerp(originalPosition, endPosition, t);
+            yield return null;
+        }
+
+        // then lerp back to the original position
+        t = 0;
+        while (t < 1) {
+            t += Time.deltaTime * overviewSpeed;
+            transform.position = Vector3.Lerp(endPosition, originalPosition, t);
+            yield return null;
+        }
+
+        gameStarted = true;
+
+        // trigger event when overview movement is complete
+        OnOverviewComplete?.Invoke();
+    }
+    
+    void LateUpdate () {
+        if(gameStarted && transform.position != target.position)
         {
             Vector3 targetPosition = new Vector3(target.position.x,
                                                  target.position.y,
@@ -31,8 +61,6 @@ public class CameraMovement : MonoBehaviour {
             
             transform.position = Vector3.Lerp(transform.position,
                                              targetPosition, smoothing);
-            //transform.position = Vector3.Lerp(transform.position,
-            //                                 targetPosition, smoothing);
         }
     }
 

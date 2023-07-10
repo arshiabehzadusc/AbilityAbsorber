@@ -21,12 +21,25 @@ public class Level2BannerController : MonoBehaviour
 
         // Hide the welcome banner.
         WelcomeBanner.SetActive(false);
+        
+        // Resume the game.
+        Time.timeScale = 1;
+
+        // Subscribe to overview movement complete event
+        CameraMovement.OnOverviewComplete += DisplayAbilityChoicePanel;
+
+        
+    }
+
+     void DisplayAbilityChoicePanel() {
+        // Unsubscribe from event
+        CameraMovement.OnOverviewComplete -= DisplayAbilityChoicePanel;
+
+        // Display the AbilityChoicePanel.
         AbilityChoicePanel.SetActive(true);
 
          // Resume the game.
         Time.timeScale = 1;
-
-        
     }
 
 /*
