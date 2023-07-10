@@ -17912,7 +17912,7 @@ PrefabInstance:
     - target: {fileID: 1917396530, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: messageToPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 100613700}
     - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: glueForm
       value: 

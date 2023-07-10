@@ -30,8 +30,11 @@ public class RoomSwitch : MonoBehaviour {
             cam.minPosition += cameraChange;
             cam.maxPosition += cameraChange;
             other.transform.position += playerChange;
-            Banner.SetActive(true);
-            Time.timeScale = 0;
+            if (Banner != null)
+            {
+	            Banner.SetActive(true);
+	            Time.timeScale = 0;
+            }
         }
     }
 
