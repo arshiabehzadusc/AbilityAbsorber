@@ -56,7 +56,7 @@ public class Thunder : MonoBehaviour
             }
 
             // Wait for the next fire
-            yield return new WaitForSeconds(period);
+            yield return new WaitForSeconds(duration + period);
         }
     }
 }
