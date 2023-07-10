@@ -10,9 +10,6 @@ public class Bat : MonoBehaviour
     private Rigidbody2D rb;
     public Transform playerTransform;
     public bool isLeft;
-    public float rotationSpeed = 200f;
-    public GameObject fire;
-    public string objectTag = "FireAbility";
 
     private bool is_corpse = false; 
 
@@ -66,17 +63,20 @@ public class Bat : MonoBehaviour
             //flip player sprite towards player
             if (playerTransform != null)
             {
+                
                 if (transform.position.x < playerTransform.position.x)
                 {
                     // Flip the sprite to face right
                     transform.localScale = new Vector3(5f, 5f, 1f);
                     isLeft = false;
+                    print(isLeft);
                 }
                 else
                 {
                     // Flip the sprite to face left
                     transform.localScale = new Vector3(-5f, 5f, 1f);
                     isLeft = true;
+                    print(isLeft);
                 }
             }
         }
