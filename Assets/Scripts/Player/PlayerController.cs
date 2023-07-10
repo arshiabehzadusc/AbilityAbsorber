@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private GameObject enemy;
     private Level2_Rock rockEnemy;
     public PauseMenuController pmc;
+    private AbilityManager abilityManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour
         sendtogoogle = GetComponent<SendToGoogle>();
         enemy = GameObject.FindGameObjectWithTag("RockEnemy");
         rockEnemy = enemy.GetComponent<Level2_Rock>();
+        abilityManager = GetComponent<AbilityManager>();
+
     }
 
     public float getHealthy()
@@ -43,6 +46,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("SpinningHazard")) {
             TakeDamage(3f, "SpinningHazard");
+        }
+        else if (collision.gameObject.CompareTag("MagnetEnemy")) {
+            if (abilityManager.getSelectedAbility() == "electric") {
+                TakeDamage(3f, "MagnetEnemy");
+            }
         }
     }
 

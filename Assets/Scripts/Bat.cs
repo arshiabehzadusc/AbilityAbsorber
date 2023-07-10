@@ -71,14 +71,14 @@ public class Bat : MonoBehaviour
                     // Flip the sprite to face right
                     transform.localScale = new Vector3(5f, 5f, 1f);
                     isLeft = false;
-                    print(isLeft);
+                    //print(isLeft);
                 }
                 else
                 {
                     // Flip the sprite to face left
                     transform.localScale = new Vector3(-5f, 5f, 1f);
                     isLeft = true;
-                    print(isLeft);
+                    //print(isLeft);
                 }
             }
         }
