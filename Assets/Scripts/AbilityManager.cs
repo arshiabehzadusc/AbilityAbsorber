@@ -15,6 +15,7 @@ public class AbilityManager : MonoBehaviour
     public GameObject flare; 
     public GameObject batForm;
     public GameObject glueForm;
+    public GameObject rockForm;
     public GameObject UIActiveBat;
     public GameObject UIActiveFire;
     private PlayerController playerController;
@@ -64,6 +65,7 @@ public class AbilityManager : MonoBehaviour
             UIActiveBat.SetActive(false);
             playerController.isBat = false;
             glueForm.SetActive(false);
+            rockForm.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && unlockedAbilities["screech"])
         {
@@ -80,6 +82,7 @@ public class AbilityManager : MonoBehaviour
             flame.SetActive(false);
             UIActiveFire.SetActive(false);
             glueForm.SetActive(false);
+            rockForm.SetActive(false);
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && unlockedAbilities["glue"])
@@ -97,6 +100,7 @@ public class AbilityManager : MonoBehaviour
             flame.SetActive(false);
             playerController.isBat = false;
             batForm.SetActive(false);
+            rockForm.SetActive(false);
             UIActiveBat.SetActive(false);
 
         }
@@ -105,7 +109,7 @@ public class AbilityManager : MonoBehaviour
             // set everything to glue
             selectedAbility = "ram";
             Debug.Log("selected ability changed to " + selectedAbility);
-            glueForm.SetActive(true);
+            rockForm.SetActive(true);
             healthBar.setHealthBar("ram");
             playerMovement.setSpeed(5f); //reset speed to normal (if previously glue)
 
