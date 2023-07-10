@@ -17,6 +17,7 @@ TagManager:
   - Glue
   - Explosion
   - Megaphone
+  - SpinningHazard
   layers:
   - Default
   - TransparentFX

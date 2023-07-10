@@ -61,7 +61,7 @@ public class Level2_Rock : MonoBehaviour
                 }
 
                 rb.velocity = direction * speed;
-                
+
             }
             else
             {
@@ -69,33 +69,39 @@ public class Level2_Rock : MonoBehaviour
             }
 
         }
-    }        
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Explosion")) {
+        if (other.gameObject.CompareTag("Explosion"))
+        {
             print("rock killed by explosion");
             TakeDamage(maxLives);
         }
-        else if (other.gameObject.CompareTag("ShockwavePlayer")) {
+        else if (other.gameObject.CompareTag("ShockwavePlayer"))
+        {
             speed = 2f;
             print("freed rock from glue using screech");
             print("rock shattered by mega screech");
-            if (player.GetComponent<screech_ability>().getIsMegaScreech()) {
+            if (player.GetComponent<screech_ability>().getIsMegaScreech())
+            {
                 TakeDamage(maxLives);
             }
         }
-        else if (other.gameObject.CompareTag("FireAbility")) {
+        else if (other.gameObject.CompareTag("FireAbility"))
+        {
             speed = 2f; //unsticks from glue
             print("freed rock from glue using fire");
         }
     }
 
 
-    
-    void OnCollisionEnter2D(Collision2D collision) {
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
         // EVERY ENEMY NEAR GLUE SHOULD HAVE THIS GLUE
-        if (collision.gameObject.CompareTag("Glue")) {
+        if (collision.gameObject.CompareTag("Glue"))
+        {
             Debug.Log("Rock stuck in glue");
             speed = 0.3f;
         }
@@ -123,7 +129,7 @@ public class Level2_Rock : MonoBehaviour
             Color color = HexToColor("372E2E");
             renderer.material.color = color;
         }
-        
+
     }
 
     public bool getIsCorpse()
