@@ -48,7 +48,7 @@ public class MessageToPlayer : MonoBehaviour
     public void DisplayDied()
     {
         Debug.Log("player died");
-        textMeshProUI.text = "You died\nPress Esc";
+        textMeshProUI.text = "You died\nPress R to Restart\nPress P for pause menu";
         //Invoke("Clear", 3f);
     }
 

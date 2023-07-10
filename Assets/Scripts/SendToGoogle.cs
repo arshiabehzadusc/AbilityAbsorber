@@ -13,7 +13,7 @@ public class SendToGoogle : MonoBehaviour
     private DateTime startTime;
     private AbilityManager abilityManager;
     private float nextActionTime = 0.0f;
-    private float period = 1.0f; // Ãë
+    private float period = 1.0f; // ï¿½ï¿½
     private PlayerController playcontroller;
     private Dictionary<float, Vector2> positionData = new Dictionary<float, Vector2>();
     private Dictionary<float, String> abilityData = new Dictionary<float, String>();
