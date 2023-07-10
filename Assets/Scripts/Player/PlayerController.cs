@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
             if (batHealth > 0)
             {
                 batHealth -= damage;
+                pmc.isDead = true;
                 healthLabel.text = "Health: " + health;
                 Debug.Log("Bat Health" + batHealth);
             }
