@@ -59,5 +59,10 @@ public class PlayerMovement : MonoBehaviour
         speed = newspeed;
     }
 
+    public float getSpeed()
+    {
+        return speed;
+    }
+
 }
 
