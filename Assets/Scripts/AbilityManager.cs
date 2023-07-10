@@ -16,6 +16,7 @@ public class AbilityManager : MonoBehaviour
     public GameObject batForm;
     public GameObject glueForm;
     public GameObject rockForm;
+    public GameObject thunredForm;
     public GameObject UIActiveBat;
     public GameObject UIActiveFire;
     private PlayerController playerController;
@@ -66,6 +67,7 @@ public class AbilityManager : MonoBehaviour
             playerController.isBat = false;
             glueForm.SetActive(false);
             rockForm.SetActive(false);
+            thunredForm.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && unlockedAbilities["screech"])
         {
@@ -83,6 +85,7 @@ public class AbilityManager : MonoBehaviour
             UIActiveFire.SetActive(false);
             glueForm.SetActive(false);
             rockForm.SetActive(false);
+            thunredForm.SetActive(false);
 
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && unlockedAbilities["glue"])
@@ -101,6 +104,7 @@ public class AbilityManager : MonoBehaviour
             playerController.isBat = false;
             batForm.SetActive(false);
             rockForm.SetActive(false);
+            thunredForm.SetActive(false);
             UIActiveBat.SetActive(false);
 
         }
@@ -118,11 +122,29 @@ public class AbilityManager : MonoBehaviour
             flame.SetActive(false);
             batForm.SetActive(false);
             glueForm.SetActive(false);
+            thunredForm.SetActive(false);
             UIActiveFire.SetActive(false);
             UIActiveBat.SetActive(false);
             playerController.isBat = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha5) && unlockedAbilities["thunder"])
+        {
+            // set everything to glue
+            selectedAbility = "thunder";
+            Debug.Log("selected ability changed to " + selectedAbility);
+            thunredForm.SetActive(true);
+            healthBar.setHealthBar("thunder");
+            playerMovement.setSpeed(5f); //reset speed to normal (if previously glue)
 
-
+            //set all others false
+            flare.SetActive(false);
+            flame.SetActive(false);
+            batForm.SetActive(false);
+            glueForm.SetActive(false);
+            rockForm.SetActive(false);
+            UIActiveFire.SetActive(false);
+            UIActiveBat.SetActive(false);
+            playerController.isBat = false;
         }
 
 
@@ -132,6 +154,7 @@ public class AbilityManager : MonoBehaviour
             checkNearbyAbilityAvailable("BatEnemy", "screech");
             checkNearbyAbilityAvailable("Glue", "glue");
             checkNearbyAbilityAvailable("RockEnemy", "ram");
+            checkNearbyAbilityAvailable("Electronic", "thunder");
         }
 
         
@@ -161,6 +184,8 @@ public class AbilityManager : MonoBehaviour
                     messageToPlayer.DisplayAbilityUnlocked("glue", 3);
                 if (ability.Equals("ram"))
                     messageToPlayer.DisplayAbilityUnlocked("ram", 4);
+                if (ability.Equals("thunder"))
+                    messageToPlayer.DisplayAbilityUnlocked("thunder", 5);
             }
         }
     }
