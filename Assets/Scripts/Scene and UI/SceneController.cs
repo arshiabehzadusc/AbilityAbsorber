@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
-{
+{   public GameObject levelPanel;
     // Function called when Start button is pressed
     public void StartGame()
     {
@@ -12,9 +12,25 @@ public class SceneController : MonoBehaviour
     }
 
     // Function called when Options button is pressed
-    public void Options()
+    public void Levels()
     {
-        // For now, we're not doing anything here
+        levelPanel.SetActive(true);
+    }
+    public void Level1()
+    {
+        SceneManager.LoadScene("Level 1");
+    }
+    public void Level2()
+    {
+        SceneManager.LoadScene("Level 2");
+    }
+    public void Level3()
+    {
+        SceneManager.LoadScene("Level 3");
+    }
+    public void Level4()
+    {
+        SceneManager.LoadScene("Level 4");
     }
 
     // Function called when Quit button is pressed

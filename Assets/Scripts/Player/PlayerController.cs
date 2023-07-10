@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
         {
             TakeDamage(1f, "rock");
         }
+        else if (collision.gameObject.CompareTag("SpinningHazard")) {
+            TakeDamage(3f, "SpinningHazard");
+        }
     }
     
     
