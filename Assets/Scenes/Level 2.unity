@@ -16559,6 +16559,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 874146474}
   pausePanel: {fileID: 1322430215}
+  isDead: 0
 --- !u!4 &1290503144
 Transform:
   m_ObjectHideFlags: 0
@@ -17901,6 +17902,10 @@ PrefabInstance:
       propertyPath: shockWaveSpawn
       value: 
       objectReference: {fileID: 2128046282}
+    - target: {fileID: 1917396530, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+      propertyPath: pmc
+      value: 
+      objectReference: {fileID: 1290503143}
     - target: {fileID: 1917396530, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: healthLabel
       value: 
@@ -22037,8 +22042,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fd624435c82a344ba7e9a64f6367f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rushDistance: 10
   rushSpeed: 20
+  rushDuration: 0.5
 --- !u!1 &1929968431
 GameObject:
   m_ObjectHideFlags: 0
