@@ -35,7 +35,7 @@ public class AbilityManager : MonoBehaviour
 
         playerController = GetComponent<PlayerController>();
         playerMovement = GetComponent<PlayerMovement>();
-        
+        healthBar.setHealthBar("None", 7);
     }
 
     public string getSelectedAbility() {
@@ -75,7 +75,16 @@ public class AbilityManager : MonoBehaviour
             flare.SetActive(true);
             flame.SetActive(true);
             UIActiveFire.SetActive(true);
-            healthBar.setHealthBar("fire");
+            healthBar.setHealthBar("fire", 7);
+            playerMovement.setSpeed(5f); //reset speed to normal (if previously glue)
+
+
+            // set all others false
+            batForm.SetActive(false);
+            UIActiveBat.SetActive(false);
+            playerController.isBat = false;
+            glueForm.SetActive(false);
+            rockForm.SetActive(false);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2) && unlockedAbilities["screech"])
         {
@@ -86,7 +95,7 @@ public class AbilityManager : MonoBehaviour
             Debug.Log("selected ability changed to " + selectedAbility);
             batForm.SetActive(true);
             playerController.isBat = true;
-            healthBar.setHealthBar("bat");
+            healthBar.setHealthBar("bat",2);
             UIActiveBat.SetActive(true);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3) && unlockedAbilities["glue"])
@@ -97,8 +106,18 @@ public class AbilityManager : MonoBehaviour
             selectedAbility = "glue";
             Debug.Log("selected ability changed to " + selectedAbility);
             glueForm.SetActive(true);
-            healthBar.setHealthBar("glue");
-            playerMovement.setSpeed(1f); // slow player down
+            healthBar.setHealthBar("glue",7);
+            playerMovement.setSpeed(1f); // slow player down (must reset after if turn into something else)
+
+
+            //set all others false
+            flare.SetActive(false);
+            flame.SetActive(false);
+            playerController.isBat = false;
+            batForm.SetActive(false);
+            rockForm.SetActive(false);
+            UIActiveBat.SetActive(false);
+
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4) && unlockedAbilities["ram"])
         {
@@ -108,7 +127,19 @@ public class AbilityManager : MonoBehaviour
             selectedAbility = "ram";
             Debug.Log("selected ability changed to " + selectedAbility);
             rockForm.SetActive(true);
-            healthBar.setHealthBar("ram");
+            healthBar.setHealthBar("ram", 7);
+            playerMovement.setSpeed(5f); //reset speed to normal (if previously glue)
+
+            //set all others false
+            flare.SetActive(false);
+            flame.SetActive(false);
+            batForm.SetActive(false);
+            glueForm.SetActive(false);
+            UIActiveFire.SetActive(false);
+            UIActiveBat.SetActive(false);
+            playerController.isBat = false;
+
+
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4) && unlockedAbilities["electric"])
         {
@@ -118,7 +149,7 @@ public class AbilityManager : MonoBehaviour
             selectedAbility = "electric";
             Debug.Log("selected ability changed to " + selectedAbility);
             electronicForm.SetActive(true);
-            healthBar.setHealthBar("electric");
+            healthBar.setHealthBar("electric", 7);
         }
 
         // Absorb ability

@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private Level2_Rock rockEnemy;
     private NewGhostEnemy ghostEnemy;
     public PauseMenuController pmc;
+
+    public PlayerMovement playerMov;
     private AbilityManager abilityManager;
     // Start is called before the first frame update
     void Start()
@@ -28,8 +30,15 @@ public class PlayerController : MonoBehaviour
         gameObject.SetActive(true);
         sendtogoogle = GetComponent<SendToGoogle>();
         enemy = GameObject.FindGameObjectWithTag("RockEnemy");
-        rockEnemy = enemy.GetComponent<Level2_Rock>();
-         ghostEnemy = GameObject.FindGameObjectWithTag("GhostEnemy").GetComponent<NewGhostEnemy>();
+        if (enemy != null)
+        {
+            rockEnemy = enemy.GetComponent<Level2_Rock>();
+        }
+
+        if (ghostEnemy != null)
+        {
+            ghostEnemy = GameObject.FindGameObjectWithTag("GhostEnemy").GetComponent<NewGhostEnemy>();
+        }
         abilityManager = GetComponent<AbilityManager>();
 
     }
