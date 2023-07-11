@@ -16,6 +16,7 @@ public class AbilityManager : MonoBehaviour
     public GameObject batForm;
     public GameObject glueForm;
     public GameObject rockForm;
+    public GameObject electronicForm;
     public GameObject UIActiveBat;
     public GameObject UIActiveFire;
     private PlayerController playerController;
@@ -52,6 +53,7 @@ public class AbilityManager : MonoBehaviour
         playerController.isBat = false;
         glueForm.SetActive(false);
         rockForm.SetActive(false);
+        electronicForm.SetActive(false);
         flare.SetActive(false);
         flame.SetActive(false);
         UIActiveFire.SetActive(false);
@@ -108,7 +110,16 @@ public class AbilityManager : MonoBehaviour
             rockForm.SetActive(true);
             healthBar.setHealthBar("ram");
         }
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && unlockedAbilities["electric"])
+        {
+            setAllFormsFalse();
 
+            // set everything to ram
+            selectedAbility = "electric";
+            Debug.Log("selected ability changed to " + selectedAbility);
+            electronicForm.SetActive(true);
+            healthBar.setHealthBar("electric");
+        }
 
         // Absorb ability
         if (Input.GetKeyDown(KeyCode.E)) {
@@ -116,7 +127,7 @@ public class AbilityManager : MonoBehaviour
             checkNearbyAbilityAvailable("BatEnemy", "screech");
             checkNearbyAbilityAvailable("Glue", "glue");
             checkNearbyAbilityAvailable("RockEnemy", "ram");
-            checkNearbyAbilityAvailable("ElectricGenerator", "electric");
+            checkNearbyAbilityAvailable("Electronic", "electric");
             checkNearbyAbilityAvailable("Magnet", "magnet");
         }
 
