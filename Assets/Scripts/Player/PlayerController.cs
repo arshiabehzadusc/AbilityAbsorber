@@ -64,6 +64,12 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player dealt damage to ghost by ramming");
             ghostEnemy.TakeDamage(1.0f);
         }
+         if (collision.gameObject.CompareTag("Diamond")  &&  abilityManager.getSelectedAbility() == "ram" && rockAbility.isRushing == true)
+        {    
+            Debug.Log("Player took damage by ramming into diamond");
+            TakeDamage(0.5f,"Diamond");
+        }
+        
         
         if (collision.gameObject.CompareTag("SpinningHazard")) {
             TakeDamage(3f, "SpinningHazard");

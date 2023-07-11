@@ -19,6 +19,7 @@ public class NewGhostEnemy : MonoBehaviour
     private RockAbility rockAbility;
     public GameObject tombstonePrefab;
     private bool isCollidingWithGlue = false; // Added variable
+    public GameObject hostileMarker;
 
     void Start()
     {
@@ -43,6 +44,7 @@ public class NewGhostEnemy : MonoBehaviour
     IEnumerator Roam()
     {
         spriteRenderer.enabled = false;
+        hostileMarker.SetActive(false);
         roamPosition = new Vector2(
             Random.Range(roamAreaMin.x, roamAreaMax.x),
             Random.Range(roamAreaMin.y, roamAreaMax.y)
@@ -60,6 +62,7 @@ public class NewGhostEnemy : MonoBehaviour
     IEnumerator Dash()
     {
         spriteRenderer.enabled = true;
+        hostileMarker.SetActive(true);
         Vector2 direction = ((Vector2)player.transform.position - (Vector2)transform.position).normalized;
         rb.velocity = direction * dashSpeed;
         yield return new WaitForSeconds(1);

@@ -29,6 +29,7 @@ TagManager:
   - Magnet
   - Fire
   - FireEnemy
+  - Diamond
   layers:
   - Default
   - TransparentFX
