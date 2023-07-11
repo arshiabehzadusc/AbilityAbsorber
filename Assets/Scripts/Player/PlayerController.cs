@@ -30,8 +30,15 @@ public class PlayerController : MonoBehaviour
         gameObject.SetActive(true);
         sendtogoogle = GetComponent<SendToGoogle>();
         enemy = GameObject.FindGameObjectWithTag("RockEnemy");
-        rockEnemy = enemy.GetComponent<Level2_Rock>();
-         ghostEnemy = GameObject.FindGameObjectWithTag("GhostEnemy").GetComponent<NewGhostEnemy>();
+        if (enemy != null)
+        {
+            rockEnemy = enemy.GetComponent<Level2_Rock>();
+        }
+
+        if (ghostEnemy != null)
+        {
+            ghostEnemy = GameObject.FindGameObjectWithTag("GhostEnemy").GetComponent<NewGhostEnemy>();
+        }
         abilityManager = GetComponent<AbilityManager>();
 
     }

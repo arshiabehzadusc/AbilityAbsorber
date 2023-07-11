@@ -149,7 +149,7 @@ public class AbilityManager : MonoBehaviour
             selectedAbility = "electric";
             Debug.Log("selected ability changed to " + selectedAbility);
             electronicForm.SetActive(true);
-            healthBar.setHealthBar("electric");
+            healthBar.setHealthBar("electric", 7);
         }
 
         // Absorb ability
