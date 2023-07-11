@@ -16,10 +16,13 @@ public class Thunder : MonoBehaviour
     private Sprite originalSprite;
     private bool isBroken = false;
 
+    private AbilityManager abilityManager;
+
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         originalSprite = spriteRenderer.sprite;
+        abilityManager = player.GetComponent<AbilityManager>();
 
         // Start the fire ability coroutine
         StartCoroutine(ThunderCoroutine());
@@ -30,12 +33,14 @@ public class Thunder : MonoBehaviour
         // Check if player is close enough
         if (!isBroken && Vector2.Distance(player.transform.position, transform.position) <= proximityThreshold)
         {
-            // Change sprite
-            if (spriteRenderer != null)
-            {
-                spriteRenderer.sprite = brokenEletronic;
+            if (abilityManager.getSelectedAbility() == "ram") {
+                // Change sprite
+                if (spriteRenderer != null)
+                {
+                    spriteRenderer.sprite = brokenEletronic;
+                }
+                isBroken = true; // set the generator to broken state
             }
-            isBroken = true; // set the generator to broken state
         }
     }
 
@@ -46,7 +51,7 @@ public class Thunder : MonoBehaviour
             // Check if player is far enough and the generator is not broken
             if (!isBroken && Vector2.Distance(player.transform.position, transform.position) > proximityThreshold)
             {
-                Debug.Log("Using Thunder radius ability");
+                //Debug.Log("Using Thunder radius ability");
 
                 // create circle fireball radius
                 Vector2 spawnPosition = transform.position;
