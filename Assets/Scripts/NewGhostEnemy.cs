@@ -106,6 +106,17 @@ public class NewGhostEnemy : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // EVERY ENEMY NEAR GLUE SHOULD HAVE THIS GLUE
+        if (collision.gameObject.CompareTag("Glue"))
+        {
+            Debug.Log("Rock stuck in glue");
+            speed = 0.3f;
+        }
+    }
+
     public bool getIsCorpse()
     {
         return is_corpse;
