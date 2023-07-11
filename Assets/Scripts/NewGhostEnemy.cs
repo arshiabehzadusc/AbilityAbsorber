@@ -112,8 +112,10 @@ public class NewGhostEnemy : MonoBehaviour
         // EVERY ENEMY NEAR GLUE SHOULD HAVE THIS GLUE
         if (collision.gameObject.CompareTag("Glue"))
         {
-            Debug.Log("Rock stuck in glue");
+            Debug.Log("Ghost stuck in glue");
             //speed = 0.3f;
+            dashSpeed = 0f;
+            roamSpeed = 0f;
         }
     }
 
