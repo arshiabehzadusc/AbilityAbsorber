@@ -20,7 +20,7 @@ public class NewGhostEnemy : MonoBehaviour
     public GameObject tombstonePrefab;
     private bool isCollidingWithGlue = false; // Added variable
     public GameObject hostileMarker;
-
+    public ShowDamage showDamage;
     void Start()
     {
         health = maxLives;
@@ -30,6 +30,7 @@ public class NewGhostEnemy : MonoBehaviour
         rockAbility = GetComponent<RockAbility>();
         spriteRenderer.enabled = false;
         StartCoroutine(GhostStateMachine());
+        showDamage = GetComponent<ShowDamage>();
     }
 
     IEnumerator GhostStateMachine()
@@ -72,6 +73,7 @@ public class NewGhostEnemy : MonoBehaviour
     {
         if (health > 0)
         {
+            showDamage.TurnRed();
             health -= damage;
             Debug.Log("Ghost health: " + health);
         }
@@ -79,7 +81,6 @@ public class NewGhostEnemy : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Ghost killed");
-
             is_corpse = true;
             rb.velocity = new Vector2(0f, 0f);
             spriteRenderer.enabled = false;
