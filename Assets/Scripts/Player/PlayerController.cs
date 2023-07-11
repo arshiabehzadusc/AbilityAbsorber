@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private GameObject enemy;
     private Level2_Rock rockEnemy;
     public PauseMenuController pmc;
+
+    public PlayerMovement playerMov;
     // Start is called before the first frame update
     void Start()
     {

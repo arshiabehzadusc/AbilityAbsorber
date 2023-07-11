@@ -32,7 +32,7 @@ public class AbilityManager : MonoBehaviour
         playerController = GetComponent<PlayerController>();
 
         playerMovement = GetComponent<PlayerMovement>();
-        
+        healthBar.setHealthBar("None", 7);
     }
 
     public string getSelectedAbility() {
@@ -56,7 +56,7 @@ public class AbilityManager : MonoBehaviour
             flare.SetActive(true);
             flame.SetActive(true);
             UIActiveFire.SetActive(true);
-            healthBar.setHealthBar("fire");
+            healthBar.setHealthBar("fire", 7);
             playerMovement.setSpeed(5f); //reset speed to normal (if previously glue)
 
 
@@ -74,7 +74,7 @@ public class AbilityManager : MonoBehaviour
             Debug.Log("selected ability changed to " + selectedAbility);
             batForm.SetActive(true);
             playerController.isBat = true;
-            healthBar.setHealthBar("bat");
+            healthBar.setHealthBar("bat",2);
             UIActiveBat.SetActive(true);
 
             // set all others false
@@ -91,7 +91,7 @@ public class AbilityManager : MonoBehaviour
             selectedAbility = "glue";
             Debug.Log("selected ability changed to " + selectedAbility);
             glueForm.SetActive(true);
-            healthBar.setHealthBar("glue");
+            healthBar.setHealthBar("glue",7);
             playerMovement.setSpeed(1f); // slow player down (must reset after if turn into something else)
 
 
@@ -110,7 +110,7 @@ public class AbilityManager : MonoBehaviour
             selectedAbility = "ram";
             Debug.Log("selected ability changed to " + selectedAbility);
             rockForm.SetActive(true);
-            healthBar.setHealthBar("ram");
+            healthBar.setHealthBar("ram", 7);
             playerMovement.setSpeed(5f); //reset speed to normal (if previously glue)
 
             //set all others false

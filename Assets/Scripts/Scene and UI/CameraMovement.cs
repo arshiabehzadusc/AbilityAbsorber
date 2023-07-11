@@ -13,7 +13,7 @@ public class CameraMovement : MonoBehaviour {
     public float overviewSpeed = 1f;
     private bool gameStarted = false;
     private Vector3 originalPosition; // To remember the original position
-
+    public PlayerMovement playerMov;
     public static event Action OnOverviewComplete;
 
     void Start () {
@@ -23,7 +23,7 @@ public class CameraMovement : MonoBehaviour {
 
     IEnumerator StartGameOverview() {
         Vector3 endPosition = new Vector3(overviewEndPoint.x, overviewEndPoint.y, transform.position.z);
-
+        playerMov.enabled = false;
         // lerp to the end position
         float t = 0;
         while (t < 1) {
@@ -44,6 +44,7 @@ public class CameraMovement : MonoBehaviour {
 
         // trigger event when overview movement is complete
         OnOverviewComplete?.Invoke();
+        playerMov.enabled = true;
     }
     
     void LateUpdate () {

@@ -29,26 +29,14 @@ public class Healthbar : MonoBehaviour
         }
     }
 
-    public void setHealthBar(string ability)
+    public void setHealthBar(string ability, int maxHealth )
     {
         this.ability = ability;
-        print("setHealthBar");
-        if (ability == "bat")
-        {
-            slider.maxValue = 2;
-            RectTransform backgroundRT = slider.transform.Find("Background").GetComponent<RectTransform>();
-            RectTransform fillAreaRT = slider.transform.Find("Fill Area").GetComponent<RectTransform>();
-            backgroundRT.offsetMax = new Vector2(-75, backgroundRT.offsetMax.y); // -50 is the new "right" value, keep the original "top" value
-            fillAreaRT.offsetMax = new Vector2(-75, fillAreaRT.offsetMax.y);
-        }
-        else
-        {
-            slider.maxValue = 7;
-            RectTransform backgroundRT = slider.transform.Find("Background").GetComponent<RectTransform>();
-            RectTransform fillAreaRT = slider.transform.Find("Fill Area").GetComponent<RectTransform>();
-            backgroundRT.offsetMax = new Vector2(0, backgroundRT.offsetMax.y); // -50 is the new "right" value, keep the original "top" value
-            fillAreaRT.offsetMax = new Vector2(0, fillAreaRT.offsetMax.y);
-        }
+        slider.maxValue = maxHealth;
+        RectTransform backgroundRT = slider.transform.Find("Background").GetComponent<RectTransform>();
+        RectTransform fillAreaRT = slider.transform.Find("Fill Area").GetComponent<RectTransform>();
+        backgroundRT.offsetMax = new Vector2(-200/ maxHealth, backgroundRT.offsetMax.y); // -50 is the new "right" value, keep the original "top" value
+        fillAreaRT.offsetMax = new Vector2(-200/ maxHealth, fillAreaRT.offsetMax.y);
     }
 }
 
