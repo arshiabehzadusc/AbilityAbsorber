@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 340107424}
   - component: {fileID: 340107425}
   m_Layer: 0
-  m_Name: 'Player Thunder form '
+  m_Name: 'Player Electric form '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1917396527}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &340107425
 SpriteRenderer:
@@ -14780,6 +14780,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 714093066}
     - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+      propertyPath: electronicForm
+      value: 
+      objectReference: {fileID: 340107423}
+    - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: MessageToPlayer
       value: 
       objectReference: {fileID: 861798521}
@@ -14853,7 +14857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277746, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_SortingOrder
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277748, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_Name

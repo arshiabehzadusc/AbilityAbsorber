@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class thunder_ability : MonoBehaviour
+public class electric_ability : MonoBehaviour
 {
     public float damage = 1f;
     public float duration = 0.5f;
@@ -19,9 +19,9 @@ public class thunder_ability : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && abilityManager.getSelectedAbility() == "thunder")
+        if (Input.GetKeyDown(KeyCode.Space) && abilityManager.getSelectedAbility() == "electric")
         {
-            Debug.Log("Using thunred radius ability");
+            Debug.Log("Using electric radius ability");
 
             Vector2 spawnPosition = transform.position;
             GameObject newfire = Instantiate(ThunredPrefab, spawnPosition, Quaternion.identity);
