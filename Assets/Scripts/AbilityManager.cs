@@ -9,7 +9,7 @@ public class AbilityManager : MonoBehaviour
 {
     private string selectedAbility = "none"; // options: fire, screech, glue, ram, electric, magnet
     public Dictionary<string, bool> unlockedAbilities;//changed from private to public so that TutorialManager script can check if ability was obtained
-    public float absorbRadius = 2f;
+    public float absorbRadius = 3f;
     public GameObject MessageToPlayer;
     public GameObject flame; 
     public GameObject flare; 
@@ -157,7 +157,7 @@ public class AbilityManager : MonoBehaviour
             checkNearbyAbilityAvailable("Glue", "glue");
             checkNearbyAbilityAvailable("RockEnemy", "ram");
             checkNearbyAbilityAvailable("Electronic", "electric");
-            //checkNearbyAbilityAvailable("Magnet", "magnet");
+            checkNearbyAbilityAvailable("Magnet", "magnet");
         }
 
         

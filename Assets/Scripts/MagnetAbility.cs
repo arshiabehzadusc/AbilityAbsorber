@@ -45,7 +45,7 @@ public class MagnetAbility : MonoBehaviour
     void FixedUpdate()
     {
         if (newradius != null && !ReferenceEquals(newradius, null)) {
-            print("attracting");
+            //print("attracting");
             // attract only metal objects
             Vector2 currentPosition = transform.position;
             GameObject[] metalObjects = GameObject.FindGameObjectsWithTag("Metal");
@@ -53,10 +53,10 @@ public class MagnetAbility : MonoBehaviour
             {
                 Vector2 metalObjectPosition = metalObject.transform.position;
                 float distance = Vector2.Distance(currentPosition, metalObjectPosition);
-                print(distance);
+                //print(distance);
                 if (distance < radius)
                 {
-                    print("found metal object to attract");
+                    //print("found metal object to attract");
                     Vector2 direction = currentPosition - metalObjectPosition;
                     metalObject.GetComponent<Rigidbody2D>().AddForce(direction.normalized * attractionForce);
                 }
