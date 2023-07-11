@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class FireEnemy : MonoBehaviour
 {
@@ -7,7 +9,7 @@ public class FireEnemy : MonoBehaviour
 
     private Vector2 targetPosition;      // The target position for the next movement
     private Rigidbody2D rb;
-    public Transform playerTransform;
+    public PlayerController playerController;
     private float spawnTimer;
     private float currentSpawnDelay;
     public GameObject radiusFlame;
@@ -34,7 +36,6 @@ public class FireEnemy : MonoBehaviour
 
         // Move towards the target position
         Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-        //print("direction 1: " + direction);
         // Avoid walls
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, LayerMask.GetMask("Obstacle"));
         if (hit.collider != null)
@@ -74,4 +75,8 @@ public class FireEnemy : MonoBehaviour
         // Calculate a random spawn delay within the specified range
         currentSpawnDelay = Random.Range(minSpawnDelay, maxSpawnDelay);
     }
+
+   
 }
+
+

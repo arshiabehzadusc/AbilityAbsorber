@@ -27,6 +27,8 @@ TagManager:
   - ElectricAbility
   - Metal
   - Magnet
+  - Fire
+  - FireEnemy
   layers:
   - Default
   - TransparentFX

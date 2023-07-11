@@ -35,10 +35,12 @@ public class PlayerController : MonoBehaviour
             rockEnemy = enemy.GetComponent<Level2_Rock>();
         }
 
-        ghostEnemy = GameObject.FindGameObjectWithTag("GhostEnemy").GetComponent<NewGhostEnemy>();
+        if (GameObject.FindGameObjectWithTag("GhostEnemy") != null)
+        {
+            ghostEnemy = GameObject.FindGameObjectWithTag("GhostEnemy").GetComponent<NewGhostEnemy>();
+        }
         rockAbility = GetComponent<RockAbility>();
         abilityManager = GetComponent<AbilityManager>();
-
     }
 
     public float getHealthy()
@@ -73,7 +75,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("FireEnemy")) {
+            TakeDamage(1f, "fire-enemy");
+        }
+    }
+    
     void Update()
     {
 
