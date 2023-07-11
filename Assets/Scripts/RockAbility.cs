@@ -7,7 +7,7 @@ public class RockAbility : MonoBehaviour
     private PlayerMovement playerMovement;
     public float rushSpeed = 20f;  // The temporary speed of the rush
     public float rushDuration = 0.5f; // The duration of the rush
-    private bool isRushing = false;
+    public bool isRushing = false;
     private float normalSpeed;
 
     void Start()

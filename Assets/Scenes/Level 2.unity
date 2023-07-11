@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pause Game : TAB'
+  m_text: 'Pause Game : P'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18064,7 +18064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277745, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7
+      value: -8.210621
       objectReference: {fileID: 0}
     - target: {fileID: 8068589428734277745, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21824,14 +21824,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7096815d4009ce04f80fbbd1705e45cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLives: 3
   roamDuration: 4
-  dashSpeed: 5
+  dashSpeed: 3
   roamSpeed: 2
   player: {fileID: 1917396524}
   roamAreaMin: {x: 56.76, y: 4.17}
   roamAreaMax: {x: 75.13, y: -4.22}
   is_corpse: 0
+  tombstonePrefab: {fileID: 2869821382408301141, guid: 2e865080dc6521c4b8871543c46dc53d, type: 3}
 --- !u!50 &1868996568
 Rigidbody2D:
   serializedVersion: 4
@@ -22312,7 +22312,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rushSpeed: 20
-  rushDuration: 0.5
+  rushDuration: 0.2
+  isRushing: 0
 --- !u!1 &1929968431
 GameObject:
   m_ObjectHideFlags: 0
