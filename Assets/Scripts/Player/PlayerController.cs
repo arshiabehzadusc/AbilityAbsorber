@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private Level2_Rock rockEnemy;
     private NewGhostEnemy ghostEnemy;
     public PauseMenuController pmc;
-
+    private RockAbility rockAbility;
     public PlayerMovement playerMov;
     private AbilityManager abilityManager;
     // Start is called before the first frame update
@@ -35,10 +35,8 @@ public class PlayerController : MonoBehaviour
             rockEnemy = enemy.GetComponent<Level2_Rock>();
         }
 
-        if (ghostEnemy != null)
-        {
-            ghostEnemy = GameObject.FindGameObjectWithTag("GhostEnemy").GetComponent<NewGhostEnemy>();
-        }
+        ghostEnemy = GameObject.FindGameObjectWithTag("GhostEnemy").GetComponent<NewGhostEnemy>();
+        rockAbility = GetComponent<RockAbility>();
         abilityManager = GetComponent<AbilityManager>();
 
     }
@@ -55,14 +53,20 @@ public class PlayerController : MonoBehaviour
         {
             TakeDamage(1f, "rock");
         }
-        else if (collision.gameObject.CompareTag("GhostEnemy") && ghostEnemy.getIsCorpse() == false)
-        {   Debug.Log("Ghost dealth damage to player");
+        if (collision.gameObject.CompareTag("GhostEnemy") && ghostEnemy.getIsCorpse() == false && rockAbility.isRushing == false )
+        {   Debug.Log("Ghost dealt damage to player");
             TakeDamage(1f, "ghost");
         }
-        else if (collision.gameObject.CompareTag("SpinningHazard")) {
+        if (collision.gameObject.CompareTag("GhostEnemy")  && ghostEnemy.getIsCorpse() == false && abilityManager.getSelectedAbility() == "ram" && rockAbility.isRushing == true)
+        {    
+            Debug.Log("Player dealt damage to ghost by ramming");
+            ghostEnemy.TakeDamage(1.0f);
+        }
+        
+        if (collision.gameObject.CompareTag("SpinningHazard")) {
             TakeDamage(3f, "SpinningHazard");
         }
-        else if (collision.gameObject.CompareTag("MagnetEnemy")) {
+        if (collision.gameObject.CompareTag("MagnetEnemy")) {
             if (abilityManager.getSelectedAbility() == "electric") {
                 TakeDamage(3f, "MagnetEnemy");
             }

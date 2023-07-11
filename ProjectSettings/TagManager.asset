@@ -24,6 +24,9 @@ TagManager:
   - Smashable
   - Rock Ability
   - MagnetEnemy
+  - ElectricAbility
+  - Metal
+  - Magnet
   layers:
   - Default
   - TransparentFX
