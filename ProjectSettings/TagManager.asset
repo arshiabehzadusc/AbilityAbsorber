@@ -18,6 +18,8 @@ TagManager:
   - Explosion
   - Megaphone
   - SpinningHazard
+  - GhostEnemy
+  - electronic generator
   - Electronic
   layers:
   - Default
