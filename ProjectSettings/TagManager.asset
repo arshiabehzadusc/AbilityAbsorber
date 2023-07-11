@@ -21,6 +21,9 @@ TagManager:
   - GhostEnemy
   - electronic generator
   - Electronic
+  - Smashable
+  - Rock Ability
+  - MagnetEnemy
   - ElectricAbility
   - Metal
   - Magnet

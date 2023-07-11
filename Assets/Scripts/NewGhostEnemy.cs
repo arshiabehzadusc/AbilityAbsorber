@@ -113,7 +113,7 @@ public class NewGhostEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag("Glue"))
         {
             Debug.Log("Rock stuck in glue");
-            speed = 0.3f;
+            //speed = 0.3f;
         }
     }
 

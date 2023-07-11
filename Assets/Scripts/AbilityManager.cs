@@ -143,7 +143,7 @@ public class AbilityManager : MonoBehaviour
             checkNearbyAbilityAvailable("Glue", "glue");
             checkNearbyAbilityAvailable("RockEnemy", "ram");
             checkNearbyAbilityAvailable("Electronic", "electric");
-            checkNearbyAbilityAvailable("Magnet", "magnet");
+            //checkNearbyAbilityAvailable("Magnet", "magnet");
         }
 
         

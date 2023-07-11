@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         isBat = false;
         batHealth = 2;
         health = maxLives;
-        healthLabel.text = "Health: " + health;
+        ///healthLabel.text = "Health: " + health;
         gameObject.SetActive(true);
         sendtogoogle = GetComponent<SendToGoogle>();
         enemy = GameObject.FindGameObjectWithTag("RockEnemy");
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
             {
                 batHealth -= damage;
                 pmc.isDead = true;
-                healthLabel.text = "Health: " + health;
+                //healthLabel.text = "Health: " + health;
                 Debug.Log("Bat Health" + batHealth);
             }
             if (batHealth <= 0)
@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
             if (health > 0)
             {
                 health -= damage;
-                healthLabel.text = "Health: " + health;
+                //healthLabel.text = "Health: " + health;
             }
             if (health <= 0)
             {
