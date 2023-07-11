@@ -18888,7 +18888,7 @@ PrefabInstance:
     - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: MessageToPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 48470611}
     - target: {fileID: 2128046281, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_Name
       value: shockWaveSpawn
@@ -22815,6 +22815,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityChoicePanel: {fileID: 1951750718}
+--- !u!114 &1917396566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917396524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fd624435c82a344ba7e9a64f6367f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rushSpeed: 20
+  rushDuration: 0.3
+  isRushing: 0
 --- !u!1 &1950818221
 GameObject:
   m_ObjectHideFlags: 0
