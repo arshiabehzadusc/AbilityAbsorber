@@ -18,6 +18,7 @@ public class AbilityManager : MonoBehaviour
     public GameObject rockForm;
     public GameObject electronicForm;
     public GameObject magnetForm;
+    public GameObject ghostForm;
     public GameObject UIActiveBat;
     public GameObject UIActiveFire;
     private PlayerController playerController;
@@ -33,6 +34,7 @@ public class AbilityManager : MonoBehaviour
         unlockedAbilities["ram"] = true;
         unlockedAbilities["electric"] = false;
         unlockedAbilities["magnet"] = true;
+        unlockedAbilities["stealth"] = false;
 
         playerController = GetComponent<PlayerController>();
         playerMovement = GetComponent<PlayerMovement>();
@@ -54,6 +56,7 @@ public class AbilityManager : MonoBehaviour
         playerController.isBat = false;
         glueForm.SetActive(false);
         rockForm.SetActive(false);
+        ghostForm.SetActive(false);
         electronicForm.SetActive(false);
         flare.SetActive(false);
         flame.SetActive(false);
@@ -136,6 +139,17 @@ public class AbilityManager : MonoBehaviour
             healthBar.setHealthBar("magnet", 7);
         }
 
+        else if (Input.GetKeyDown(KeyCode.Alpha7) && unlockedAbilities["stealth"])
+        {
+            setAllFormsFalse();
+
+            // set everything to magnet
+            selectedAbility = "stealth";
+            Debug.Log("selected ability changed to " + selectedAbility);
+            ghostForm.SetActive(true);
+            healthBar.setHealthBar("stealth", 12);
+        }
+
         // Absorb ability
         if (Input.GetKeyDown(KeyCode.E)) {
             checkNearbyAbilityAvailable("Campfire", "fire");
@@ -177,6 +191,7 @@ public class AbilityManager : MonoBehaviour
                     messageToPlayer.DisplayAbilityUnlocked("electric", 5);
                 if (ability.Equals("magnet"))
                     messageToPlayer.DisplayAbilityUnlocked("magnet", 6);
+                //if ghost ability is chosen in the ability selection ui , then display a message 
             }
         }
     }

@@ -31,4 +31,22 @@ public class AbilitySelectionManager : MonoBehaviour
         abilityChoicePanel.SetActive(false);
         Debug.Log("Screech ability activated");
     }
+
+     public void SelectRamAbility()
+    {
+        selectedAbility = "ram";
+        abilityManager.unlockedAbilities["ram"] = true;
+        abilityChoicePanel.SetActive(false);
+        Debug.Log("Ram ability activated");
+    }
+
+      public void SelectStealthAbility()
+    {
+        selectedAbility = "stealth";
+        abilityManager.unlockedAbilities["stealth"] = true;
+        abilityChoicePanel.SetActive(false);
+        Debug.Log("Stealth ability activated");
+    }
+    
+
 }
