@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -5,10 +6,16 @@ public class PauseMenuController : MonoBehaviour
 {
     public GameObject pauseMenuUI; // Attach your Pause Menu UI to this in inspector
     public GameObject pausePanel; // Attach your Pause Panel to this in inspector
+    public bool isDead;
+
+    private void Start()
+    {
+        isDead = false;
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (Time.timeScale == 1)
             {
@@ -20,6 +27,11 @@ public class PauseMenuController : MonoBehaviour
             {
                 Resume();
             }
+        }
+        
+        if (isDead && Input.GetKeyDown(KeyCode.R))
+        {
+            RestartLevel();
         }
     }
 
