@@ -24494,6 +24494,7 @@ GameObject:
   - component: {fileID: 1868996569}
   - component: {fileID: 1868996568}
   - component: {fileID: 1868996567}
+  - component: {fileID: 1868996573}
   m_Layer: 0
   m_Name: GhostEnemy
   m_TagString: GhostEnemy
@@ -24522,6 +24523,7 @@ MonoBehaviour:
   is_corpse: 0
   tombstonePrefab: {fileID: 2869821382408301141, guid: 2e865080dc6521c4b8871543c46dc53d, type: 3}
   hostileMarker: {fileID: 1693729793}
+  showDamage: {fileID: 0}
 --- !u!50 &1868996568
 Rigidbody2D:
   serializedVersion: 4
@@ -24648,6 +24650,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1868996573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868996566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1891506536
 GameObject:
   m_ObjectHideFlags: 0
