@@ -17,6 +17,7 @@ public class AbilityManager : MonoBehaviour
     public GameObject glueForm;
     public GameObject rockForm;
     public GameObject electronicForm;
+    public GameObject magnetForm;
     public GameObject UIActiveBat;
     public GameObject UIActiveFire;
     private PlayerController playerController;
@@ -31,7 +32,7 @@ public class AbilityManager : MonoBehaviour
         unlockedAbilities["glue"] = false;
         unlockedAbilities["ram"] = true;
         unlockedAbilities["electric"] = false;
-        unlockedAbilities["magnet"] = false;
+        unlockedAbilities["magnet"] = true;
 
         playerController = GetComponent<PlayerController>();
         playerMovement = GetComponent<PlayerMovement>();
@@ -122,6 +123,17 @@ public class AbilityManager : MonoBehaviour
             Debug.Log("selected ability changed to " + selectedAbility);
             electronicForm.SetActive(true);
             healthBar.setHealthBar("electric", 7);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Alpha6) && unlockedAbilities["magnet"])
+        {
+            setAllFormsFalse();
+
+            // set everything to magnet
+            selectedAbility = "magnet";
+            Debug.Log("selected ability changed to " + selectedAbility);
+            magnetForm.SetActive(true);
+            healthBar.setHealthBar("magnet", 7);
         }
 
         // Absorb ability

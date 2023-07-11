@@ -51,7 +51,7 @@ public class Thunder : MonoBehaviour
             // Check if player is far enough and the generator is not broken
             if (!isBroken && Vector2.Distance(player.transform.position, transform.position) > proximityThreshold)
             {
-                Debug.Log("Using Thunder radius ability");
+                //Debug.Log("Using Thunder radius ability");
 
                 // create circle fireball radius
                 Vector2 spawnPosition = transform.position;
