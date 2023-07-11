@@ -18,6 +18,7 @@ TagManager:
   - Explosion
   - Megaphone
   - SpinningHazard
+  - GhostEnemy
   layers:
   - Default
   - TransparentFX

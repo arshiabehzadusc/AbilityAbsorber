@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public bool isBat;
     private GameObject enemy;
     private Level2_Rock rockEnemy;
+    private NewGhostEnemy ghostEnemy;
     public PauseMenuController pmc;
     private AbilityManager abilityManager;
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         sendtogoogle = GetComponent<SendToGoogle>();
         enemy = GameObject.FindGameObjectWithTag("RockEnemy");
         rockEnemy = enemy.GetComponent<Level2_Rock>();
+         ghostEnemy = GameObject.FindGameObjectWithTag("GhostEnemy").GetComponent<NewGhostEnemy>();
         abilityManager = GetComponent<AbilityManager>();
 
     }
@@ -44,6 +46,10 @@ public class PlayerController : MonoBehaviour
         {
             TakeDamage(1f, "rock");
         }
+        else if (collision.gameObject.CompareTag("GhostEnemy") && ghostEnemy.getIsCorpse() == false)
+        {   Debug.Log("Ghost dealth damage to player");
+            TakeDamage(1f, "ghost");
+        }
         else if (collision.gameObject.CompareTag("SpinningHazard")) {
             TakeDamage(3f, "SpinningHazard");
         }
@@ -53,6 +59,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
 
     void Update()
     {

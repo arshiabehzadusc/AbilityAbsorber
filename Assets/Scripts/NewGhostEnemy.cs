@@ -2,40 +2,71 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewGhostEnemy: MonoBehaviour
+public class NewGhostEnemy : MonoBehaviour
 {
-
-    
-    private int currentHealth;
-    
-    private float health;
     public float maxLives = 3f;
-    public Renderer renderer;
+    public float roamDuration = 4f;
+    public float dashSpeed = 5f;
+    public float roamSpeed = 2f;
+    public GameObject player;
+    public Vector2 roamAreaMin, roamAreaMax;
     public bool is_corpse = false; 
-    private RockDashAbility dashAbility;    
+    private float health;
     private Rigidbody2D rb;
-    private PlayerController playerController; //to deal damage to player
-
-    
+    private SpriteRenderer spriteRenderer;
+    private Vector2 roamPosition;
 
     void Start()
     {
         health = maxLives;
-        dashAbility = GetComponent<RockDashAbility>();
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.enabled = false;
+        StartCoroutine(GhostStateMachine());
     }
 
-    void Update()
+    IEnumerator GhostStateMachine()
     {
-        
+        while (true)
+        {
+            yield return Roam();
+            yield return Dash();
+        }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {   
-        if(collision.gameObject.CompareTag("Player"))
-        {   Debug.Log("Ghost dealth damage to player");
-            playerController.TakeDamage(1.0f,"ghost");
+    IEnumerator Roam()
+    {
+        spriteRenderer.enabled = false;
+        roamPosition = new Vector2(
+            Random.Range(roamAreaMin.x, roamAreaMax.x),
+            Random.Range(roamAreaMin.y, roamAreaMax.y)
+        );
+
+        float startTime = Time.time;
+        while (Time.time < startTime + roamDuration)
+        {
+            Vector2 direction = (roamPosition - (Vector2)transform.position).normalized;
+            rb.velocity = direction * roamSpeed;
+            yield return null;
         }
-       
+    }
+
+    IEnumerator Dash()
+    {
+        spriteRenderer.enabled = true;
+        Vector2 direction = ((Vector2)player.transform.position - (Vector2)transform.position).normalized;
+        rb.velocity = direction * dashSpeed;
+        yield return new WaitForSeconds(1);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == player)
+        {
+            Debug.Log("Ghost collided with player.");
+            rb.velocity = Vector2.zero;
+        }
     }
 
     public void TakeDamage(float damage)
@@ -43,39 +74,19 @@ public class NewGhostEnemy: MonoBehaviour
         if (health > 0)
         {
             health -= damage;
-            print(health);
+            Debug.Log("Ghost health: " + health);
         }
-        if (health <=0)
+
+        if (health <= 0)
         {
-            // Destroy object - gameObject.SetActive(false);
-
-            // make into corpse
-            Debug.Log("killed ghost");
-            Color color = HexToColor("372E2E");
-            renderer.material.color = color;
-            is_corpse=true;
-            if(is_corpse==true)
-            {
-                // Set the velocity to zero
-                rb.velocity = Vector2.zero;
-                rb.angularVelocity = 0f;
-                // Make the Rigidbody2D kinematic, so it's no longer affected by forces
-                rb.isKinematic = true;
-            }
+            Debug.Log("Ghost killed");
+            rb.velocity = Vector2.zero;
+            spriteRenderer.enabled = false;
+            this.enabled = false; // disable this script
         }
     }
-
-        
-
-    private Color HexToColor(string hex)
+    public bool getIsCorpse()
     {
-        Color color = Color.black;
-        ColorUtility.TryParseHtmlString("#" + hex, out color);
-        return color;
-    }
-
-    public bool get_is_corpse() {
         return is_corpse;
     }
-
 }
