@@ -6,18 +6,19 @@ public class NewGhostEnemy : MonoBehaviour
 {
     private float maxLives = 3f;
     public float roamDuration = 4f;
-    public float dashSpeed = 5f;
+    public float dashSpeed = 4f;
     public float roamSpeed = 2f;
     public GameObject player;
     public Vector2 roamAreaMin, roamAreaMax;
-    public bool is_corpse = false; 
+    public bool is_corpse = false;
     private float health;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
     private Vector2 roamPosition;
     private AbilityManager abilityManager;
     private RockAbility rockAbility;
-    public GameObject tombstonePrefab; // Add this
+    public GameObject tombstonePrefab;
+    private bool isCollidingWithGlue = false; // Added variable
 
     void Start()
     {
@@ -64,16 +65,6 @@ public class NewGhostEnemy : MonoBehaviour
         yield return new WaitForSeconds(1);
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") && abilityManager.getSelectedAbility() == "ram" && rockAbility.isRushing == true)
-        {   Debug.Log("Ghost collided with player.");
-            Debug.Log("Player dealt damage to ghost by ramming");
-            TakeDamage(1.0f);
-        }
-    }
-    */
-
     public void TakeDamage(float damage)
     {
         if (health > 0)
@@ -85,13 +76,7 @@ public class NewGhostEnemy : MonoBehaviour
         if (health <= 0)
         {
             Debug.Log("Ghost killed");
-            Debug.Log("Ghost killed");
-            Debug.Log("Ghost killed");
-            Debug.Log("Ghost killed");
-            Debug.Log("Ghost killed");
-            Debug.Log("Ghost killed");
-            Debug.Log("Ghost killed");
-            
+
             is_corpse = true;
             rb.velocity = new Vector2(0f, 0f);
             spriteRenderer.enabled = false;
@@ -108,16 +93,31 @@ public class NewGhostEnemy : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision)
+{
+    if (collision.gameObject.CompareTag("Glue"))
     {
-        // EVERY ENEMY NEAR GLUE SHOULD HAVE THIS GLUE
-        if (collision.gameObject.CompareTag("Glue"))
-        {
-            Debug.Log("Ghost stuck in glue");
-            //speed = 0.3f;
-            dashSpeed = 0f;
-            roamSpeed = 0f;
-        }
+        Debug.Log("Ghost stuck in glue");
+        isCollidingWithGlue = true;
+        dashSpeed = 0f;
+        roamSpeed = 0f;
+        spriteRenderer.enabled = true;
+        
     }
+}
+
+void OnCollisionExit2D(Collision2D collision)
+{
+    if (collision.gameObject.CompareTag("Glue"))
+    {
+        Debug.Log("Ghost no longer stuck in glue");
+        isCollidingWithGlue = false;
+        dashSpeed = 5f;
+        roamSpeed = 2f;
+        spriteRenderer.enabled = false;
+        
+    }
+}
+
 
     public bool getIsCorpse()
     {
