@@ -21,6 +21,7 @@ TagManager:
   - GhostEnemy
   - electronic generator
   - Electronic
+  - ElectricAbility
   layers:
   - Default
   - TransparentFX

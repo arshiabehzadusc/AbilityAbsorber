@@ -10,16 +10,23 @@ public class MagnetEnemy : MonoBehaviour
     public float durationOfAttract;
     public float gapBetweenAttracts;
     public GameObject magnetRadiusPrefab;
+    public GameObject player;
     
     private bool isAlive = true;
     private bool usingAbility = false;
+    private AbilityManager abilityManager;
 
     private GameObject newradius;
+
+    private float health = 5f;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(AttractRoutine());
+        abilityManager = player.GetComponent<AbilityManager>();
     }
 
     private IEnumerator AttractRoutine()
@@ -39,20 +46,63 @@ public class MagnetEnemy : MonoBehaviour
         }
     }
 
+    // for the attraction only
     void FixedUpdate()
     {
-        if (newradius != null && !ReferenceEquals(newradius, null)) {
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius); // Adjust the radius as needed
+        if (abilityManager.getSelectedAbility() == "electric") {
+            if (newradius != null && !ReferenceEquals(newradius, null)) {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius); // Adjust the radius as needed
 
-            foreach (Collider2D collider in colliders)
-            {
-                if (collider.gameObject != gameObject)
+                foreach (Collider2D collider in colliders)
                 {
-                    Vector2 direction = transform.position - collider.transform.position;
-                    collider.attachedRigidbody.AddForce(direction.normalized * attractionForce);
+                    if (collider.gameObject != gameObject)
+                    {
+                        Vector2 direction = transform.position - collider.transform.position;
+                        collider.attachedRigidbody.AddForce(direction.normalized * attractionForce);
+                    }
                 }
             }
         }
         
+    }
+
+    // touching the actual magnet
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (other.gameObject.CompareTag("ElectricAbility"))
+        {
+            TakeDamage(2f);
+        }
+    }
+
+
+    public void TakeDamage(float damage)
+    {
+        
+
+        if (health > 0)
+        {
+            health -= damage;
+            print(health);
+        }
+        if (health <= 0)
+        {
+            // make into corpse
+            Debug.Log("killed magnet");
+            isAlive = false;
+            Color color = HexToColor("372E2E");
+            GetComponent<Renderer>().material.color = color;
+        }
+
+    }
+    private Color HexToColor(string hex)
+    {
+        Color color = Color.black;
+        ColorUtility.TryParseHtmlString("#" + hex, out color);
+        return color;
+    }
+
+    public bool getIsAlive() {
+        return isAlive;
     }
 }
