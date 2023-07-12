@@ -10,6 +10,8 @@ public class MessageToPlayer : MonoBehaviour
     public GameObject arrow;
     public GameObject FireAbilityInfo;
     public GameObject BatAbilityInfo;
+    public GameObject RockAbilityInfo;
+    public GameObject GlueAbilityInfo;
     void Start()
     {
         textMeshProUI = GetComponent<TextMeshProUGUI>();
@@ -30,6 +32,16 @@ public class MessageToPlayer : MonoBehaviour
             BatAbilityInfo.SetActive(true);
             Invoke("HideBatAbilityInfo", 4f); // Set BatAbilityInfo to inactive after 4 seconds
         }
+         if(new_ability=="glue")
+        {
+            GlueAbilityInfo.SetActive(true);
+            Invoke("HideGlueAbilityInfo", 4f); // Set BatAbilityInfo to inactive after 4 seconds
+        }
+         if(new_ability=="ram")
+        {
+            RockAbilityInfo.SetActive(true);
+            Invoke("HideRockAbilityInfo", 4f); // Set BatAbilityInfo to inactive after 4 seconds
+        }
         Invoke("Clear", 3f);
         Invoke("HideArrow", 3f); // Set arrow to inactive after 3 seconds
     }
@@ -42,6 +54,15 @@ public class MessageToPlayer : MonoBehaviour
     private void HideBatAbilityInfo()
     {
         BatAbilityInfo.SetActive(false);
+    }
+
+    private void HideRockAbilityInfo()
+    {
+        RockAbilityInfo.SetActive(false);
+    }
+    private void HideGlueAbilityInfo()
+    {
+        GlueAbilityInfo.SetActive(false);
     }
 
 

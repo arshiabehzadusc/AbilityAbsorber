@@ -21,6 +21,9 @@ public class AbilityManager : MonoBehaviour
     public GameObject ghostForm;
     public GameObject UIActiveBat;
     public GameObject UIActiveFire;
+    public GameObject UIActiveRock;
+    public GameObject UIActiveGlue;
+    public GameObject UIActiveGhost;
     private PlayerController playerController;
     public Healthbar healthBar;
     private PlayerMovement playerMovement;
@@ -63,6 +66,9 @@ public class AbilityManager : MonoBehaviour
         UIActiveFire.SetActive(false);
         magnetForm.SetActive(false);
         playerMovement.setSpeed(5f);
+        UIActiveRock.SetActive(false);
+         UIActiveGlue.SetActive(false);
+          UIActiveGhost.SetActive(false);
     }
     
 
@@ -103,6 +109,7 @@ public class AbilityManager : MonoBehaviour
             selectedAbility = "glue";
             Debug.Log("selected ability changed to " + selectedAbility);
             glueForm.SetActive(true);
+            UIActiveGlue.SetActive(true);
             healthBar.setHealthBar("glue",7);
             playerMovement.setSpeed(1f); // slow player down (must reset after if turn into something else)
 
@@ -115,6 +122,7 @@ public class AbilityManager : MonoBehaviour
             selectedAbility = "ram";
             Debug.Log("selected ability changed to " + selectedAbility);
             rockForm.SetActive(true);
+            UIActiveRock.SetActive(true);
             healthBar.setHealthBar("ram", 7);
 
         }
@@ -148,6 +156,7 @@ public class AbilityManager : MonoBehaviour
             selectedAbility = "stealth";
             Debug.Log("selected ability changed to " + selectedAbility);
             ghostForm.SetActive(true);
+            UIActiveGhost.SetActive(true);
             healthBar.setHealthBar("stealth", 12);
         }
 
