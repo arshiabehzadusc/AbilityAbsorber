@@ -23390,6 +23390,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1793564669}
     - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+      propertyPath: UIActiveGhost
+      value: 
+      objectReference: {fileID: 1162915782}
+    - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: electronicForm
       value: 
       objectReference: {fileID: 178122089}
