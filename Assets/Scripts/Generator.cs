@@ -24,6 +24,7 @@ public class Generator : MonoBehaviour
     {
         if (other.gameObject.CompareTag("ElectricAbility"))
         {
+            print("here");
             Color color = HexToColor("FFFFFF");
             renderer.material.color = color;
         }

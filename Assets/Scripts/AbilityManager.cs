@@ -61,6 +61,7 @@ public class AbilityManager : MonoBehaviour
         flare.SetActive(false);
         flame.SetActive(false);
         UIActiveFire.SetActive(false);
+        magnetForm.SetActive(false);
         playerMovement.setSpeed(5f);
     }
     

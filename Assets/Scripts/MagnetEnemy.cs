@@ -19,6 +19,7 @@ public class MagnetEnemy : MonoBehaviour
     private GameObject newradius;
 
     private float health = 5f;
+    private ShowDamage showDamage;
 
 
 
@@ -27,6 +28,7 @@ public class MagnetEnemy : MonoBehaviour
     {
         StartCoroutine(AttractRoutine());
         abilityManager = player.GetComponent<AbilityManager>();
+        showDamage = GetComponent<ShowDamage>();
     }
 
     private IEnumerator AttractRoutine()
@@ -78,11 +80,10 @@ public class MagnetEnemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        
-
         if (health > 0)
         {
             health -= damage;
+            showDamage.TurnRed();
             print(health);
         }
         if (health <= 0)
@@ -93,8 +94,8 @@ public class MagnetEnemy : MonoBehaviour
             Color color = HexToColor("372E2E");
             GetComponent<Renderer>().material.color = color;
         }
-
     }
+    
     private Color HexToColor(string hex)
     {
         Color color = Color.black;
