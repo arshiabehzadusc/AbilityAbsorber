@@ -6,11 +6,11 @@ public class Generator : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private Renderer renderer;
+    private SpriteRenderer renderer;
 
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        renderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame

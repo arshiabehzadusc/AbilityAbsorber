@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 70344923}
   - component: {fileID: 70344922}
   - component: {fileID: 70344921}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Return Switch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2364,6 +2364,18 @@ PrefabInstance:
     - target: {fileID: 1328985698849866509, guid: b49bcec0c4a45447cb1121239bbe3bbf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545228036549848537, guid: b49bcec0c4a45447cb1121239bbe3bbf, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545228036549848537, guid: b49bcec0c4a45447cb1121239bbe3bbf, type: 3}
+      propertyPath: m_Color.g
+      value: 0.18039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545228036549848537, guid: b49bcec0c4a45447cb1121239bbe3bbf, type: 3}
+      propertyPath: m_Color.r
+      value: 0.2627451
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b49bcec0c4a45447cb1121239bbe3bbf, type: 3}
@@ -15531,7 +15543,7 @@ GameObject:
   - component: {fileID: 579658002}
   - component: {fileID: 579658001}
   - component: {fileID: 579658000}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room Switch1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19983,7 +19995,7 @@ GameObject:
   - component: {fileID: 1373895909}
   - component: {fileID: 1373895908}
   - component: {fileID: 1373895907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Return Switch1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20803,7 +20815,7 @@ GameObject:
   - component: {fileID: 1628368957}
   - component: {fileID: 1628368959}
   - component: {fileID: 1628368958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room Switch3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21428,7 +21440,7 @@ GameObject:
   - component: {fileID: 1725486752}
   - component: {fileID: 1725486754}
   - component: {fileID: 1725486753}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Return Switch3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25815,7 +25827,7 @@ GameObject:
   - component: {fileID: 2008648104}
   - component: {fileID: 2008648103}
   - component: {fileID: 2008648102}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Room Switch2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
