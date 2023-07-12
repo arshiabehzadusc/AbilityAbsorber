@@ -31,9 +31,9 @@ public class AbilityManager : MonoBehaviour
         unlockedAbilities["fire"] = false; //TODO change back to false
         unlockedAbilities["screech"] = false; //TODO change back to false
         unlockedAbilities["glue"] = false;
-        unlockedAbilities["ram"] = true;
+        unlockedAbilities["ram"] = false;
         unlockedAbilities["electric"] = false;
-        unlockedAbilities["magnet"] = true;
+        unlockedAbilities["magnet"] = false;
         unlockedAbilities["stealth"] = false;
 
         playerController = GetComponent<PlayerController>();
@@ -158,6 +158,8 @@ public class AbilityManager : MonoBehaviour
             checkNearbyAbilityAvailable("RockEnemy", "ram");
             checkNearbyAbilityAvailable("Electronic", "electric");
             checkNearbyAbilityAvailable("Magnet", "magnet");
+            checkNearbyAbilityAvailable("Tombstone", "stealth");
+
         }
 
         
@@ -191,6 +193,8 @@ public class AbilityManager : MonoBehaviour
                     messageToPlayer.DisplayAbilityUnlocked("electric", 5);
                 if (ability.Equals("magnet"))
                     messageToPlayer.DisplayAbilityUnlocked("magnet", 6);
+                if (ability.Equals("stealth"))
+                    messageToPlayer.DisplayAbilityUnlocked("stealth", 7);
                 //if ghost ability is chosen in the ability selection ui , then display a message 
             }
         }
