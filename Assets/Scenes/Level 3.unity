@@ -1438,7 +1438,7 @@ GameObject:
   - component: {fileID: 192558884}
   - component: {fileID: 192558883}
   - component: {fileID: 192558882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (32x32)_1 (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -19527,7 +19527,7 @@ GameObject:
   - component: {fileID: 1340393803}
   - component: {fileID: 1340393802}
   - component: {fileID: 1340393801}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (32x32)_1
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -19638,7 +19638,7 @@ GameObject:
   - component: {fileID: 1340419034}
   - component: {fileID: 1340419033}
   - component: {fileID: 1340419032}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (32x32)_1 (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -26515,9 +26515,9 @@ GameObject:
   - component: {fileID: 2111437728}
   - component: {fileID: 2111437730}
   - component: {fileID: 2111437731}
-  m_Layer: 0
-  m_Name: gate-closed
-  m_TagString: Untagged
+  m_Layer: 6
+  m_Name: Gate
+  m_TagString: Gate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
