@@ -11,6 +11,7 @@ public class Level1BannerController : MonoBehaviour
     public GameObject EnemiesBanner;
     public GameObject BossEnemyBanner;
     public GameObject RiverBanner;
+    public GameObject PuzzleBanner;
     public AbilityManager abilityManager; // Assuming this is set in the inspector.
     private bool fireAbilityUnlocked = false;
 
@@ -88,6 +89,12 @@ public class Level1BannerController : MonoBehaviour
             if (BossEnemyBanner.activeInHierarchy)
             {
                 BossEnemyBanner.SetActive(false);
+                Time.timeScale = 1;
+            }
+
+            if (PuzzleBanner.activeInHierarchy)
+            {
+                PuzzleBanner.SetActive(false);
                 Time.timeScale = 1;
             }
         }

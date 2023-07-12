@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1328985698849866509}
   - component: {fileID: 6545228036549848537}
   - component: {fileID: 188972223858731849}
+  - component: {fileID: 4981367756856920288}
   m_Layer: 0
   m_Name: electric-generator-placed 1
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 030498c8f32eb4099b27385f9997a5f5, type: 3}
-  m_Color: {r: 0.254717, g: 0.13576895, b: 0.13576895, a: 1}
+  m_Color: {r: 0.26415092, g: 0.18042006, b: 0.18042006, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -111,3 +112,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.6535797, y: 3.679493}
   m_EdgeRadius: 0
+--- !u!114 &4981367756856920288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328382207276950695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8b00aae9a184e043ba179635462c152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

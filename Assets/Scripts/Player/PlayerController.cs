@@ -74,9 +74,9 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("SpinningHazard")) {
             TakeDamage(3f, "SpinningHazard");
         }
-        if (collision.gameObject.CompareTag("MagnetEnemy")) {
+        if (collision.gameObject.CompareTag("Magnet")) {
             if (abilityManager.getSelectedAbility() == "electric") {
-                TakeDamage(3f, "MagnetEnemy");
+                TakeDamage(3f, "Magnet");
             }
         }
     }
