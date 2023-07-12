@@ -691,6 +691,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GluePuddle
       objectReference: {fileID: 0}
+    - target: {fileID: 6811247709240558490, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5529412
+      objectReference: {fileID: 0}
     - target: {fileID: 9222852712472904227, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -14407,6 +14411,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GluePuddle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6811247709240558490, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.56078434
+      objectReference: {fileID: 0}
     - target: {fileID: 9222852712472904227, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -19395,6 +19403,10 @@ PrefabInstance:
     - target: {fileID: 238827760759656855, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
       propertyPath: m_Name
       value: GluePuddle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811247709240558490, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.5294118
       objectReference: {fileID: 0}
     - target: {fileID: 9222852712472904227, guid: cf2ef30c57c0a914f9fef307fa5d8c7e, type: 3}
       propertyPath: m_RootOrder
