@@ -33,7 +33,7 @@ public class Thunder : MonoBehaviour
         // Check if player is close enough
         if (!isBroken && Vector2.Distance(player.transform.position, transform.position) <= proximityThreshold)
         {
-            if (abilityManager.getSelectedAbility() == "ram") {
+            if (abilityManager.getSelectedAbility() == "ram" || abilityManager.getSelectedAbility() == "stealth") {
                 // Change sprite
                 if (spriteRenderer != null)
                 {

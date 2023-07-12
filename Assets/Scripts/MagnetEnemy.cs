@@ -49,7 +49,7 @@ public class MagnetEnemy : MonoBehaviour
     // for the attraction only
     void FixedUpdate()
     {
-        if (abilityManager.getSelectedAbility() == "electric") {
+        if (abilityManager.getSelectedAbility() == "electric" || abilityManager.getSelectedAbility() == "magnet") {
             if (newradius != null && !ReferenceEquals(newradius, null)) {
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, radius); // Adjust the radius as needed
 
