@@ -2390,7 +2390,8 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.2627451
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4981367756856920288, guid: b49bcec0c4a45447cb1121239bbe3bbf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b49bcec0c4a45447cb1121239bbe3bbf, type: 3}
 --- !u!1 &276461240 stripped
 GameObject:
@@ -21285,6 +21286,10 @@ PrefabInstance:
       propertyPath: MessageToPlayer
       value: 
       objectReference: {fileID: 48470611}
+    - target: {fileID: 1917396535, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2128046281, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_Name
       value: shockWaveSpawn
