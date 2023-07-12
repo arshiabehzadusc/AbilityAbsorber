@@ -33,7 +33,7 @@ public class Gate : MonoBehaviour
     {
         animator.SetBool("genTurnedOn", true);
         StartCoroutine(ReleaseWater());
-        Destroy(fireEnemy, 2f);
+        Destroy(fireEnemy, 3f);
     }
     
     IEnumerator ReleaseWater()
