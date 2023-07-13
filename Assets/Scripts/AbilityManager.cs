@@ -25,6 +25,8 @@ public class AbilityManager : MonoBehaviour
     public GameObject UIActiveRock;
     public GameObject UIActiveGlue;
     public GameObject UIActiveGhost;
+    public GameObject UIActiveElectric;
+    public GameObject UIActiveMagnet;
     private PlayerController playerController;
     public Healthbar healthBar;
     private PlayerMovement playerMovement;
@@ -58,6 +60,8 @@ public class AbilityManager : MonoBehaviour
         UIActiveRock.SetActive(false);
         UIActiveGlue.SetActive(false); 
         UIActiveGhost.SetActive(false);
+        UIActiveElectric.SetActive(false); 
+        UIActiveMagnet.SetActive(false);
     }
     
 
@@ -166,7 +170,6 @@ public class AbilityManager : MonoBehaviour
                 UIActiveGlue.SetActive(true);
                 healthBar.setHealthBar("glue",7f);
                 playerMovement.setSpeed(1f); // slow down
-
                 break;
             case "ram":
                 setAllFormsFalse();
@@ -186,6 +189,7 @@ public class AbilityManager : MonoBehaviour
                 selectedAbility = "electric";
                 Debug.Log("selected ability changed to " + selectedAbility);
                 electronicForm.SetActive(true);
+                UIActiveElectric.SetActive(true);
                 healthBar.setHealthBar("electric", 7f);
                 break;
 
@@ -196,6 +200,7 @@ public class AbilityManager : MonoBehaviour
                 selectedAbility = "magnet";
                 Debug.Log("selected ability changed to " + selectedAbility);
                 magnetForm.SetActive(true);
+                UIActiveMagnet.SetActive(true);
                 healthBar.setHealthBar("magnet", 7f);
                 break;
             case "stealth":

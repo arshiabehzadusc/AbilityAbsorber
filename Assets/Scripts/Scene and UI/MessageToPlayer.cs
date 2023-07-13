@@ -12,6 +12,9 @@ public class MessageToPlayer : MonoBehaviour
     public GameObject BatAbilityInfo;
     public GameObject RockAbilityInfo;
     public GameObject GlueAbilityInfo;
+    public GameObject StealthAbilityInfo;
+    public GameObject ElectricAbilityInfo;
+    public GameObject MagnetAbilityInfo;
     void Start()
     {
         textMeshProUI = GetComponent<TextMeshProUGUI>();
@@ -42,6 +45,21 @@ public class MessageToPlayer : MonoBehaviour
             RockAbilityInfo.SetActive(true);
             Invoke("HideRockAbilityInfo", 4f); // Set BatAbilityInfo to inactive after 4 seconds
         }
+        if(new_ability=="stealth")
+        {
+            StealthAbilityInfo.SetActive(true);
+            Invoke("HideStealthAbilityInfo", 4f); // Set BatAbilityInfo to inactive after 4 seconds
+        }
+        if(new_ability=="electric")
+        {
+            ElectricAbilityInfo.SetActive(true);
+            Invoke("HideElectricAbilityInfo", 4f); // Set BatAbilityInfo to inactive after 4 seconds
+        }
+        if(new_ability=="magnet")
+        {
+            MagnetAbilityInfo.SetActive(true);
+            Invoke("HideMagnetAbilityInfo", 4f); // Set BatAbilityInfo to inactive after 4 seconds
+        }
         Invoke("Clear", 3f);
         Invoke("HideArrow", 3f); // Set arrow to inactive after 3 seconds
     }
@@ -63,6 +81,18 @@ public class MessageToPlayer : MonoBehaviour
     private void HideGlueAbilityInfo()
     {
         GlueAbilityInfo.SetActive(false);
+    }
+     private void HideStealthAbilityInfo()
+    {
+        StealthAbilityInfo.SetActive(false);
+    }
+     private void HideElectricAbilityInfo()
+    {
+        ElectricAbilityInfo.SetActive(false);
+    }
+     private void HideMagnetAbilityInfo()
+    {
+        MagnetAbilityInfo.SetActive(false);
     }
 
 
