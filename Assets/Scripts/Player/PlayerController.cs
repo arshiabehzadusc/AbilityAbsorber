@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private RockAbility rockAbility;
     public PlayerMovement playerMov;
     private AbilityManager abilityManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -93,6 +94,13 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage, string enemy)
     {
+        ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
+        
+        foreach(ShowDamage showDamage in showDamages)
+        {
+            showDamage.TurnRed();
+        }
+        
         if (isBat)
         {
             if (batHealth > 0)

@@ -35,7 +35,7 @@ public class MagnetEnemy : MonoBehaviour
     {
         while (isAlive)
         {
-            Debug.Log("using magnet radius ability");
+            //Debug.Log("using magnet radius ability");
  
             // create circle magnet radius
             Vector2 spawnPosition = transform.position;
