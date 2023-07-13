@@ -29,11 +29,12 @@ public class AbilityManager : MonoBehaviour
     public Healthbar healthBar;
     private PlayerMovement playerMovement;
     public List<string> abilityInventory = new List<string>();
+   
 
     void Start() {
         playerController = GetComponent<PlayerController>();
         playerMovement = GetComponent<PlayerMovement>();
-        healthBar.setHealthBar("None", 7);
+        healthBar.setHealthBar("none", 7);
     }
 
     public string getSelectedAbility() {
@@ -141,7 +142,7 @@ public class AbilityManager : MonoBehaviour
                 flare.SetActive(true);
                 flame.SetActive(true);
                 UIActiveFire.SetActive(true);
-                healthBar.setHealthBar("fire", 7);
+                healthBar.setHealthBar("fire", 7f);
                 break;
             case "screech":
                 setAllFormsFalse();
@@ -151,7 +152,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 batForm.SetActive(true);
                 playerController.isBat = true;
-                healthBar.setHealthBar("bat",2);
+                healthBar.setHealthBar("screech",2f);
                 UIActiveBat.SetActive(true);
                 break;
             case "glue":
@@ -162,7 +163,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 glueForm.SetActive(true);
                 UIActiveGlue.SetActive(true);
-                healthBar.setHealthBar("glue",7);
+                healthBar.setHealthBar("glue",7f);
                 playerMovement.setSpeed(1f); // slow player down (must reset after if turn into something else)
 
                 break;
@@ -174,7 +175,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 rockForm.SetActive(true);
                 UIActiveRock.SetActive(true);
-                healthBar.setHealthBar("ram", 7);
+                healthBar.setHealthBar("ram", 7f);
                 break;
 
             case "electric":
@@ -184,7 +185,7 @@ public class AbilityManager : MonoBehaviour
                 selectedAbility = "electric";
                 Debug.Log("selected ability changed to " + selectedAbility);
                 electronicForm.SetActive(true);
-                healthBar.setHealthBar("electric", 7);
+                healthBar.setHealthBar("electric", 7f);
                 break;
 
             case "magnet":
@@ -194,7 +195,7 @@ public class AbilityManager : MonoBehaviour
                 selectedAbility = "magnet";
                 Debug.Log("selected ability changed to " + selectedAbility);
                 magnetForm.SetActive(true);
-                healthBar.setHealthBar("magnet", 7);
+                healthBar.setHealthBar("magnet", 7f);
                 break;
             case "stealth":
                 setAllFormsFalse();
@@ -204,7 +205,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 ghostForm.SetActive(true);
                 UIActiveGhost.SetActive(true);
-                healthBar.setHealthBar("stealth", 12);
+                healthBar.setHealthBar("stealth", 12f);
                 break;
         }
     }

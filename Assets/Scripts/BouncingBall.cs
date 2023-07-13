@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BouncingBall : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class BouncingBall : MonoBehaviour
     private Vector2 targetPosition;
     private Rigidbody2D rb;
     private bool hasCollided = false;
+     
 
     void Start()
     {
@@ -40,12 +44,16 @@ public class BouncingBall : MonoBehaviour
             hasCollided = true;
         }
 
-        if (collision.gameObject.CompareTag("Glue"))
+        if (collision.gameObject.CompareTag("Glue")&& collision.gameObject.name!="GluePuddle1")
         {
             Debug.Log("Ball stuck in glue");
             isCollidingWithGlue = true;
             speed = 0f;
-            
+            GameObject closed_door = GameObject.Find("Closed door");
+           
+            Destroy(closed_door);
+           
+
         }
     }
 

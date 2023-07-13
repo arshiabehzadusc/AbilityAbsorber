@@ -19,25 +19,17 @@ public class Healthbar : MonoBehaviour
 
     void Update()
     {
-
-        if (ability == "bat")
-        {
-            slider.value = playerHealth.batHealth;
-        }
-        else
-        {
-            slider.value = playerHealth.health;
-        }
+        slider.value = playerHealth.healthLevels[ability];
     }
 
-    public void setHealthBar(string ability, int maxHealth)
+    public void setHealthBar(string ability, float maxHealth)
     {
         this.ability = ability;
         slider.maxValue = maxHealth;
         RectTransform backgroundRT = slider.transform.Find("Background").GetComponent<RectTransform>();
         RectTransform fillAreaRT = slider.transform.Find("Fill Area").GetComponent<RectTransform>();
-        backgroundRT.offsetMax = new Vector2(20 * maxHealth, backgroundRT.offsetMax.y); // -50 is the new "right" value, keep the original "top" value
-        fillAreaRT.offsetMax = new Vector2(20 * maxHealth, fillAreaRT.offsetMax.y);
+        backgroundRT.offsetMax = new Vector2(25 * maxHealth, backgroundRT.offsetMax.y); // -50 is the new "right" value, keep the original "top" value
+        fillAreaRT.offsetMax = new Vector2(25 * maxHealth, fillAreaRT.offsetMax.y);
 
     }
 }
