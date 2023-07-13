@@ -14,7 +14,7 @@ public class BouncingBall : MonoBehaviour
     private Vector2 targetPosition;
     private Rigidbody2D rb;
     private bool hasCollided = false;
-     
+    private int count=0; 
 
     void Start()
     {
@@ -48,12 +48,15 @@ public class BouncingBall : MonoBehaviour
         {
             Debug.Log("Ball stuck in glue");
             isCollidingWithGlue = true;
-            speed = 0f;
+            speed = 0f;rb.velocity = Vector2.zero;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            count++;
+        }
+        if(count>=1)
+        {
             GameObject closed_door = GameObject.Find("Closed door");
            
             Destroy(closed_door);
-           
-
         }
     }
 

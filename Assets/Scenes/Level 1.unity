@@ -1145,7 +1145,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1290503143}
         m_TargetAssemblyTypeName: PauseMenuController, Assembly-CSharp
         m_MethodName: GoToMainMenu
         m_Mode: 1
@@ -18661,7 +18661,7 @@ GameObject:
   - component: {fileID: 1018771157}
   m_Layer: 0
   m_Name: Fire wall
-  m_TagString: Untagged
+  m_TagString: FireWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19840,7 +19840,7 @@ GameObject:
   - component: {fileID: 1162071785}
   m_Layer: 0
   m_Name: Unlit Torch 1
-  m_TagString: Untagged
+  m_TagString: Torch1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20583,7 +20583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244888645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 33.61, y: -1.4475659, z: 0.049347453}
+  m_LocalPosition: {x: 33.72, y: -1.4475659, z: 0.049347453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22407,6 +22407,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8810536090811255726, guid: 7a3827ede394c7943a4ec3ff8f252c19, type: 3}
+      propertyPath: m_Size.x
+      value: 1.0339546
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810536090811255726, guid: 7a3827ede394c7943a4ec3ff8f252c19, type: 3}
+      propertyPath: m_Size.y
+      value: 1.2160256
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810536090811255726, guid: 7a3827ede394c7943a4ec3ff8f252c19, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.01697731
+      objectReference: {fileID: 0}
+    - target: {fileID: 8810536090811255726, guid: 7a3827ede394c7943a4ec3ff8f252c19, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.009819359
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3827ede394c7943a4ec3ff8f252c19, type: 3}
 --- !u!1 &1583457426
@@ -22738,7 +22754,7 @@ GameObject:
   - component: {fileID: 1651565090}
   m_Layer: 0
   m_Name: Unlit Torch 2
-  m_TagString: Untagged
+  m_TagString: Torch2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28332,7 +28348,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6257651749798134506, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -21.499792
+      value: -17.58
       objectReference: {fileID: 0}
     - target: {fileID: 6257651749798134506, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -28384,6 +28400,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
+--- !u!1 &1904546731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1904546732}
+  m_Layer: 0
+  m_Name: wood position
+  m_TagString: woodblock
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1904546732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1904546731}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 36.26, y: -0.43, z: -0.83284545}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1906178540
 GameObject:
   m_ObjectHideFlags: 0
@@ -29704,7 +29751,7 @@ GameObject:
   - component: {fileID: 2083649266}
   m_Layer: 0
   m_Name: woodblock
-  m_TagString: woodblock
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30036,6 +30083,8 @@ MonoBehaviour:
   playerMov: {fileID: 1917396547}
   focusOnObject: 0
   targetObject: {fileID: 0}
+  zoomSpeed: 2
+  zoomedSize: 4
 --- !u!114 &2108451820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30527,11 +30576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6257651749798134506, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.679792
+      value: -20.09
       objectReference: {fileID: 0}
     - target: {fileID: 6257651749798134506, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.65897
+      value: 15.57
       objectReference: {fileID: 0}
     - target: {fileID: 6257651749798134506, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
       propertyPath: m_LocalPosition.z

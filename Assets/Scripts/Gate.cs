@@ -12,7 +12,7 @@ public class Gate : MonoBehaviour
     public float dryTime = 2f;
     private Vector3 initialScale;
     private Vector3 targetScale;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +33,13 @@ public class Gate : MonoBehaviour
     {
         animator.SetBool("genTurnedOn", true);
         StartCoroutine(ReleaseWater());
-        Destroy(fireEnemy, 3f);
+        StartCoroutine(DeactivateAfterDelay(fireEnemy, 3f));
+    }
+
+    IEnumerator DeactivateAfterDelay(GameObject target, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        target.SetActive(false);
     }
     
     IEnumerator ReleaseWater()
@@ -58,7 +64,6 @@ public class Gate : MonoBehaviour
         while (elapsedTime < dryTime)
         {
             elapsedTime += Time.deltaTime;
-            print(elapsedTime);
             float alpha = Mathf.Lerp(1f, 0f, elapsedTime / dryTime);
             waterSR.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
             yield return null;

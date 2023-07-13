@@ -73,6 +73,14 @@ public class Level1BannerController : MonoBehaviour
             {
                 EnemiesBanner.SetActive(false);
                 Time.timeScale = 1;
+                /*CameraMovement cameraMovement = Camera.main.GetComponent<CameraMovement>();
+
+                if (cameraMovement != null)
+                {
+                    cameraMovement.targetObject = GameObject.FindGameObjectWithTag("BatEnemy");
+                    cameraMovement.focusOnObject = true;
+                    Debug.Log("Bats set to be focused upon");
+                }*/
             }
         
             if (AbilityBanner.activeInHierarchy)
@@ -80,33 +88,41 @@ public class Level1BannerController : MonoBehaviour
                 AbilityBanner.SetActive(false);
                 Time.timeScale = 1;
                 // Focus camera on the 'woodblock' GameObject
-                CameraMovement cameraMovement = Camera.main.GetComponent<CameraMovement>();
-
-                if (cameraMovement != null)
-                {
-                    cameraMovement.targetObject = GameObject.FindGameObjectWithTag("woodblock");
-                    cameraMovement.focusOnObject = true;
-                    Debug.Log("Woodblock set to be focused upon");
-                }  
-                            
+                
+                      
             }
 
             if (RiverBanner.activeInHierarchy)
             {
                 RiverBanner.SetActive(false);
                 Time.timeScale = 1;
+               CameraMovement cameraMovement = Camera.main.GetComponent<CameraMovement>();
+                if (cameraMovement != null)
+                {
+                    cameraMovement.targetObject = GameObject.FindGameObjectWithTag("FireWall");
+                    cameraMovement.focusOnObject = true;
+                    Debug.Log("Firewall set to be focused upon");
+                }
             }
 
             if (BossEnemyBanner.activeInHierarchy)
             {
                 BossEnemyBanner.SetActive(false);
                 Time.timeScale = 1;
+                CameraMovement cameraMovement = Camera.main.GetComponent<CameraMovement>();
+                if (cameraMovement != null)
+                {
+                    cameraMovement.targetObject = GameObject.FindGameObjectWithTag("BatEnemy");
+                    cameraMovement.focusOnObject = true;
+                    Debug.Log("Boss Bat set to be focused upon");
+                }
             }
 
             if (PuzzleBanner.activeInHierarchy)
             {
                 PuzzleBanner.SetActive(false);
                 Time.timeScale = 1;
+                
             }
         }
 
