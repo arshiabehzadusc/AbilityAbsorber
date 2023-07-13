@@ -37044,8 +37044,6 @@ MonoBehaviour:
   roamAreaMax: {x: 119.11, y: -4.06}
   is_corpse: 0
   tombstonePrefab: {fileID: 2869821382408301141, guid: 2e865080dc6521c4b8871543c46dc53d, type: 3}
-  hostileMarker: {fileID: 0}
-  showDamage: {fileID: 0}
 --- !u!50 &1868996568
 Rigidbody2D:
   serializedVersion: 4

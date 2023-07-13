@@ -268,7 +268,10 @@ public class AbilityManager : MonoBehaviour
             else
             {
                 if (abilityObject.GetComponent<GlowWhenNear>() != null)
+                {
                     abilityObject.GetComponent<GlowWhenNear>().glow = false;
+                    abilityObject.GetComponent<GlowWhenNear>().reset();
+                }
             }
         }
     }
