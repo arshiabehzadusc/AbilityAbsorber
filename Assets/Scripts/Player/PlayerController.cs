@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private RockAbility rockAbility;
     public PlayerMovement playerMov;
     private AbilityManager abilityManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,18 +65,16 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player dealt damage to ghost by ramming");
             ghostEnemy.TakeDamage(1.0f);
         }
-         if (collision.gameObject.CompareTag("Diamond")  &&  abilityManager.getSelectedAbility() == "ram" && rockAbility.isRushing == true)
+        if (collision.gameObject.CompareTag("Diamond")  &&  abilityManager.getSelectedAbility() == "ram" && rockAbility.isRushing == true)
         {    
             Debug.Log("Player took damage by ramming into diamond");
             TakeDamage(0.5f,"Diamond");
         }
-        
-        
         if (collision.gameObject.CompareTag("SpinningHazard")) {
             TakeDamage(3f, "SpinningHazard");
         }
         if (collision.gameObject.CompareTag("Magnet")) {
-            if (abilityManager.getSelectedAbility() == "electric") {
+            if (abilityManager.getSelectedAbility() == "electric" && collision.gameObject.GetComponent<MagnetEnemy>().getIsAlive() == true) {
                 TakeDamage(3f, "Magnet");
             }
         }
@@ -95,6 +94,13 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage, string enemy)
     {
+        ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
+        
+        foreach(ShowDamage showDamage in showDamages)
+        {
+            showDamage.TurnRed();
+        }
+        
         if (isBat)
         {
             if (batHealth > 0)

@@ -1803,6 +1803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 201599099}
   - component: {fileID: 201599100}
+  - component: {fileID: 201599101}
   m_Layer: 8
   m_Name: Player Magnet Form
   m_TagString: Untagged
@@ -1877,6 +1878,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &201599101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201599098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &208692914
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,6 +3019,7 @@ GameObject:
   m_Component:
   - component: {fileID: 340107424}
   - component: {fileID: 340107425}
+  - component: {fileID: 340107426}
   m_Layer: 8
   m_Name: 'Player Electric form '
   m_TagString: Untagged
@@ -3080,6 +3094,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &340107426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340107423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &367621769
 GameObject:
   m_ObjectHideFlags: 0
@@ -15339,6 +15365,7 @@ GameObject:
   - component: {fileID: 528601713}
   - component: {fileID: 528601715}
   - component: {fileID: 528601716}
+  - component: {fileID: 528601717}
   m_Layer: 8
   m_Name: Player Ghost form
   m_TagString: Untagged
@@ -15434,6 +15461,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &528601717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528601712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &574610226
 GameObject:
   m_ObjectHideFlags: 0
@@ -16605,6 +16644,7 @@ GameObject:
   m_Component:
   - component: {fileID: 791506976}
   - component: {fileID: 791506977}
+  - component: {fileID: 791506978}
   m_Layer: 8
   m_Name: Player rock form
   m_TagString: Untagged
@@ -16679,6 +16719,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &791506978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791506975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &791510740
 GameObject:
   m_ObjectHideFlags: 0
@@ -20711,6 +20763,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1510237761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1135979359, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+  m_PrefabInstance: {fileID: 1702251462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1510237765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510237761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1561651419
 GameObject:
   m_ObjectHideFlags: 0
@@ -25389,6 +25458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1887007503}
   - component: {fileID: 1887007504}
+  - component: {fileID: 1887007505}
   m_Layer: 8
   m_Name: Player Glue form
   m_TagString: Untagged
@@ -25463,6 +25533,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1887007505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887007502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1917396524 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8068589428734277748, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
@@ -26579,6 +26661,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.67, y: 1.6}
   m_EdgeRadius: 0
+--- !u!1 &2070124815 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 920880404, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+  m_PrefabInstance: {fileID: 1702251462}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2070124818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2070124815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2084373769
 PrefabInstance:
   m_ObjectHideFlags: 0
