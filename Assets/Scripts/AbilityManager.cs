@@ -31,7 +31,6 @@ public class AbilityManager : MonoBehaviour
     public Healthbar healthBar;
     private PlayerMovement playerMovement;
     public List<string> abilityInventory = new List<string>();
-   
 
     void Start() {
         playerController = GetComponent<PlayerController>();
@@ -135,7 +134,12 @@ public class AbilityManager : MonoBehaviour
 
     public void switchAbility(string selectedAbility)
     {
-         switch (selectedAbility)
+        ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
+        foreach(ShowDamage showDamage in showDamages)
+        {
+            showDamage.resetColor();
+        }
+        switch (selectedAbility)
         {
             case "fire":
                 setAllFormsFalse();
