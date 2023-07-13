@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     private RockAbility rockAbility;
     public PlayerMovement playerMov;
     private AbilityManager abilityManager;
+
+    public Dictionary<string, float> healthLevels;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,15 @@ public class PlayerController : MonoBehaviour
         }
         rockAbility = GetComponent<RockAbility>();
         abilityManager = GetComponent<AbilityManager>();
+        healthLevels = new Dictionary<string, float>();
+        healthLevels.Add("none", 7f);
+        healthLevels.Add("fire", 7f);
+        healthLevels.Add("screech", 2f);
+        healthLevels.Add("glue", 7f);
+        healthLevels.Add("ram", 7f);
+        healthLevels.Add("electric", 7f);
+        healthLevels.Add("magnet", 7f);
+        healthLevels.Add("stealth", 12f);
     }
 
     public float getHealthy()
@@ -95,38 +106,21 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage, string enemy)
     {
-        if (isBat)
+        string ability = abilityManager.getSelectedAbility();
+        if (healthLevels[ability] > 0)
         {
-            if (batHealth > 0)
-            {
-                batHealth -= damage;
-                pmc.isDead = true;
-                //healthLabel.text = "Health: " + health;
-                Debug.Log("Bat Health" + batHealth);
-            }
-            if (batHealth <= 0)
-            {
-                messageToPlayer.DisplayDied();
-                Vector2 playerposition = transform.position;
-                sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
-                gameObject.SetActive(false);
-            }
+            float new_health = healthLevels[ability] - damage;
+            healthLevels[ability] = new_health;
+            pmc.isDead = true;
+            //healthLabel.text = "Health: " + health;
+            Debug.Log("Bat Health" + batHealth);
         }
-        else
+        if (healthLevels[ability] <= 0)
         {
-            if (health > 0)
-            {
-                health -= damage;
-                //healthLabel.text = "Health: " + health;
-            }
-            if (health <= 0)
-            {
-                messageToPlayer.DisplayDied();
-                pmc.isDead = true;
-                Vector2 playerposition = transform.position;
-                sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
-                gameObject.SetActive(false);
-            }
+            messageToPlayer.DisplayDied();
+            Vector2 playerposition = transform.position;
+            sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
+            gameObject.SetActive(false);
         }
     }
 }
