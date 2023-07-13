@@ -31,6 +31,8 @@ public class AbilitySelectionManager : MonoBehaviour
         {
             Destroy(toRemoveObject);
             Destroy(GameObject.Find("Megaphone2"));
+            Destroy(GameObject.Find("Megaphone3"));
+            Destroy(GameObject.Find("Megaphone4"));
             Debug.Log("Megaphone gameobject deleted");
         }
         else
@@ -55,6 +57,9 @@ public class AbilitySelectionManager : MonoBehaviour
             Destroy(toRemoveObject);
             Destroy(GameObject.Find("Dynamite2"));
             Destroy(GameObject.Find("Dynamite3"));
+            Destroy(GameObject.Find("Dynamite4"));
+            Destroy(GameObject.Find("Dynamite5"));
+            Destroy(GameObject.Find("Dynamite6"));
             Debug.Log("Dynamite gameobject deleted");
         }
         else
