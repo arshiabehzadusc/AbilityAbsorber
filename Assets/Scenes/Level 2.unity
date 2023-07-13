@@ -20621,7 +20621,7 @@ MonoBehaviour:
   StealthAbilityInfo: {fileID: 338499573}
   ElectricAbilityInfo: {fileID: 666562933}
   MagnetAbilityInfo: {fileID: 926561487}
-  PlayerDeadMenu: {fileID: 0}
+  PlayerDeadMenu: {fileID: 1807442135}
 --- !u!114 &415051011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28071,6 +28071,7 @@ GameObject:
   - component: {fileID: 1351150577}
   - component: {fileID: 1351150578}
   - component: {fileID: 1351150579}
+  - component: {fileID: 1351150580}
   m_Layer: 0
   m_Name: Rock_Enemy
   m_TagString: RockEnemy
@@ -28212,6 +28213,21 @@ MonoBehaviour:
   maxLives: 3
   renderer: {fileID: 0}
   player: {fileID: 1917396524}
+--- !u!114 &1351150580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351150574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowAmount: 0.1
+  glowSpeed: 2
+  glow: 0
 --- !u!1001 &1353925356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39364,6 +39380,7 @@ GameObject:
   - component: {fileID: 2056135813}
   - component: {fileID: 2056135812}
   - component: {fileID: 2056135811}
+  - component: {fileID: 2056135815}
   m_Layer: 0
   m_Name: GluePuddle2
   m_TagString: Glue
@@ -39467,6 +39484,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2056135815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2056135810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowAmount: 0.1
+  glowSpeed: 2
+  glow: 0
 --- !u!1 &2064857093
 GameObject:
   m_ObjectHideFlags: 0
@@ -40353,6 +40385,7 @@ GameObject:
   - component: {fileID: 6811247709901341098}
   - component: {fileID: 124288178}
   - component: {fileID: 1210279331870515123}
+  - component: {fileID: 9222852710969425940}
   m_Layer: 0
   m_Name: GluePuddle1
   m_TagString: Glue
@@ -40523,3 +40556,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9222852710969425940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238827760065319847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowAmount: 0.1
+  glowSpeed: 2
+  glow: 0
