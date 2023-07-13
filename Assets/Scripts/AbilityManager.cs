@@ -142,7 +142,7 @@ public class AbilityManager : MonoBehaviour
                 flare.SetActive(true);
                 flame.SetActive(true);
                 UIActiveFire.SetActive(true);
-                healthBar.setHealthBar("fire", 7f);
+                healthBar.setHealthBar("fire", 10f);
                 break;
             case "screech":
                 setAllFormsFalse();
@@ -154,6 +154,7 @@ public class AbilityManager : MonoBehaviour
                 playerController.isBat = true;
                 healthBar.setHealthBar("screech",2f);
                 UIActiveBat.SetActive(true);
+                playerMovement.setSpeed(8f); // speed up 
                 break;
             case "glue":
                 setAllFormsFalse();
@@ -164,7 +165,7 @@ public class AbilityManager : MonoBehaviour
                 glueForm.SetActive(true);
                 UIActiveGlue.SetActive(true);
                 healthBar.setHealthBar("glue",7f);
-                playerMovement.setSpeed(1f); // slow player down (must reset after if turn into something else)
+                playerMovement.setSpeed(1f); // slow down
 
                 break;
             case "ram":
