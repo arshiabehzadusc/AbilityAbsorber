@@ -315,6 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 62785451}
   - component: {fileID: 62785450}
+  - component: {fileID: 62785452}
   m_Layer: 0
   m_Name: Player rock form
   m_TagString: Untagged
@@ -389,6 +390,18 @@ Transform:
   m_Father: {fileID: 1917396527}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &62785452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62785449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &70344920
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +851,7 @@ GameObject:
   m_Component:
   - component: {fileID: 178122091}
   - component: {fileID: 178122090}
+  - component: {fileID: 178122092}
   m_Layer: 0
   m_Name: 'Player Electric form '
   m_TagString: Untagged
@@ -912,6 +926,18 @@ Transform:
   m_Father: {fileID: 1917396527}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &178122092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 178122089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &216949982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16408,6 +16434,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 920880404, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
   m_PrefabInstance: {fileID: 1702251462}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &571991144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571991143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &579657999
 GameObject:
   m_ObjectHideFlags: 0
@@ -19433,6 +19471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1136234427}
   - component: {fileID: 1136234428}
+  - component: {fileID: 1136234429}
   m_Layer: 0
   m_Name: Player Glue form
   m_TagString: Untagged
@@ -19507,6 +19546,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1136234429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136234426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1138112636
 GameObject:
   m_ObjectHideFlags: 0
@@ -21913,6 +21964,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1135979359, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
   m_PrefabInstance: {fileID: 1702251462}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1477782981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1477782980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1500693626
 GameObject:
   m_ObjectHideFlags: 0
@@ -22391,6 +22454,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1586634385}
   - component: {fileID: 1586634386}
+  - component: {fileID: 1586634387}
   m_Layer: 0
   m_Name: Player Magnet Form
   m_TagString: Untagged
@@ -22465,6 +22529,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1586634387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586634384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1628368956
 GameObject:
   m_ObjectHideFlags: 0
@@ -28711,6 +28787,7 @@ GameObject:
   - component: {fileID: 1953111941}
   - component: {fileID: 1953111943}
   - component: {fileID: 1953111942}
+  - component: {fileID: 1953111944}
   m_Layer: 0
   m_Name: Player Ghost form
   m_TagString: Untagged
@@ -28806,6 +28883,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1953111944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953111940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e70db853e9e542b6885fee8a49d999c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1959765456
 PrefabInstance:
   m_ObjectHideFlags: 0
