@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GhostAbility : MonoBehaviour
 {
+    public GameObject ghostForm;
+    private SpriteRenderer renderer;
 
     private AbilityManager abilityManager;
-    private Rigidbody2D player;
     private bool usingStealth = false;
     private Coroutine myCoroutine;
 
@@ -18,7 +19,7 @@ public class GhostAbility : MonoBehaviour
     void Start()
     {
         abilityManager = GetComponent<AbilityManager>();
-        player = GetComponent<Rigidbody2D>();
+        renderer = ghostForm.gameObject.GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -28,6 +29,7 @@ public class GhostAbility : MonoBehaviour
         {
             usingStealth = true;
             myCoroutine = StartCoroutine(DecreaseHealthGradually());
+
         }
         
         // Stop coroutine when spacebar is released
@@ -35,6 +37,15 @@ public class GhostAbility : MonoBehaviour
         {
             usingStealth = false;
             StopCoroutine(myCoroutine);
+            // reset ghost form to full opaque
+            Color c = renderer.color;
+            c.a = 1f;
+            renderer.color = c;
+            // reset player default form to opaque
+            c = GetComponent<SpriteRenderer>().color;
+            c.a = 1f;
+            GetComponent<SpriteRenderer>().color = c;
+
         }
     }
 
@@ -42,8 +53,17 @@ public class GhostAbility : MonoBehaviour
     {
         while (usingStealth)
         {
-            GetComponent<PlayerController>().TakeDamage(0.03f, "self-stealth");
-            yield return new WaitForSeconds(0.1f);
+            GetComponent<PlayerController>().TakeDamage(0.01f, "self-stealth");
+            // make ghost transparent
+            Color c = renderer.color;
+            c.a = 0.1f;
+            renderer.color = c;
+
+            // hide player default form (it's underneath all other forms)
+            c = GetComponent<SpriteRenderer>().color;
+            c.a = 0f;
+            GetComponent<SpriteRenderer>().color = c;
+            yield return new WaitForSeconds(0.01f);
         }
         
     }

@@ -30967,6 +30967,19 @@ MonoBehaviour:
   rushSpeed: 20
   rushDuration: 0.3
   isRushing: 0
+--- !u!114 &1917396578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917396524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245852221a3af084a88a8a6ee51c8bad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghostForm: {fileID: 881387598}
 --- !u!1 &1929968431
 GameObject:
   m_ObjectHideFlags: 0
@@ -31883,6 +31896,8 @@ MonoBehaviour:
   overviewEndPoint: {x: 67.31, y: 0.03}
   overviewSpeed: 0.4
   playerMov: {fileID: 1702251463}
+  focusOnObject: 0
+  targetObject: {fileID: 0}
 --- !u!114 &2108451820
 MonoBehaviour:
   m_ObjectHideFlags: 0
