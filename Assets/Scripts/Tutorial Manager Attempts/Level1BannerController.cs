@@ -13,11 +13,13 @@ public class Level1BannerController : MonoBehaviour
     public GameObject RiverBanner;
     public GameObject PuzzleBanner;
     public AbilityManager abilityManager; // Assuming this is set in the inspector.
+   
     private bool fireAbilityUnlocked = false;
 
     IEnumerator Start()
     {
         abilityManager = GetComponent<AbilityManager>();
+       
          // Get the currently active scene
         Scene currentScene = SceneManager.GetActiveScene();
         // Pause the game.
@@ -77,6 +79,16 @@ public class Level1BannerController : MonoBehaviour
             {
                 AbilityBanner.SetActive(false);
                 Time.timeScale = 1;
+                // Focus camera on the 'woodblock' GameObject
+                CameraMovement cameraMovement = Camera.main.GetComponent<CameraMovement>();
+
+                if (cameraMovement != null)
+                {
+                    cameraMovement.targetObject = GameObject.FindGameObjectWithTag("woodblock");
+                    cameraMovement.focusOnObject = true;
+                    Debug.Log("Woodblock set to be focused upon");
+                }  
+                            
             }
 
             if (RiverBanner.activeInHierarchy)
@@ -103,9 +115,10 @@ public class Level1BannerController : MonoBehaviour
         {
             // Display the ability banner.
             AbilityBanner.SetActive(true);
-            Time.timeScale = 0;
+            
             // Mark the fire ability as unlocked
-            fireAbilityUnlocked = true;
+            fireAbilityUnlocked = true;//already shown?Yes - so that the banner is not shown each time it is equipped
+            Time.timeScale = 0;
         }
             
     }

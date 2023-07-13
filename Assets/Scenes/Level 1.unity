@@ -1449,7 +1449,7 @@ GameObject:
   - component: {fileID: 348485065}
   - component: {fileID: 348485064}
   m_Layer: 0
-  m_Name: tree to be burned
+  m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1515,8 +1515,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348485061}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.250128, y: -2.4053383, z: -0.090435624}
-  m_LocalScale: {x: 0.43696564, y: 0.4629, z: 1}
+  m_LocalPosition: {x: 23.250128, y: -2.4053388, z: -0.090435624}
+  m_LocalScale: {x: 0.43696564, y: 0.46290004, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 375891083}
@@ -29602,7 +29602,7 @@ GameObject:
   - component: {fileID: 2083649266}
   m_Layer: 0
   m_Name: woodblock
-  m_TagString: Untagged
+  m_TagString: woodblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29932,6 +29932,8 @@ MonoBehaviour:
   overviewEndPoint: {x: 89.26, y: 0.04}
   overviewSpeed: 0.3
   playerMov: {fileID: 1917396547}
+  focusOnObject: 0
+  targetObject: {fileID: 0}
 --- !u!114 &2108451820
 MonoBehaviour:
   m_ObjectHideFlags: 0

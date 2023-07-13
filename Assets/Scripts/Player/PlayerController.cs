@@ -75,18 +75,16 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Player dealt damage to ghost by ramming");
             ghostEnemy.TakeDamage(1.0f);
         }
-         if (collision.gameObject.CompareTag("Diamond")  &&  abilityManager.getSelectedAbility() == "ram" && rockAbility.isRushing == true)
+        if (collision.gameObject.CompareTag("Diamond")  &&  abilityManager.getSelectedAbility() == "ram" && rockAbility.isRushing == true)
         {    
             Debug.Log("Player took damage by ramming into diamond");
             TakeDamage(0.5f,"Diamond");
         }
-        
-        
         if (collision.gameObject.CompareTag("SpinningHazard")) {
             TakeDamage(3f, "SpinningHazard");
         }
         if (collision.gameObject.CompareTag("Magnet")) {
-            if (abilityManager.getSelectedAbility() == "electric") {
+            if (abilityManager.getSelectedAbility() == "electric" && collision.gameObject.GetComponent<MagnetEnemy>().getIsAlive() == true) {
                 TakeDamage(3f, "Magnet");
             }
         }
@@ -109,11 +107,13 @@ public class PlayerController : MonoBehaviour
         string ability = abilityManager.getSelectedAbility();
         if (healthLevels[ability] > 0)
         {
+            ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
+            foreach(ShowDamage showDamage in showDamages)
+            {
+                showDamage.TurnRed();
+            }
             float new_health = healthLevels[ability] - damage;
             healthLevels[ability] = new_health;
-            pmc.isDead = true;
-            //healthLabel.text = "Health: " + health;
-            Debug.Log("Bat Health" + batHealth);
         }
         if (healthLevels[ability] <= 0)
         {
@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
             Vector2 playerposition = transform.position;
             sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
             gameObject.SetActive(false);
+            pmc.isDead = true;
         }
     }
 }

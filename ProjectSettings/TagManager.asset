@@ -33,6 +33,7 @@ TagManager:
   - DropZone
   - Tombstone
   - Gate
+  - woodblock
   layers:
   - Default
   - TransparentFX

@@ -62,8 +62,10 @@ public class AbilityManager : MonoBehaviour
     
 
     void Update() {
-        
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Alpha0)) {
+            setAllFormsFalse();
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             if (abilityInventory.Count > 0)
             {
