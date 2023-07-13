@@ -128,7 +128,7 @@ public class AbilityManager : MonoBehaviour
 
     // for example, check if campfire is nearby enough to absorb fire ability
 
-    void switchAbility(string selectedAbility)
+    public void switchAbility(string selectedAbility)
     {
          switch (selectedAbility)
         {
