@@ -120,9 +120,6 @@ public class RockEnemy : MonoBehaviour
         ColorUtility.TryParseHtmlString("#" + hex, out color);
         return color;
     }
-
-    public bool get_is_corpse() {
-        return is_corpse;
-    }
+    
 
 }
