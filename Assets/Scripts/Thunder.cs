@@ -14,7 +14,7 @@ public class Thunder : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private Sprite originalSprite;
-    private bool isBroken = false;
+    public bool isBroken = false;
 
     private AbilityManager abilityManager;
 

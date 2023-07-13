@@ -17899,6 +17899,8 @@ MonoBehaviour:
   arrow: {fileID: 1397944323}
   FireAbilityInfo: {fileID: 416022207}
   BatAbilityInfo: {fileID: 466901002}
+  RockAbilityInfo: {fileID: 0}
+  GlueAbilityInfo: {fileID: 0}
 --- !u!1 &874146474
 GameObject:
   m_ObjectHideFlags: 0
@@ -28386,7 +28388,7 @@ MonoBehaviour:
   BossEnemyBanner: {fileID: 170061674}
   RiverBanner: {fileID: 469293624}
   PuzzleBanner: {fileID: 798096385}
-  abilityManager: {fileID: 0}
+  abilityManager: {fileID: 1917396548}
 --- !u!114 &1917396546 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1917396530, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
@@ -28407,6 +28409,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b858b8900c6511646b4b491437764de6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1917396548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+  m_PrefabInstance: {fileID: 1702251462}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917396524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d602038d2f22b4e8acecfde3b335db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1918915436

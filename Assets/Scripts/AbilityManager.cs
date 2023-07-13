@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -66,6 +67,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 0)
             {
                 selectedAbility = abilityInventory[0];
+                switvhAbility(selectedAbility);
             }
         } 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -73,6 +75,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 1)
             {
                 selectedAbility = abilityInventory[1];
+                switvhAbility(selectedAbility);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -80,6 +83,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 2)
             {
                 selectedAbility = abilityInventory[2];
+                switvhAbility(selectedAbility);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
@@ -87,6 +91,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 3)
             {
                 selectedAbility = abilityInventory[3];
+                switvhAbility(selectedAbility);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
@@ -94,6 +99,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 4)
             {
                 selectedAbility = abilityInventory[4];
+                switvhAbility(selectedAbility);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
@@ -101,10 +107,28 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 5)
             {
                 selectedAbility = abilityInventory[5];
+                switvhAbility(selectedAbility);
             }
         }
-        
-        switch (selectedAbility)
+
+        // Absorb ability
+        if (Input.GetKeyDown(KeyCode.E)) {
+            checkNearbyAbilityAvailable("Campfire", "fire");
+            checkNearbyAbilityAvailable("BatEnemy", "screech");
+            checkNearbyAbilityAvailable("Glue", "glue");
+            checkNearbyAbilityAvailable("RockEnemy", "ram");
+            checkNearbyAbilityAvailable("Electronic", "electric");
+            checkNearbyAbilityAvailable("Magnet", "magnet");
+            checkNearbyAbilityAvailable("Tombstone", "stealth");
+
+        }
+    }
+
+    // for example, check if campfire is nearby enough to absorb fire ability
+
+    void switvhAbility(string selectedAbility)
+    {
+         switch (selectedAbility)
         {
             case "fire":
                 setAllFormsFalse();
@@ -112,7 +136,6 @@ public class AbilityManager : MonoBehaviour
                 // set everything to fire
                 selectedAbility = "fire";
                 Debug.Log("selected ability changed to " + selectedAbility);
-                print("here");
                 flare.SetActive(true);
                 flame.SetActive(true);
                 UIActiveFire.SetActive(true);
@@ -182,51 +205,72 @@ public class AbilityManager : MonoBehaviour
                 healthBar.setHealthBar("stealth", 12);
                 break;
         }
-       
-        // Absorb ability
-        if (Input.GetKeyDown(KeyCode.E)) {
-            checkNearbyAbilityAvailable("Campfire", "fire");
-            checkNearbyAbilityAvailable("BatEnemy", "screech");
-            checkNearbyAbilityAvailable("Glue", "glue");
-            checkNearbyAbilityAvailable("RockEnemy", "ram");
-            checkNearbyAbilityAvailable("Electronic", "electric");
-            checkNearbyAbilityAvailable("Magnet", "magnet");
-            checkNearbyAbilityAvailable("Tombstone", "stealth");
-
-        }
     }
-
-    // for example, check if campfire is nearby enough to absorb fire ability
     void checkNearbyAbilityAvailable(string tag, string ability) {
         Vector3 positionToCheck = transform.position;
-        GameObject[] campfireObjects = GameObject.FindGameObjectsWithTag(tag); // Find objects by tag
+        GameObject[] abilityObjects = GameObject.FindGameObjectsWithTag(tag); // Find objects by tag
 
-        foreach (GameObject campfireObject in campfireObjects)
+        foreach (GameObject abilityObject in abilityObjects)
         {
-            Vector3 campfirePosition = campfireObject.transform.position;
-            float distance = Vector3.Distance(positionToCheck, campfirePosition);
+            Vector3 abilityObjectPosition = abilityObject.transform.position;
+            float distance = Vector3.Distance(positionToCheck, abilityObjectPosition);
 
             if (distance <= absorbRadius)
             {
                 if (!abilityInventory.Contains(ability))
                 {
-                    abilityInventory.Add(ability);
-                    MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
-                    int slotAddedTo = abilityInventory.Count;
                     if (ability.Equals("fire"))
+                    {
+                        abilityInventory.Add(ability);
+                        MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
+                        int slotAddedTo = abilityInventory.Count;
                         messageToPlayer.DisplayAbilityUnlocked("fire", slotAddedTo);
-                    if (ability.Equals("screech"))
+                    }
+                    else if (ability.Equals("screech") && abilityObject.GetComponent<Bat>().getIsCorpse())
+                    {
+                        abilityInventory.Add(ability);
+                        MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
+                        int slotAddedTo = abilityInventory.Count;
                         messageToPlayer.DisplayAbilityUnlocked("screech", slotAddedTo);
-                    if (ability.Equals("glue"))
+                    }
+                    else if (ability.Equals("glue"))
+                    {
+                        abilityInventory.Add(ability);
+                        MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
+                        int slotAddedTo = abilityInventory.Count;
                         messageToPlayer.DisplayAbilityUnlocked("glue", slotAddedTo);
-                    if (ability.Equals("ram"))
+                    }
+                    else if (ability.Equals("ram") && abilityObject.GetComponent<RockEnemy>().is_corpse)
+                    {
+                        abilityInventory.Add(ability);
+                        MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
+                        int slotAddedTo = abilityInventory.Count;
                         messageToPlayer.DisplayAbilityUnlocked("ram", slotAddedTo);
-                    if (ability.Equals("electric"))
+                    }
+                    else if (ability.Equals("electric") && abilityObject.GetComponent<Thunder>().isBroken)
+                    {
+                        abilityInventory.Add(ability);
+                        MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
+                        int slotAddedTo = abilityInventory.Count;
                         messageToPlayer.DisplayAbilityUnlocked("electric", slotAddedTo);
-                    if (ability.Equals("magnet"))
+                    }
+                        
+                    else if (ability.Equals("magnet") && !abilityObject.GetComponent<MagnetEnemy>().getIsAlive())
+                    {
+                        abilityInventory.Add(ability);
+                        MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
+                        int slotAddedTo = abilityInventory.Count;
                         messageToPlayer.DisplayAbilityUnlocked("magnet", slotAddedTo);
-                    if (ability.Equals("stealth"))
+                    }
+                        
+                    else if (ability.Equals("stealth") && abilityObject.GetComponent<NewGhostEnemy>().is_corpse)
+                    {
+                        abilityInventory.Add(ability);
+                        MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
+                        int slotAddedTo = abilityInventory.Count;
                         messageToPlayer.DisplayAbilityUnlocked("stealth", slotAddedTo);
+                    }
+                        
                     //if ghost ability is chosen in the ability selection ui , then display a message 
                 }
             }
