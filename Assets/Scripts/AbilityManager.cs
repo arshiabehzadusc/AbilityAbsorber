@@ -240,7 +240,7 @@ public class AbilityManager : MonoBehaviour
                         int slotAddedTo = abilityInventory.Count;
                         messageToPlayer.DisplayAbilityUnlocked("glue", slotAddedTo);
                     }
-                    else if (ability.Equals("ram") && abilityObject.GetComponent<RockEnemy>().is_corpse)
+                    else if (ability.Equals("ram") && abilityObject.GetComponent<Level2_Rock>().getIsCorpse())
                     {
                         abilityInventory.Add(ability);
                         MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
