@@ -20,8 +20,6 @@ public class Level1BannerController : MonoBehaviour
         abilityManager = GetComponent<AbilityManager>();
          // Get the currently active scene
         Scene currentScene = SceneManager.GetActiveScene();
-
-
         // Pause the game.
         Time.timeScale = 0;
 
@@ -57,6 +55,7 @@ public class Level1BannerController : MonoBehaviour
     {  
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            print(Time.timeScale);
             if (MovementBanner.activeInHierarchy)
             {
                 MovementBanner.SetActive(false);
