@@ -154,7 +154,7 @@ public class AbilityManager : MonoBehaviour
                 playerController.isBat = true;
                 healthBar.setHealthBar("screech",2f);
                 UIActiveBat.SetActive(true);
-                playerMovement.setSpeed(8f); // speed up 
+                playerMovement.setSpeed(10f); // speed up 
                 break;
             case "glue":
                 setAllFormsFalse();
