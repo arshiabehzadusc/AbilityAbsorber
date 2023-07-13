@@ -15,6 +15,7 @@ public class MessageToPlayer : MonoBehaviour
     public GameObject StealthAbilityInfo;
     public GameObject ElectricAbilityInfo;
     public GameObject MagnetAbilityInfo;
+    public GameObject PlayerDeadMenu;
     void Start()
     {
         textMeshProUI = GetComponent<TextMeshProUGUI>();
@@ -99,7 +100,8 @@ public class MessageToPlayer : MonoBehaviour
     public void DisplayDied()
     {
         Debug.Log("player died");
-        textMeshProUI.text = "You died\nPress R to Restart\nPress P for pause menu";
+        PlayerDeadMenu.SetActive(true);
+        //textMeshProUI.text = "You died\nPress R to Restart\nPress P for pause menu";
         //Invoke("Clear", 3f);
     }
 
