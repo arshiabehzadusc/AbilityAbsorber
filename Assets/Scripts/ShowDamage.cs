@@ -25,5 +25,10 @@ public class ShowDamage : MonoBehaviour
         yield return new WaitForSeconds(1.0f); 
         spriteRenderer.color = originalColor;
     }
+
+    public void resetColor()
+    {
+        spriteRenderer.color = originalColor;
+    }
 }
 

@@ -104,8 +104,10 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage, string enemy)
     {
+        
         if (enemy == "self-stealth" || GetComponent<GhostAbility>().getUsingStealth() == false) {
             string ability = abilityManager.getSelectedAbility();
+            print("ability:" + ability + ", health: " + healthLevels[ability]);
             if (healthLevels[ability] > 0)
             {
                 ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
