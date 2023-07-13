@@ -263,7 +263,7 @@ public class AbilityManager : MonoBehaviour
                         messageToPlayer.DisplayAbilityUnlocked("magnet", slotAddedTo);
                     }
                         
-                    else if (ability.Equals("stealth") && abilityObject.GetComponent<NewGhostEnemy>().is_corpse)
+                    else if (ability.Equals("stealth"))
                     {
                         abilityInventory.Add(ability);
                         MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
