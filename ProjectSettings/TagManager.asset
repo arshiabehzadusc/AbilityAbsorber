@@ -37,6 +37,7 @@ TagManager:
   - FireWall
   - Torch1
   - Torch2
+  - Water
   layers:
   - Default
   - TransparentFX
