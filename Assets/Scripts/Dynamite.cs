@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Dynamite : MonoBehaviour
 {
     public GameObject explosionPrefab;
+    
     // Start is called before the first frame update
     void Start()
-    {
+    {   
         
     }
 

@@ -8,6 +8,7 @@ public class AbilitySelectionManager : MonoBehaviour
     private string selectedAbility;
     public GameObject abilityChoicePanel;
     private AbilityManager abilityManager;
+    
 
     void Start() 
     {
@@ -23,6 +24,19 @@ public class AbilitySelectionManager : MonoBehaviour
         abilityManager.switchAbility("fire");
         abilityChoicePanel.SetActive(false);
         Debug.Log("Fire ability activated");
+
+        //Find and delete the "Megaphone" game object
+        GameObject toRemoveObject = GameObject.Find("Megaphone");
+        if (toRemoveObject != null)
+        {
+            Destroy(toRemoveObject);
+            Debug.Log("Megaphone gameobject deleted");
+        }
+        else
+        {
+            Debug.Log("No gameobject named Megaphone found");
+        }
+        
     }
 
     public void SelectBatAbility()
@@ -32,6 +46,19 @@ public class AbilitySelectionManager : MonoBehaviour
         abilityManager.switchAbility("screech");
         abilityChoicePanel.SetActive(false);
         Debug.Log("Screech ability activated");
+
+         //Find and delete the "Dynamite" game object
+        GameObject toRemoveObject = GameObject.Find("Dynamite1");
+        if (toRemoveObject != null)
+        {
+            Destroy(toRemoveObject);
+            Destroy(GameObject.Find("Dynamite2"));
+            Debug.Log("Dynamite gameobject deleted");
+        }
+        else
+        {
+            Debug.Log("No gameobject named Dynamite found");
+        }
     }
 
      public void SelectRamAbility()
