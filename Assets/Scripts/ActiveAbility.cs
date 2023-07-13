@@ -16,6 +16,8 @@ public class ActiveAbility : MonoBehaviour
     public GameObject abilityStealth;
     public GameObject abilityElectric;
     public GameObject abilityMagnet;
+    public GameObject HealthBanner;
+    private bool batAbilityUnlocked = true;
 
     void Start()
     {
@@ -34,6 +36,13 @@ public class ActiveAbility : MonoBehaviour
         if(abilityManager.getSelectedAbility()=="screech")
         {
             abilityBat.SetActive(true);
+            if(batAbilityUnlocked == true)
+            {
+                HealthBanner.SetActive(true);
+                batAbilityUnlocked=false;
+                Time.timeScale = 0;
+            }
+
         }
         if(abilityManager.getSelectedAbility()=="glue")
         {

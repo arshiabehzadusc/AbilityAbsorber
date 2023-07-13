@@ -234,7 +234,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1422519577}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -23146,7 +23146,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1422519577}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -28746,9 +28746,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 17772548}
   - {fileID: 825285298}
   - {fileID: 1595212542}
-  - {fileID: 17772548}
   - {fileID: 1291136307}
   - {fileID: 998946855}
   - {fileID: 1395764922}
@@ -28782,6 +28782,7 @@ MonoBehaviour:
   abilityStealth: {fileID: 2067324504}
   abilityElectric: {fileID: 1096824396}
   abilityMagnet: {fileID: 17334}
+  HealthBanner: {fileID: 0}
 --- !u!114 &1422519579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30397,7 +30398,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1422519577}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
