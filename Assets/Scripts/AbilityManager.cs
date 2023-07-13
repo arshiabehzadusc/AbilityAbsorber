@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,8 +8,7 @@ using UnityEngine.UI;
 // reads player input (1, 2, 3) to select ability.
 public class AbilityManager : MonoBehaviour
 {
-    private string selectedAbility = "none"; // options: fire, screech, glue, ram, electric, magnet
-    public Dictionary<string, bool> unlockedAbilities;//changed from private to public so that TutorialManager script can check if ability was obtained
+    public string selectedAbility = "none"; // options: fire, screech, glue, ram, electric, magnet
     public float absorbRadius = 3f;
     public GameObject MessageToPlayer;
     public GameObject flame; 
@@ -27,18 +27,9 @@ public class AbilityManager : MonoBehaviour
     private PlayerController playerController;
     public Healthbar healthBar;
     private PlayerMovement playerMovement;
-
+    public List<string> abilityInventory = new List<string>();
 
     void Start() {
-        unlockedAbilities = new Dictionary<string, bool>();
-        unlockedAbilities["fire"] = false; //TODO change back to false
-        unlockedAbilities["screech"] = false; //TODO change back to false
-        unlockedAbilities["glue"] = false;
-        unlockedAbilities["ram"] = false;
-        unlockedAbilities["electric"] = false;
-        unlockedAbilities["magnet"] = false;
-        unlockedAbilities["stealth"] = false;
-
         playerController = GetComponent<PlayerController>();
         playerMovement = GetComponent<PlayerMovement>();
         healthBar.setHealthBar("None", 7);
@@ -46,10 +37,6 @@ public class AbilityManager : MonoBehaviour
 
     public string getSelectedAbility() {
         return selectedAbility;
-    }
-
-    public bool getUnlockedAbility(string abilityInQuestion) {
-        return unlockedAbilities[abilityInQuestion];
     }
 
     void setAllFormsFalse() {
@@ -67,99 +54,135 @@ public class AbilityManager : MonoBehaviour
         magnetForm.SetActive(false);
         playerMovement.setSpeed(5f);
         UIActiveRock.SetActive(false);
-         UIActiveGlue.SetActive(false);
-          UIActiveGhost.SetActive(false);
+        UIActiveGlue.SetActive(false); 
+        UIActiveGhost.SetActive(false);
     }
     
 
     void Update() {
-
-        // Select ability
-        if (Input.GetKeyDown(KeyCode.Alpha1) && unlockedAbilities["fire"])
+        
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            setAllFormsFalse();
-
-            // set everything to fire
-            selectedAbility = "fire";
-            Debug.Log("selected ability changed to " + selectedAbility);
-            print("here");
-            flare.SetActive(true);
-            flame.SetActive(true);
-            UIActiveFire.SetActive(true);
-            healthBar.setHealthBar("fire", 7);
-
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) && unlockedAbilities["screech"])
+            if (abilityInventory.Count > 0)
+            {
+                selectedAbility = abilityInventory[0];
+            }
+        } 
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            setAllFormsFalse();
-
-            // set everything to screech/bat
-            selectedAbility = "screech";
-            Debug.Log("selected ability changed to " + selectedAbility);
-            batForm.SetActive(true);
-            playerController.isBat = true;
-            healthBar.setHealthBar("bat",2);
-            UIActiveBat.SetActive(true);
+            if (abilityInventory.Count > 1)
+            {
+                selectedAbility = abilityInventory[1];
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && unlockedAbilities["glue"])
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
-            setAllFormsFalse();
-
-            // set everything to glue
-            selectedAbility = "glue";
-            Debug.Log("selected ability changed to " + selectedAbility);
-            glueForm.SetActive(true);
-            UIActiveGlue.SetActive(true);
-            healthBar.setHealthBar("glue",7);
-            playerMovement.setSpeed(1f); // slow player down (must reset after if turn into something else)
-
+            if (abilityInventory.Count > 2)
+            {
+                selectedAbility = abilityInventory[2];
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && unlockedAbilities["ram"])
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            setAllFormsFalse();
-
-            // set everything to ram
-            selectedAbility = "ram";
-            Debug.Log("selected ability changed to " + selectedAbility);
-            rockForm.SetActive(true);
-            UIActiveRock.SetActive(true);
-            healthBar.setHealthBar("ram", 7);
-
+            if (abilityInventory.Count > 3)
+            {
+                selectedAbility = abilityInventory[3];
+            }
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha5) && unlockedAbilities["electric"])
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            setAllFormsFalse();
-
-            // set everything to electric
-            selectedAbility = "electric";
-            Debug.Log("selected ability changed to " + selectedAbility);
-            electronicForm.SetActive(true);
-            healthBar.setHealthBar("electric", 7);
+            if (abilityInventory.Count > 4)
+            {
+                selectedAbility = abilityInventory[4];
+            }
         }
-
-        else if (Input.GetKeyDown(KeyCode.Alpha6) && unlockedAbilities["magnet"])
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
-            setAllFormsFalse();
-
-            // set everything to magnet
-            selectedAbility = "magnet";
-            Debug.Log("selected ability changed to " + selectedAbility);
-            magnetForm.SetActive(true);
-            healthBar.setHealthBar("magnet", 7);
+            if (abilityInventory.Count > 5)
+            {
+                selectedAbility = abilityInventory[5];
+            }
         }
-
-        else if (Input.GetKeyDown(KeyCode.Alpha7) && unlockedAbilities["stealth"])
+        
+        switch (selectedAbility)
         {
-            setAllFormsFalse();
+            case "fire":
+                setAllFormsFalse();
 
-            // set everything to magnet
-            selectedAbility = "stealth";
-            Debug.Log("selected ability changed to " + selectedAbility);
-            ghostForm.SetActive(true);
-            UIActiveGhost.SetActive(true);
-            healthBar.setHealthBar("stealth", 12);
+                // set everything to fire
+                selectedAbility = "fire";
+                Debug.Log("selected ability changed to " + selectedAbility);
+                print("here");
+                flare.SetActive(true);
+                flame.SetActive(true);
+                UIActiveFire.SetActive(true);
+                healthBar.setHealthBar("fire", 7);
+                break;
+            case "screech":
+                setAllFormsFalse();
+
+                // set everything to screech/bat
+                selectedAbility = "screech";
+                Debug.Log("selected ability changed to " + selectedAbility);
+                batForm.SetActive(true);
+                playerController.isBat = true;
+                healthBar.setHealthBar("bat",2);
+                UIActiveBat.SetActive(true);
+                break;
+            case "glue":
+                setAllFormsFalse();
+
+                // set everything to glue
+                selectedAbility = "glue";
+                Debug.Log("selected ability changed to " + selectedAbility);
+                glueForm.SetActive(true);
+                UIActiveGlue.SetActive(true);
+                healthBar.setHealthBar("glue",7);
+                playerMovement.setSpeed(1f); // slow player down (must reset after if turn into something else)
+
+                break;
+            case "ram":
+                setAllFormsFalse();
+
+                // set everything to ram
+                selectedAbility = "ram";
+                Debug.Log("selected ability changed to " + selectedAbility);
+                rockForm.SetActive(true);
+                UIActiveRock.SetActive(true);
+                healthBar.setHealthBar("ram", 7);
+                break;
+
+            case "electric":
+                setAllFormsFalse();
+
+                // set everything to electric
+                selectedAbility = "electric";
+                Debug.Log("selected ability changed to " + selectedAbility);
+                electronicForm.SetActive(true);
+                healthBar.setHealthBar("electric", 7);
+                break;
+
+            case "magnet":
+                setAllFormsFalse();
+
+                // set everything to magnet
+                selectedAbility = "magnet";
+                Debug.Log("selected ability changed to " + selectedAbility);
+                magnetForm.SetActive(true);
+                healthBar.setHealthBar("magnet", 7);
+                break;
+            case "stealth":
+                setAllFormsFalse();
+
+                // set everything to magnet
+                selectedAbility = "stealth";
+                Debug.Log("selected ability changed to " + selectedAbility);
+                ghostForm.SetActive(true);
+                UIActiveGhost.SetActive(true);
+                healthBar.setHealthBar("stealth", 12);
+                break;
         }
-
+       
         // Absorb ability
         if (Input.GetKeyDown(KeyCode.E)) {
             checkNearbyAbilityAvailable("Campfire", "fire");
@@ -171,9 +194,6 @@ public class AbilityManager : MonoBehaviour
             checkNearbyAbilityAvailable("Tombstone", "stealth");
 
         }
-
-        
-        
     }
 
     // for example, check if campfire is nearby enough to absorb fire ability
@@ -188,24 +208,27 @@ public class AbilityManager : MonoBehaviour
 
             if (distance <= absorbRadius)
             {
-                unlockedAbilities[ability] = true;
-                MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
-                
-                if (ability.Equals("fire"))
-                    messageToPlayer.DisplayAbilityUnlocked("fire", 1);
-                if (ability.Equals("screech"))
-                    messageToPlayer.DisplayAbilityUnlocked("screech", 2);
-                if (ability.Equals("glue"))
-                    messageToPlayer.DisplayAbilityUnlocked("glue", 3);
-                if (ability.Equals("ram"))
-                    messageToPlayer.DisplayAbilityUnlocked("ram", 4);
-                if (ability.Equals("electric"))
-                    messageToPlayer.DisplayAbilityUnlocked("electric", 5);
-                if (ability.Equals("magnet"))
-                    messageToPlayer.DisplayAbilityUnlocked("magnet", 6);
-                if (ability.Equals("stealth"))
-                    messageToPlayer.DisplayAbilityUnlocked("stealth", 7);
-                //if ghost ability is chosen in the ability selection ui , then display a message 
+                if (!abilityInventory.Contains(ability))
+                {
+                    abilityInventory.Add(ability);
+                    MessageToPlayer messageToPlayer = MessageToPlayer.GetComponent<MessageToPlayer>();
+                    int slotAddedTo = abilityInventory.Count;
+                    if (ability.Equals("fire"))
+                        messageToPlayer.DisplayAbilityUnlocked("fire", slotAddedTo);
+                    if (ability.Equals("screech"))
+                        messageToPlayer.DisplayAbilityUnlocked("screech", slotAddedTo);
+                    if (ability.Equals("glue"))
+                        messageToPlayer.DisplayAbilityUnlocked("glue", slotAddedTo);
+                    if (ability.Equals("ram"))
+                        messageToPlayer.DisplayAbilityUnlocked("ram", slotAddedTo);
+                    if (ability.Equals("electric"))
+                        messageToPlayer.DisplayAbilityUnlocked("electric", slotAddedTo);
+                    if (ability.Equals("magnet"))
+                        messageToPlayer.DisplayAbilityUnlocked("magnet", slotAddedTo);
+                    if (ability.Equals("stealth"))
+                        messageToPlayer.DisplayAbilityUnlocked("stealth", slotAddedTo);
+                    //if ghost ability is chosen in the ability selection ui , then display a message 
+                }
             }
         }
     }
