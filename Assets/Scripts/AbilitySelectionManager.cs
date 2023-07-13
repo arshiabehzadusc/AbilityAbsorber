@@ -26,10 +26,11 @@ public class AbilitySelectionManager : MonoBehaviour
         Debug.Log("Fire ability activated");
 
         //Find and delete the "Megaphone" game object
-        GameObject toRemoveObject = GameObject.Find("Megaphone");
+        GameObject toRemoveObject = GameObject.Find("Megaphone1");
         if (toRemoveObject != null)
         {
             Destroy(toRemoveObject);
+            Destroy(GameObject.Find("Megaphone2"));
             Debug.Log("Megaphone gameobject deleted");
         }
         else
@@ -53,6 +54,7 @@ public class AbilitySelectionManager : MonoBehaviour
         {
             Destroy(toRemoveObject);
             Destroy(GameObject.Find("Dynamite2"));
+            Destroy(GameObject.Find("Dynamite3"));
             Debug.Log("Dynamite gameobject deleted");
         }
         else
