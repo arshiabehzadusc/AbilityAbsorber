@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         abilityManager = GetComponent<AbilityManager>();
         healthLevels = new Dictionary<string, float>();
         healthLevels.Add("none", 7f);
-        healthLevels.Add("fire", 7f);
+        healthLevels.Add("fire", 10f);
         healthLevels.Add("screech", 2f);
         healthLevels.Add("glue", 7f);
         healthLevels.Add("ram", 7f);
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("RockEnemy") && rockEnemy.getIsCorpse() == false)
+        if (collision.gameObject.CompareTag("RockEnemy") && rockEnemy.getIsCorpse() == false && abilityManager.getSelectedAbility() != "glue")
         {
             TakeDamage(1f, "rock");
         }
