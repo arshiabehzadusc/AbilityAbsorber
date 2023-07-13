@@ -67,7 +67,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 0)
             {
                 selectedAbility = abilityInventory[0];
-                switvhAbility(selectedAbility);
+                switchAbility(selectedAbility);
             }
         } 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -75,7 +75,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 1)
             {
                 selectedAbility = abilityInventory[1];
-                switvhAbility(selectedAbility);
+                switchAbility(selectedAbility);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -83,7 +83,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 2)
             {
                 selectedAbility = abilityInventory[2];
-                switvhAbility(selectedAbility);
+                switchAbility(selectedAbility);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
@@ -91,7 +91,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 3)
             {
                 selectedAbility = abilityInventory[3];
-                switvhAbility(selectedAbility);
+                switchAbility(selectedAbility);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
@@ -99,7 +99,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 4)
             {
                 selectedAbility = abilityInventory[4];
-                switvhAbility(selectedAbility);
+                switchAbility(selectedAbility);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha6))
@@ -107,7 +107,7 @@ public class AbilityManager : MonoBehaviour
             if (abilityInventory.Count > 5)
             {
                 selectedAbility = abilityInventory[5];
-                switvhAbility(selectedAbility);
+                switchAbility(selectedAbility);
             }
         }
 
@@ -126,7 +126,7 @@ public class AbilityManager : MonoBehaviour
 
     // for example, check if campfire is nearby enough to absorb fire ability
 
-    void switvhAbility(string selectedAbility)
+    public void switchAbility(string selectedAbility)
     {
          switch (selectedAbility)
         {

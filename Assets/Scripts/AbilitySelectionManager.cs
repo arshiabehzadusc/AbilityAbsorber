@@ -20,6 +20,7 @@ public class AbilitySelectionManager : MonoBehaviour
     {
         abilityManager.selectedAbility = "fire";
         abilityManager.abilityInventory.Add("fire");
+        abilityManager.switchAbility("fire");
         abilityChoicePanel.SetActive(false);
         Debug.Log("Fire ability activated");
     }
@@ -28,6 +29,7 @@ public class AbilitySelectionManager : MonoBehaviour
     {
         abilityManager.selectedAbility = "screech";
         abilityManager.abilityInventory.Add("screech");
+        abilityManager.switchAbility("screech");
         abilityChoicePanel.SetActive(false);
         Debug.Log("Screech ability activated");
     }
@@ -36,6 +38,7 @@ public class AbilitySelectionManager : MonoBehaviour
     {
         abilityManager.selectedAbility = "ram";
         abilityManager.abilityInventory.Add("ram");
+        abilityManager.switchAbility("ram");
         abilityChoicePanel.SetActive(false);
         Debug.Log("Ram ability activated");
     }
@@ -44,6 +47,7 @@ public class AbilitySelectionManager : MonoBehaviour
     {
         abilityManager.selectedAbility = "stealth";
         abilityManager.abilityInventory.Add("stealth");
+        abilityManager.switchAbility("stealth");
         abilityChoicePanel.SetActive(false);
         Debug.Log("Stealth ability activated");
     }
