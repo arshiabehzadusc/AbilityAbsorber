@@ -104,24 +104,26 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage, string enemy)
     {
-        string ability = abilityManager.getSelectedAbility();
-        if (healthLevels[ability] > 0)
-        {
-            ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
-            foreach(ShowDamage showDamage in showDamages)
+        if (enemy == "self-stealth" || GetComponent<GhostAbility>().getUsingStealth() == false) {
+            string ability = abilityManager.getSelectedAbility();
+            if (healthLevels[ability] > 0)
             {
-                showDamage.TurnRed();
+                ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
+                foreach(ShowDamage showDamage in showDamages)
+                {
+                    showDamage.TurnRed();
+                }
+                float new_health = healthLevels[ability] - damage;
+                healthLevels[ability] = new_health;
             }
-            float new_health = healthLevels[ability] - damage;
-            healthLevels[ability] = new_health;
-        }
-        if (healthLevels[ability] <= 0)
-        {
-            messageToPlayer.DisplayDied();
-            Vector2 playerposition = transform.position;
-            sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
-            gameObject.SetActive(false);
-            pmc.isDead = true;
+            if (healthLevels[ability] <= 0)
+            {
+                messageToPlayer.DisplayDied();
+                Vector2 playerposition = transform.position;
+                sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
+                gameObject.SetActive(false);
+                pmc.isDead = true;
+            }
         }
     }
 }
