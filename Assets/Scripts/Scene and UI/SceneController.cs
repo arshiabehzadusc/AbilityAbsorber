@@ -8,7 +8,7 @@ public class SceneController : MonoBehaviour
     // Function called when Start button is pressed
     public void StartGame()
     {
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Preface");
     }
 
     // Function called when Options button is pressed
