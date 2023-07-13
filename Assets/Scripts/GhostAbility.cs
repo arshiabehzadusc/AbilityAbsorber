@@ -36,7 +36,8 @@ public class GhostAbility : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             usingStealth = false;
-            StopCoroutine(myCoroutine);
+            if (myCoroutine != null)
+                StopCoroutine(myCoroutine);
             // reset ghost form to full opaque
             Color c = renderer.color;
             c.a = 1f;
