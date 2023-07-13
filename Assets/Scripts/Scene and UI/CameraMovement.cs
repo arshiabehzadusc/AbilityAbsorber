@@ -9,22 +9,26 @@ public class CameraMovement : MonoBehaviour {
     public float smoothing;
     public Vector2 maxPosition;
     public Vector2 minPosition;
-    public Vector2 overviewEndPoint; // Add this to set the end point in the Inspector
+    public Vector2 overviewEndPoint;
     public float overviewSpeed = 1f;
     private bool gameStarted = false;
-    private Vector3 originalPosition; // To remember the original position
+    private Vector3 originalPosition;
     public PlayerMovement playerMov;
     public static event Action OnOverviewComplete;
 
+    public bool focusOnObject = false; // Variable to control the camera focus
+    public GameObject targetObject; // The game object to focus on
+    private float focusSpeed = 3.0f; // Speed of camera focus movement
+
     void Start () {
-        originalPosition = transform.position; // Store the original position at the start
+        originalPosition = transform.position;
         StartCoroutine(StartGameOverview());
     }
 
     IEnumerator StartGameOverview() {
         Vector3 endPosition = new Vector3(overviewEndPoint.x, overviewEndPoint.y, transform.position.z);
         playerMov.enabled = false;
-        // lerp to the end position
+
         float t = 0;
         while (t < 1) {
             t += Time.deltaTime * overviewSpeed;
@@ -32,7 +36,6 @@ public class CameraMovement : MonoBehaviour {
             yield return null;
         }
 
-        // then lerp back to the original position
         t = 0;
         while (t < 1) {
             t += Time.deltaTime * overviewSpeed;
@@ -41,28 +44,40 @@ public class CameraMovement : MonoBehaviour {
         }
 
         gameStarted = true;
-
-        // trigger event when overview movement is complete
         OnOverviewComplete?.Invoke();
         playerMov.enabled = true;
     }
     
     void LateUpdate () {
-        if(gameStarted && transform.position != target.position)
+        if(focusOnObject)
+        {
+            Vector3 targetPos = new Vector3(targetObject.transform.position.x, targetObject.transform.position.y, transform.position.z);
+            targetPos = ClampPosition(targetPos);
+            transform.position = Vector3.Lerp(transform.position, targetPos, focusSpeed * Time.deltaTime);
+            if(Vector3.Distance(transform.position, targetPos) < 0.01f)
+            {
+                focusOnObject = false; // Once we reached target, stop focusing
+            }
+        }
+        else if(gameStarted && transform.position != target.position)
         {
             Vector3 targetPosition = new Vector3(target.position.x,
                                                  target.position.y,
                                                  transform.position.z);
-            targetPosition.x = Mathf.Clamp(targetPosition.x,
-                                           minPosition.x,
-                                           maxPosition.x);
-            targetPosition.y = Mathf.Clamp(targetPosition.y,
-                                           minPosition.y,
-                                           maxPosition.y);
+            targetPosition = ClampPosition(targetPosition);
             
             transform.position = Vector3.Lerp(transform.position,
                                              targetPosition, smoothing);
         }
+    }
+
+    // Function to clamp the camera position within defined bounds
+    Vector3 ClampPosition(Vector3 targetPos) 
+    {
+        targetPos.x = Mathf.Clamp(targetPos.x, minPosition.x, maxPosition.x);
+        targetPos.y = Mathf.Clamp(targetPos.y, minPosition.y, maxPosition.y);
+
+        return targetPos;
     }
 
     private Vector3 RoundPosition(Vector3 position)
