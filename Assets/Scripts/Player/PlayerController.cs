@@ -95,6 +95,10 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("FireEnemy") && abilityManager.getSelectedAbility() != "ram") {
             TakeDamage(1f, "fire-enemy");
         }
+        if (other.gameObject.CompareTag("Water") && abilityManager.getSelectedAbility() == "electric") {
+            TakeDamage(10f, "water");
+            print("killed by self-electrocution in water");
+        }
     }
     
     void Update()
