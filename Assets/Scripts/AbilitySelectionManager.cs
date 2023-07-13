@@ -18,32 +18,32 @@ public class AbilitySelectionManager : MonoBehaviour
 
     public void SelectFireAbility()
     {
-        selectedAbility = "fire";
-        abilityManager.unlockedAbilities["fire"] = true;
+        abilityManager.selectedAbility = "fire";
+        abilityManager.abilityInventory.Add("fire");
         abilityChoicePanel.SetActive(false);
         Debug.Log("Fire ability activated");
     }
 
     public void SelectBatAbility()
     {
-        selectedAbility = "screech";
-        abilityManager.unlockedAbilities["screech"] = true;
+        abilityManager.selectedAbility = "screech";
+        abilityManager.abilityInventory.Add("screech");
         abilityChoicePanel.SetActive(false);
         Debug.Log("Screech ability activated");
     }
 
      public void SelectRamAbility()
     {
-        selectedAbility = "ram";
-        abilityManager.unlockedAbilities["ram"] = true;
+        abilityManager.selectedAbility = "ram";
+        abilityManager.abilityInventory.Add("ram");
         abilityChoicePanel.SetActive(false);
         Debug.Log("Ram ability activated");
     }
 
       public void SelectStealthAbility()
     {
-        selectedAbility = "stealth";
-        abilityManager.unlockedAbilities["stealth"] = true;
+        abilityManager.selectedAbility = "stealth";
+        abilityManager.abilityInventory.Add("stealth");
         abilityChoicePanel.SetActive(false);
         Debug.Log("Stealth ability activated");
     }

@@ -100,7 +100,7 @@ public class Level1BannerController : MonoBehaviour
         }
 
         // Check if fire ability is unlocked and the banner hasn't been displayed yet.
-        if (abilityManager.unlockedAbilities["fire"] && !fireAbilityUnlocked && Input.GetKeyDown(KeyCode.Alpha1))
+        if (abilityManager.abilityInventory.Contains("fire") && !fireAbilityUnlocked && Input.GetKeyDown(KeyCode.Alpha1))
         {
             // Display the ability banner.
             AbilityBanner.SetActive(true);

@@ -47,7 +47,7 @@ public class TutorialManager2 : MonoBehaviour
         }
         else if (banner == ObjectInteractionTutBanner)
         {
-            if (!abilityManager.unlockedAbilities["fire"])
+            if (!abilityManager.abilityInventory.Contains("fire"))
             {
                 StartCoroutine(DisplayBanner(AbilityUseTutBanner));
             }
