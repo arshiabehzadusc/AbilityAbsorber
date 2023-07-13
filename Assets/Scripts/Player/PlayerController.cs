@@ -94,44 +94,47 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage, string enemy)
     {
-        ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
-        
-        foreach(ShowDamage showDamage in showDamages)
-        {
-            showDamage.TurnRed();
-        }
-        
-        if (isBat)
-        {
-            if (batHealth > 0)
+        // immune to enemies while stealth, BUT if enemy = "self-stealth", that means taking damage BECAUSE of stealth
+        if (enemy == "self-stealth" || GetComponent<GhostAbility>().getUsingStealth() == false) {
+            ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
+            
+            foreach(ShowDamage showDamage in showDamages)
             {
-                batHealth -= damage;
-                pmc.isDead = true;
-                //healthLabel.text = "Health: " + health;
-                Debug.Log("Bat Health" + batHealth);
+                showDamage.TurnRed();
             }
-            if (batHealth <= 0)
+            
+            if (isBat)
             {
-                messageToPlayer.DisplayDied();
-                Vector2 playerposition = transform.position;
-                sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
-                gameObject.SetActive(false);
+                if (batHealth > 0)
+                {
+                    batHealth -= damage;
+                    pmc.isDead = true;
+                    //healthLabel.text = "Health: " + health;
+                    Debug.Log("Bat Health" + batHealth);
+                }
+                if (batHealth <= 0)
+                {
+                    messageToPlayer.DisplayDied();
+                    Vector2 playerposition = transform.position;
+                    sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
+                    gameObject.SetActive(false);
+                }
             }
-        }
-        else
-        {
-            if (health > 0)
+            else
             {
-                health -= damage;
-                //healthLabel.text = "Health: " + health;
-            }
-            if (health <= 0)
-            {
-                messageToPlayer.DisplayDied();
-                pmc.isDead = true;
-                Vector2 playerposition = transform.position;
-                sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
-                gameObject.SetActive(false);
+                if (health > 0)
+                {
+                    health -= damage;
+                    //healthLabel.text = "Health: " + health;
+                }
+                if (health <= 0)
+                {
+                    messageToPlayer.DisplayDied();
+                    pmc.isDead = true;
+                    Vector2 playerposition = transform.position;
+                    sendtogoogle.Send(System.DateTime.Now, playerposition, enemy);
+                    gameObject.SetActive(false);
+                }
             }
         }
     }
