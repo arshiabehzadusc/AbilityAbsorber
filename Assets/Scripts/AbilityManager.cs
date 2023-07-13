@@ -31,7 +31,7 @@ public class AbilityManager : MonoBehaviour
     public Healthbar healthBar;
     private PlayerMovement playerMovement;
     public List<string> abilityInventory = new List<string>();
-
+    
     void Start() {
         playerController = GetComponent<PlayerController>();
         playerMovement = GetComponent<PlayerMovement>();
@@ -128,6 +128,13 @@ public class AbilityManager : MonoBehaviour
             checkNearbyAbilityAvailable("Tombstone", "stealth");
 
         }
+        checkShouldGlow("Campfire", "fire");
+        checkShouldGlow("BatEnemy", "screech");
+        checkShouldGlow("Glue", "glue");
+        checkShouldGlow("RockEnemy", "ram");
+        checkShouldGlow("Electronic", "electric");
+        checkShouldGlow("Magnet", "magnet");
+        checkShouldGlow("Tombstone", "stealth");
     }
 
     // for example, check if campfire is nearby enough to absorb fire ability
@@ -219,6 +226,53 @@ public class AbilityManager : MonoBehaviour
                 break;
         }
     }
+
+    void checkShouldGlow(string tag, string ability)
+    {
+        Vector3 positionToCheck = transform.position;
+        GameObject[] abilityObjects = GameObject.FindGameObjectsWithTag(tag); // Find objects by tag
+        foreach (GameObject abilityObject in abilityObjects)
+        {
+            if (abilityObject == null)
+            {
+                continue;
+            }
+            bool isAbsorbable= true;
+            //checks if enemies are dead (can be absorbed)
+            switch (tag)
+            {
+                case "BatEnemy":
+                    if (!abilityObject.GetComponent<Bat>().getIsCorpse())
+                        isAbsorbable = false;
+                    break;
+                case "RockEnemy":
+                    if (!abilityObject.GetComponent<Level2_Rock>().getIsCorpse())
+                        isAbsorbable = false;
+                    break;
+                case "Electronic":
+                    if (!abilityObject.GetComponent<Thunder>().isBroken)
+                        isAbsorbable = false;
+                    break;
+                case "Magnet":
+                    if (abilityObject.GetComponent<MagnetEnemy>().getIsAlive())
+                        isAbsorbable = false;
+                    break;
+            }
+            Vector3 abilityObjectPosition = abilityObject.transform.position;
+            float distance = Vector3.Distance(positionToCheck, abilityObjectPosition);
+
+            if (distance <= absorbRadius && !abilityInventory.Contains(ability) && isAbsorbable)
+            {
+                abilityObject.GetComponent<GlowWhenNear>().glow = true;
+            }
+            else
+            {
+                if (abilityObject.GetComponent<GlowWhenNear>() != null)
+                    abilityObject.GetComponent<GlowWhenNear>().glow = false;
+            }
+        }
+    }
+
     void checkNearbyAbilityAvailable(string tag, string ability) {
         Vector3 positionToCheck = transform.position;
         GameObject[] abilityObjects = GameObject.FindGameObjectsWithTag(tag); // Find objects by tag

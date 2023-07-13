@@ -2136,6 +2136,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
+--- !u!1 &216949983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6257651749798134508, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
+  m_PrefabInstance: {fileID: 216949982}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &235892387
 GameObject:
   m_ObjectHideFlags: 0
@@ -23921,6 +23926,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6257651749798134507, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
+      propertyPath: maxLives
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257651749798134507, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1917396527}
@@ -23979,6 +23988,21 @@ MonoBehaviour:
   Torch1: {fileID: 1162071784}
   Torch2: {fileID: 1651565089}
   puzzleBanner: {fileID: 798096385}
+--- !u!114 &1128201620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053892270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowAmount: 0.1
+  glowSpeed: 2
+  glow: 0
 --- !u!1 &1132951869
 GameObject:
   m_ObjectHideFlags: 0
@@ -35352,6 +35376,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
+--- !u!1 &1855697088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6257651749798134508, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
+  m_PrefabInstance: {fileID: 1855697087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1856374549
 GameObject:
   m_ObjectHideFlags: 0
@@ -37401,6 +37430,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6257651749798134506, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
   m_PrefabInstance: {fileID: 216949982}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2030486879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216949983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowAmount: 0.1
+  glowSpeed: 2
+  glow: 0
 --- !u!1 &2038773769
 GameObject:
   m_ObjectHideFlags: 0
@@ -38330,6 +38374,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6257651749798134506, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
   m_PrefabInstance: {fileID: 1855697087}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2085741799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855697088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowAmount: 0.1
+  glowSpeed: 2
+  glow: 0
 --- !u!1 &2103825080
 GameObject:
   m_ObjectHideFlags: 0
@@ -39068,3 +39127,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
+--- !u!1 &6257651749232224447 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6257651749798134508, guid: d53953a8d5bd44984b2d8c4674f517a0, type: 3}
+  m_PrefabInstance: {fileID: 6257651749232224446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6257651749232224448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6257651749232224447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glowAmount: 0.1
+  glowSpeed: 2
+  glow: 0
