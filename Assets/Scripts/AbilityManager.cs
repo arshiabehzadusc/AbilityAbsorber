@@ -263,7 +263,10 @@ public class AbilityManager : MonoBehaviour
 
             if (distance <= absorbRadius && !abilityInventory.Contains(ability) && isAbsorbable)
             {
-                abilityObject.GetComponent<GlowWhenNear>().glow = true;
+                GlowWhenNear g = abilityObject.GetComponent<GlowWhenNear>();
+                if (g != null) {
+                    g.glow = true;
+                }
             }
             else
             {

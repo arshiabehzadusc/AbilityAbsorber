@@ -44,7 +44,7 @@ public class BouncingBall : MonoBehaviour
             hasCollided = true;
         }
 
-        if (collision.gameObject.CompareTag("Glue")&& collision.gameObject.name!="GluePuddle1")
+        if (collision.gameObject.CompareTag("Glue") && collision.gameObject.name != "GlueBottle")
         {
             Debug.Log("Ball stuck in glue");
             isCollidingWithGlue = true;

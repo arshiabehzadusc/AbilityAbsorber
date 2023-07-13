@@ -19,8 +19,10 @@ public class GluePuddle : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Explosion") || other.gameObject.CompareTag("FireAbility")) {
-            print("glue removed by fire/explosion");
-            Destroy(this.gameObject);
+            if (gameObject.name != "GlueBottle") { //if self is bottle, don't remove bottle
+                print("glue removed by fire/explosion");
+                Destroy(this.gameObject);
+            }
         }
         
     }
