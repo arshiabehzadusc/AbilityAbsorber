@@ -20,7 +20,7 @@ public class ShowDamage : MonoBehaviour
 
     IEnumerator ChangeColorTemporarily()
     {
-        //print("turn red");
+        print("turn red");
         spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(1.0f); 
         spriteRenderer.color = originalColor;
