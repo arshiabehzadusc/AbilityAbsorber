@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class GluePuddle : MonoBehaviour
 {
+    // things stuck in glue:
+    // rock enemy(done)
+    // spinning hazard (done)
+    // ghost enemy (done)
+    // basketball (done)
+
+
     // Start is called before the first frame update
     void Start()
     {

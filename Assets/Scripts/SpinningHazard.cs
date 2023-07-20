@@ -20,9 +20,9 @@ public class SpinningHazard : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision) {
+    void OnTriggerEnter2D(Collider2D other) {
         // EVERY ENEMY/OBJECT NEAR GLUE SHOULD HAVE THIS GLUE
-        if (collision.gameObject.CompareTag("Glue")) {
+        if (other.gameObject.CompareTag("Glue")) {
             Debug.Log("SpinningHazard stuck in glue");
             stuck = true;
         }
