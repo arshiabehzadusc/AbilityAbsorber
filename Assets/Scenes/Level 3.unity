@@ -26772,6 +26772,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1917396534}
     - target: {fileID: 1917396530, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+      propertyPath: healthBarScript
+      value: 
+      objectReference: {fileID: 1932279563}
+    - target: {fileID: 1917396530, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: messageToPlayer
       value: 
       objectReference: {fileID: 264166169}
@@ -32714,6 +32718,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 1932279564}
   playerHealth: {fileID: 1702251464}
+  flashDuration: 0.3
 --- !u!114 &1932279564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34807,8 +34812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowAmount: 0.1
-  glowSpeed: 2
+  glowAmount: 0.15
+  glowSpeed: 5
   glow: 0
 --- !u!1 &2089568376
 GameObject:
@@ -35701,6 +35706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowAmount: 0.1
-  glowSpeed: 2
+  glowAmount: 0.15
+  glowSpeed: 5
   glow: 0
