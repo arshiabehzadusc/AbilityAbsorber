@@ -1376,6 +1376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 96004615}
   playerHealth: {fileID: 1917396546}
+  flashDuration: 0.3
 --- !u!114 &96004615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28157,8 +28158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowAmount: 0.1
-  glowSpeed: 2
+  glowAmount: 0.15
+  glowSpeed: 5
   glow: 0
 --- !u!58 &1351150581
 CircleCollider2D:
@@ -31348,6 +31349,10 @@ PrefabInstance:
       propertyPath: sendtogoogle
       value: 
       objectReference: {fileID: 1917396534}
+    - target: {fileID: 1917396530, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+      propertyPath: healthBarScript
+      value: 
+      objectReference: {fileID: 96004614}
     - target: {fileID: 1917396530, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: messageToPlayer
       value: 
@@ -39127,8 +39132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowAmount: 0.1
-  glowSpeed: 2
+  glowAmount: 0.15
+  glowSpeed: 5
   glow: 0
 --- !u!1 &2064857093
 GameObject:
@@ -40130,7 +40135,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9166619857602646583, guid: 0f387d6e5802d2741bc87dff42f8bb3e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 88.2
+      value: 90.48
       objectReference: {fileID: 0}
     - target: {fileID: 9166619857602646583, guid: 0f387d6e5802d2741bc87dff42f8bb3e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40250,6 +40255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowAmount: 0.1
-  glowSpeed: 2
+  glowAmount: 0.15
+  glowSpeed: 5
   glow: 0

@@ -124,6 +124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97b78634560741678e890e09eb13dd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  glowAmount: 0.1
-  glowSpeed: 2
+  glowAmount: 0.15
+  glowSpeed: 5
   glow: 0
