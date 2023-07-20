@@ -93,14 +93,9 @@ public class Level2_Rock : MonoBehaviour
             speed = 2f; //unsticks from glue
             print("freed rock from glue using fire");
         }
-    }
 
-
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
         // EVERY ENEMY NEAR GLUE SHOULD HAVE THIS GLUE
-        if (collision.gameObject.CompareTag("Glue"))
+        else if (other.gameObject.CompareTag("Glue"))
         {
             Debug.Log("Rock stuck in glue");
             speed = 0.3f;

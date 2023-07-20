@@ -43,19 +43,21 @@ public class BouncingBall : MonoBehaviour
             targetPosition = (Vector2)transform.position - direction * speed * Time.deltaTime;
             hasCollided = true;
         }
+    }
 
-        if (collision.gameObject.CompareTag("Glue") && collision.gameObject.name != "GlueBottle")
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.CompareTag("Glue") && other.gameObject.name != "GlueBottle")
         {
             Debug.Log("Ball stuck in glue");
             isCollidingWithGlue = true;
-            speed = 0f;rb.velocity = Vector2.zero;
+            speed = 0f;
+            rb.velocity = Vector2.zero;
             rb.constraints = RigidbodyConstraints2D.FreezeAll;
             count++;
         }
         if(count>=1)
         {
             GameObject closed_door = GameObject.Find("Closed door");
-           
             Destroy(closed_door);
         }
     }

@@ -20,6 +20,7 @@ public class NewGhostEnemy : MonoBehaviour
     public GameObject tombstonePrefab;
     private bool isCollidingWithGlue = false; // Added variable
     private ShowDamage showDamage;
+
     void Start()
     {
         health = maxLives;
@@ -93,31 +94,31 @@ public class NewGhostEnemy : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-{
-    if (collision.gameObject.CompareTag("Glue"))
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Ghost stuck in glue");
-        isCollidingWithGlue = true;
-        dashSpeed = 0f;
-        roamSpeed = 0f;
-        spriteRenderer.enabled = true;
-        
+        if (other.gameObject.CompareTag("Glue"))
+        {
+            Debug.Log("Ghost stuck in glue");
+            isCollidingWithGlue = true;
+            dashSpeed = 0f;
+            roamSpeed = 0f;
+            spriteRenderer.enabled = true;
+            
+        }
     }
-}
 
-void OnCollisionExit2D(Collision2D collision)
-{
-    if (collision.gameObject.CompareTag("Glue"))
+    void OnTriggerExit2D(Collider2D other)
     {
-        Debug.Log("Ghost no longer stuck in glue");
-        isCollidingWithGlue = false;
-        dashSpeed = 5f;
-        roamSpeed = 2f;
-        spriteRenderer.enabled = false;
-        
+        if (other.gameObject.CompareTag("Glue"))
+        {
+            Debug.Log("Ghost no longer stuck in glue");
+            isCollidingWithGlue = false;
+            dashSpeed = 5f;
+            roamSpeed = 2f;
+            spriteRenderer.enabled = false;
+            
+        }
     }
-}
 
 
     public bool getIsCorpse()

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8751353219806431435}
   - component: {fileID: 6735024924269887610}
   - component: {fileID: 3397572647664816787}
-  - component: {fileID: -336538357374345814}
+  - component: {fileID: -586240167276474374}
   m_Layer: 0
   m_Name: Dynamite
   m_TagString: Untagged
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 6436631925232024963, guid: f3baf4709f5c6fa4991adc56cce8c657, type: 3}
---- !u!61 &-336538357374345814
-BoxCollider2D:
+--- !u!58 &-586240167276474374
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -112,16 +112,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 30.000002, y: 20.683596}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: -3.6}
   serializedVersion: 2
-  m_Size: {x: 30.000002, y: 20.683596}
-  m_EdgeRadius: 0
+  m_Radius: 10.84
