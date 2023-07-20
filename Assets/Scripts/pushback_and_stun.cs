@@ -13,25 +13,32 @@ public class pushback_and_stun : MonoBehaviour
     private int pushTime = 2;
     PlayerMovement playerMovement;
     private PlayerController playerController;
+    private bool takingDamage;
 
     private void Start()
     {
+        takingDamage = false;
         playerMovement = GetComponent<PlayerMovement>();
         playerController = GetComponent<PlayerController>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        shockWave = GameObject.FindGameObjectWithTag(objectTag);
-        if (other.gameObject == shockWave)
+        GameObject [] shockWaves = GameObject.FindGameObjectsWithTag(objectTag);
+        foreach (GameObject shockWave in shockWaves)
         {
-            if (gameObject.CompareTag("Player"))
+            if (other.gameObject == shockWave)
             {
-                playerController.TakeDamage(0.5f, "bat");
-                playerMovement.enabled = false;
+                print("shockwave collision");
+                if (gameObject.CompareTag("Player"))
+                {
+                    if (!takingDamage)
+                        StartCoroutine(DamageAndShortStun());
+                }
+
             }
-            StartCoroutine(Unstun());
-        } else if (other.gameObject == shockWavePlayer)
+        } 
+        if (other.gameObject == shockWavePlayer)
         {
             if (gameObject.CompareTag("ScreechBlock"))
             {
@@ -47,21 +54,25 @@ public class pushback_and_stun : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        shockWave = GameObject.FindGameObjectWithTag(objectTag);
+       
+        GameObject [] shockWaves = GameObject.FindGameObjectsWithTag(objectTag);
         shockWavePlayer = GameObject.FindGameObjectWithTag("ShockwavePlayer");
-        
-        if (other.gameObject == shockWave && !gameObject.CompareTag("ScreechBlock") )
+        foreach (GameObject shockWave in shockWaves)
         {
-            //print("doesnt work");
-            Vector2 dir = other.transform.position - transform.position;
-            // We then get the opposite (-Vector3) and normalize it
-            dir = -dir.normalized;
-            if (GetComponent<Rigidbody2D>() != null)
+            if (other.gameObject == shockWave && !gameObject.CompareTag("ScreechBlock"))
             {
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                GetComponent<Rigidbody2D>().AddForce(dir*pushForce);
+                //print("doesnt work");
+                Vector2 dir = other.transform.position - transform.position;
+                // We then get the opposite (-Vector3) and normalize it
+                dir = -dir.normalized;
+                if (GetComponent<Rigidbody2D>() != null)
+                {
+                    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    GetComponent<Rigidbody2D>().AddForce(dir * pushForce);
+                }
             }
-        } 
+        }
+
         if (gameObject.CompareTag("ScreechBlock"))
         {
             if (other.gameObject == shockWavePlayer)
@@ -79,11 +90,15 @@ public class pushback_and_stun : MonoBehaviour
         }
     }
 
-    private IEnumerator Unstun()
+    private IEnumerator DamageAndShortStun()
     {
-        yield return new WaitForSeconds(1f);
+        takingDamage = true;
+        playerController.TakeDamage(0.5f, "bat");
+        playerMovement.enabled = false;
+        print("triggered");
+        yield return new WaitForSeconds(1.2f);
+        takingDamage = false;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        yield return new WaitForSeconds(1f);
         if (gameObject.CompareTag("Player"))
         {
             playerMovement.enabled = true;

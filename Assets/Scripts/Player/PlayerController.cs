@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private RockAbility rockAbility;
     public PlayerMovement playerMov;
     private AbilityManager abilityManager;
+    public Healthbar healthBarScript;
 
     public Dictionary<string, float> healthLevels;
     // Start is called before the first frame update
@@ -118,6 +119,7 @@ public class PlayerController : MonoBehaviour
                 foreach(ShowDamage showDamage in showDamages)
                 {
                     showDamage.TurnRed();
+                    healthBarScript.FlashBar();
                 }
                 float new_health = healthLevels[ability] - damage;
                 healthLevels[ability] = new_health;
