@@ -35,6 +35,7 @@ public class GlowWhenNear : MonoBehaviour
 
      public void reset()
      {
+         print("reset called");
          transform.localScale = originalScale;
          spriteRenderer.color = originalColor;
      }

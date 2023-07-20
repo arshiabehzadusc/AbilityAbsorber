@@ -15,7 +15,7 @@ public class Bat : MonoBehaviour
 
     private float health;
     public float maxLives = 3f;
-    public Renderer renderer;
+    private SpriteRenderer renderer;
     Transform glassShield;
     private ShowDamage damageScript;
     private Animator animator;
@@ -32,7 +32,7 @@ public class Bat : MonoBehaviour
     {
         // Set the initial target position
         targetPosition = GetRandomPosition();
-        renderer = GetComponent<Renderer>();
+        renderer = GetComponent<SpriteRenderer>();
         glassShield = transform.Find("Glass");
     }
 

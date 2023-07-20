@@ -144,6 +144,7 @@ public class AbilityManager : MonoBehaviour
         ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
         foreach(ShowDamage showDamage in showDamages)
         {
+            print(showDamage);
             showDamage.resetColor();
         }
         switch (selectedAbility)
@@ -268,12 +269,16 @@ public class AbilityManager : MonoBehaviour
                     g.glow = true;
                 }
             }
-            else
+            else if(isAbsorbable)
             {
                 if (abilityObject.GetComponent<GlowWhenNear>() != null)
                 {
-                    abilityObject.GetComponent<GlowWhenNear>().glow = false;
-                    abilityObject.GetComponent<GlowWhenNear>().reset();
+                    if (abilityObject.GetComponent<GlowWhenNear>().glow)
+                    {
+                        abilityObject.GetComponent<GlowWhenNear>().glow = false;
+                        abilityObject.GetComponent<GlowWhenNear>().reset();
+                    }
+
                 }
             }
         }
