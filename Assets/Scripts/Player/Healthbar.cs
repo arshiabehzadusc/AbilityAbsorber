@@ -16,7 +16,7 @@ public class Healthbar : MonoBehaviour
     private Image fillImage;
     // Update is called once per frame
 
-    private void Start()
+     void Awake()
     {
         ability = "none";
         isFlashing = false;
