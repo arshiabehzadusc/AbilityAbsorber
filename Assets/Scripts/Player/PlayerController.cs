@@ -45,14 +45,14 @@ public class PlayerController : MonoBehaviour
         rockAbility = GetComponent<RockAbility>();
         abilityManager = GetComponent<AbilityManager>();
         healthLevels = new Dictionary<string, float>();
-        healthLevels.Add("none", 7f);
-        healthLevels.Add("fire", 10f);
-        healthLevels.Add("screech", 2f);
-        healthLevels.Add("glue", 7f);
-        healthLevels.Add("ram", 7f);
-        healthLevels.Add("electric", 7f);
-        healthLevels.Add("magnet", 7f);
-        healthLevels.Add("stealth", 12f);
+        healthLevels.Add("none", 5f);
+        healthLevels.Add("fire", 8f);
+        healthLevels.Add("screech", 3f);
+        healthLevels.Add("glue", 5f);
+        healthLevels.Add("ram", 5f);
+        healthLevels.Add("electric", 5f);
+        healthLevels.Add("magnet", 5f);
+        healthLevels.Add("stealth", 10f);
     }
 
     public float getHealthy()
