@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     public Dictionary<string, float> healthLevels;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         isBat = false;
         batHealth = 2;

@@ -26794,7 +26794,7 @@ PrefabInstance:
     - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 1932279563}
+      objectReference: {fileID: 1932279561}
     - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: magnetForm
       value: 
@@ -26839,6 +26839,10 @@ PrefabInstance:
       propertyPath: UIActiveElectric
       value: 
       objectReference: {fileID: 2130888759}
+    - target: {fileID: 1917396533, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 1702251464}
     - target: {fileID: 1917396535, guid: 27bf31f6833d5b742a6b7841e983dd6b, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
