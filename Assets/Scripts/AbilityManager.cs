@@ -32,10 +32,20 @@ public class AbilityManager : MonoBehaviour
     private PlayerMovement playerMovement;
     public List<string> abilityInventory = new List<string>();
     
+    public Dictionary<string, float> maxHealth;
     void Start() {
         playerController = GetComponent<PlayerController>();
         playerMovement = GetComponent<PlayerMovement>();
-        healthBar.setHealthBar("none", 7);
+        healthBar.setHealthBar("none", playerController.healthLevels[selectedAbility]);
+        maxHealth = new Dictionary<string, float>();
+        maxHealth.Add("none", playerController.healthLevels["none"]);
+        maxHealth.Add("fire", playerController.healthLevels["fire"]);
+        maxHealth.Add("screech", playerController.healthLevels["screech"]);
+        maxHealth.Add("glue", playerController.healthLevels["glue"]);
+        maxHealth.Add("ram", playerController.healthLevels["ram"]);
+        maxHealth.Add("electric", playerController.healthLevels["electric"]);
+        maxHealth.Add("magnet",playerController.healthLevels["magnet"]);
+        maxHealth.Add("stealth", playerController.healthLevels["stealth"]);
     }
 
     public string getSelectedAbility() {
@@ -158,7 +168,7 @@ public class AbilityManager : MonoBehaviour
                 flare.SetActive(true);
                 flame.SetActive(true);
                 UIActiveFire.SetActive(true);
-                healthBar.setHealthBar("fire", 10f);
+                healthBar.setHealthBar(selectedAbility, maxHealth[selectedAbility]);
                 break;
             case "screech":
                 setAllFormsFalse();
@@ -168,7 +178,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 batForm.SetActive(true);
                 playerController.isBat = true;
-                healthBar.setHealthBar("screech",2f);
+                healthBar.setHealthBar(selectedAbility, maxHealth[selectedAbility]);
                 UIActiveBat.SetActive(true);
                 playerMovement.setSpeed(10f); // speed up 
                 break;
@@ -180,7 +190,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 glueForm.SetActive(true);
                 UIActiveGlue.SetActive(true);
-                healthBar.setHealthBar("glue",7f);
+                healthBar.setHealthBar(selectedAbility, maxHealth[selectedAbility]);
                 playerMovement.setSpeed(1f); // slow down
                 break;
             case "ram":
@@ -191,7 +201,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 rockForm.SetActive(true);
                 UIActiveRock.SetActive(true);
-                healthBar.setHealthBar("ram", 7f);
+                healthBar.setHealthBar(selectedAbility, maxHealth[selectedAbility]);
                 break;
 
             case "electric":
@@ -202,7 +212,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 electronicForm.SetActive(true);
                 UIActiveElectric.SetActive(true);
-                healthBar.setHealthBar("electric", 7f);
+                healthBar.setHealthBar(selectedAbility, maxHealth[selectedAbility]);
                 break;
 
             case "magnet":
@@ -213,7 +223,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 magnetForm.SetActive(true);
                 UIActiveMagnet.SetActive(true);
-                healthBar.setHealthBar("magnet", 7f);
+                healthBar.setHealthBar(selectedAbility, maxHealth[selectedAbility]);
                 break;
             case "stealth":
                 setAllFormsFalse();
@@ -223,7 +233,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 ghostForm.SetActive(true);
                 UIActiveGhost.SetActive(true);
-                healthBar.setHealthBar("stealth", 12f);
+                healthBar.setHealthBar(selectedAbility, maxHealth[selectedAbility]);
                 break;
         }
     }
