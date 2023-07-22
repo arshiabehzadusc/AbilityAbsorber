@@ -7,10 +7,13 @@ public class PauseMenuController : MonoBehaviour
     public GameObject pauseMenuUI; // Attach your Pause Menu UI to this in inspector
     public GameObject pausePanel; // Attach your Pause Panel to this in inspector
     public bool isDead;
+    private CameraMovement cameraMovement;
+    public static bool gameRestarted = false;
 
     private void Start()
     {
         isDead = false;
+        cameraMovement = GetComponent<CameraMovement>();
     }
 
     void Update()
@@ -47,6 +50,11 @@ public class PauseMenuController : MonoBehaviour
         Time.timeScale = 1; // Make sure game is not paused when reloading the level
         string currentSceneName = SceneManager.GetActiveScene().name;
         SceneManager.LoadScene(currentSceneName); // Reload the current scene
+        CameraMovement.isRestarting = true;
+        // Set the gameRestarted flag to true
+        gameRestarted = true;
+        Debug.Log("Restart level function in PauseMenuController is executed");
+   
     }
 
     public void GoToMainMenu()

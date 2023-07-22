@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class CameraMovement : MonoBehaviour {
 
     public Transform target;
@@ -24,10 +25,23 @@ public class CameraMovement : MonoBehaviour {
     private float initialSize; // Size to reset to
     public float zoomedSize = 5f; // Size when zoomed in
 
+
+    public static bool isRestarting= false;
+
+
+
     void Start () {
         originalPosition = transform.position;
         initialSize = Camera.main.orthographicSize; // Save initial size
+
+        if (!isRestarting) {
         StartCoroutine(StartGameOverview());
+    } else {
+        // If the game is restarting, we reset the flag and enable the player immediately.
+        isRestarting = false;
+        playerMov.enabled = true;
+        gameStarted = true;
+    }
     }
 
     IEnumerator StartGameOverview() {

@@ -25,8 +25,19 @@ public class Level3BannerController : MonoBehaviour
         // Resume the game.
         Time.timeScale = 1;
 
-        // Subscribe to overview movement complete event
-        CameraMovement.OnOverviewComplete += DisplayAbilityChoicePanel;
+        // If the game has been restarted, show the AbilityChoicePanel immediately
+        if (PauseMenuController.gameRestarted)
+        {
+            DisplayAbilityChoicePanel();
+            
+            // Reset the gameRestarted flag to false so that this only applies once
+            PauseMenuController.gameRestarted = false;
+        }
+        else
+        {
+            // If the game hasn't been restarted, wait for the overview to complete
+            CameraMovement.OnOverviewComplete += DisplayAbilityChoicePanel;
+        }
 
         
     }
