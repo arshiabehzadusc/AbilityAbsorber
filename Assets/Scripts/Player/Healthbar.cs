@@ -18,17 +18,16 @@ public class Healthbar : MonoBehaviour
 
      void Awake()
     {
-        ability = "none";
         isFlashing = false;
         fillImage = slider.fillRect.GetComponent<Image>();
     }
 
     void Update()
     {
-        slider.value = playerHealth.healthLevels[ability];
+        slider.value = playerHealth.health;
     }
 
-    public void setHealthBar(string ability, float maxHealth)
+    public void setHealthBar(float maxHealth)
     {
         this.ability = ability;
         slider.maxValue = maxHealth;

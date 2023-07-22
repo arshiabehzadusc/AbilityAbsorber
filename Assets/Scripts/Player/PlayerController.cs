@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI healthLabel;
     public float health;
     public float batHealth;
-    public float maxLives = 3f;
+    public float maxLives;
     public SendToGoogle sendtogoogle;
     public MessageToPlayer messageToPlayer;
     public bool isBat;
@@ -21,13 +21,12 @@ public class PlayerController : MonoBehaviour
     public PlayerMovement playerMov;
     private AbilityManager abilityManager;
     public Healthbar healthBarScript;
+    
 
-    public Dictionary<string, float> healthLevels;
     // Start is called before the first frame update
     void Awake()
     {
         isBat = false;
-        batHealth = 2;
         health = maxLives;
         ///healthLabel.text = "Health: " + health;
         gameObject.SetActive(true);
@@ -44,15 +43,6 @@ public class PlayerController : MonoBehaviour
         }
         rockAbility = GetComponent<RockAbility>();
         abilityManager = GetComponent<AbilityManager>();
-        healthLevels = new Dictionary<string, float>();
-        healthLevels.Add("none", 5f);
-        healthLevels.Add("fire", 8f);
-        healthLevels.Add("screech", 3f);
-        healthLevels.Add("glue", 5f);
-        healthLevels.Add("ram", 5f);
-        healthLevels.Add("electric", 5f);
-        healthLevels.Add("magnet", 5f);
-        healthLevels.Add("stealth", 10f);
     }
 
     public float getHealthy()
@@ -111,20 +101,18 @@ public class PlayerController : MonoBehaviour
     {
         
         if (enemy == "self-stealth" || GetComponent<GhostAbility>().getUsingStealth() == false) {
-            string ability = abilityManager.getSelectedAbility();
-            print("ability:" + ability + ", health: " + healthLevels[ability]);
-            if (healthLevels[ability] > 0)
+            if (health > 0)
             {
                 ShowDamage[] showDamages = GetComponentsInChildren<ShowDamage>();
                 foreach(ShowDamage showDamage in showDamages)
                 {
                     showDamage.TurnRed();
-                    healthBarScript.FlashBar();
+                    
                 }
-                float new_health = healthLevels[ability] - damage;
-                healthLevels[ability] = new_health;
+                healthBarScript.FlashBar();
+                health -= damage;
             }
-            if (healthLevels[ability] <= 0)
+            if (health<= 0)
             {
                 messageToPlayer.DisplayDied();
                 Vector2 playerposition = transform.position;
