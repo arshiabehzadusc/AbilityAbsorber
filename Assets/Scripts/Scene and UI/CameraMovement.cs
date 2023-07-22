@@ -31,27 +31,31 @@ public class CameraMovement : MonoBehaviour {
     }
 
     IEnumerator StartGameOverview() {
-        Vector3 endPosition = new Vector3(overviewEndPoint.x, overviewEndPoint.y, transform.position.z);
-        playerMov.enabled = false;
+    Vector3 endPosition = new Vector3(overviewEndPoint.x, overviewEndPoint.y, transform.position.z);
+    playerMov.enabled = false;
 
-        float t = 0;
-        while (t < 1) {
-            t += Time.deltaTime * overviewSpeed;
-            transform.position = Vector3.Lerp(originalPosition, endPosition, t);
-            yield return null;
-        }
-
-        t = 0;
-        while (t < 1) {
-            t += Time.deltaTime * overviewSpeed;
-            transform.position = Vector3.Lerp(endPosition, originalPosition, t);
-            yield return null;
-        }
-
-        gameStarted = true;
-        OnOverviewComplete?.Invoke();
-        playerMov.enabled = true;
+    float t = 0;
+    while (t < 1) {
+        t += Time.deltaTime * overviewSpeed;
+        transform.position = Vector3.Lerp(originalPosition, endPosition, t);
+        yield return null;
     }
+
+    // Wait for two seconds after reaching the endpoint
+    yield return new WaitForSeconds(1);
+
+    t = 0;
+    while (t < 1) {
+        t += Time.deltaTime * overviewSpeed;
+        transform.position = Vector3.Lerp(endPosition, originalPosition, t);
+        yield return null;
+    }
+
+    gameStarted = true;
+    OnOverviewComplete?.Invoke();
+    playerMov.enabled = true;
+}
+
     
      void LateUpdate () {
         if(focusOnObject)

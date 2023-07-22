@@ -12,7 +12,8 @@ public class Level1Complete : MonoBehaviour
     public GameObject player;
     private SendToGoogle sendtogoogle;
     //private RockEnemy rockEnemyScript;
-
+    public GameObject exit_closedDoor;
+    public GameObject exit_openDoor;
     void Start()
     {
         sendtogoogle = player.GetComponent<SendToGoogle>();
@@ -32,7 +33,8 @@ public class Level1Complete : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
              if (torchFire1.activeInHierarchy && torchFire2.activeInHierarchy)
-            {
+            {   exit_closedDoor.SetActive(false);
+                exit_openDoor.SetActive(true);
                 sendtogoogle.Send(System.DateTime.Now, transform.position, "WIN");
                 level1CompleteUI.SetActive(true);
             }

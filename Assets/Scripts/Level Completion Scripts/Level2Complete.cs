@@ -11,6 +11,7 @@ public class Level2Complete : MonoBehaviour
     public GameObject ghostEnemy;
     private SendToGoogle sendtogoogle;
     //private RockEnemy rockEnemyScript;
+     
 
     void Start()
     {
@@ -25,7 +26,8 @@ public class Level2Complete : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
              if (!ghostEnemy.activeInHierarchy)
-            {   Debug.Log("Level2 Complete");
+            {    
+                Debug.Log("Level2 Complete");
                 sendtogoogle.Send(System.DateTime.Now, transform.position, "WIN");
                 level2CompleteUI.SetActive(true);
             }

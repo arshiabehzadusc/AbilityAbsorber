@@ -20,6 +20,8 @@ public class NewGhostEnemy : MonoBehaviour
     public GameObject tombstonePrefab;
     private bool isCollidingWithGlue = false; // Added variable
     private ShowDamage showDamage;
+    public GameObject exit_closedDoor;
+    public GameObject exit_openDoor;
 
     void Start()
     {
@@ -91,6 +93,9 @@ public class NewGhostEnemy : MonoBehaviour
 
             // Disable the ghost object
             gameObject.SetActive(false);
+            //open the door sprite
+            exit_closedDoor.SetActive(false);
+            exit_openDoor.SetActive(true);
         }
     }
 
