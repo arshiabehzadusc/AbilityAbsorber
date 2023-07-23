@@ -38959,7 +38959,7 @@ MonoBehaviour:
   maxPosition: {x: 1.41, y: 0.6}
   minPosition: {x: -1.41, y: -0.6}
   overviewEndPoint: {x: 90.34, y: -0.02}
-  overviewSpeed: 0.3
+  overviewSpeed: 0.2
   playerMov: {fileID: 1917396547}
   focusOnObject: 0
   targetObject: {fileID: 0}
