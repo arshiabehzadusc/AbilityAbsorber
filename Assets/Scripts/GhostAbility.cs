@@ -57,7 +57,7 @@ public class GhostAbility : MonoBehaviour
             GetComponent<PlayerController>().TakeDamage(0.01f, "self-stealth");
             // make ghost transparent
             Color c = renderer.color;
-            c.a = 0.1f;
+            c.a = 0.5f;
             renderer.color = c;
 
             // hide player default form (it's underneath all other forms)
