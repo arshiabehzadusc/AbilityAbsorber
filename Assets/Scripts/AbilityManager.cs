@@ -9,7 +9,7 @@ using UnityEngine.UI;
 // reads player input (1, 2, 3) to select ability.
 public class AbilityManager : MonoBehaviour
 {
-    public string selectedAbility = "none"; // options: fire, screech, glue, ram, electric, magnet
+    public string selectedAbility = "none"; // options: fire, screech, glue, ram, stealth, electric, magnet
     public float absorbRadius = 3f;
     public GameObject MessageToPlayer;
     public GameObject flame; 
