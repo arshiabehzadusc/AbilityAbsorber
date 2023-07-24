@@ -60,7 +60,8 @@ public class MagnetEnemy : MonoBehaviour
                     if (collider.gameObject != gameObject)
                     {
                         Vector2 direction = transform.position - collider.transform.position;
-                        collider.attachedRigidbody.AddForce(direction.normalized * attractionForce);
+                        if (collider.attachedRigidbody != null)
+                            collider.attachedRigidbody.AddForce(direction.normalized * attractionForce);
                     }
                 }
             }
