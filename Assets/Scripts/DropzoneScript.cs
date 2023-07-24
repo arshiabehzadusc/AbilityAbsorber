@@ -9,6 +9,7 @@ public class DropzoneScript : MonoBehaviour
 
     public GameObject generator;
     public GameObject placedGenerator;
+
     void Start()
     {
         
@@ -25,7 +26,8 @@ public class DropzoneScript : MonoBehaviour
         if (other.gameObject.CompareTag("Metal"))
         {
             Destroy(generator);
-            Instantiate(placedGenerator, transform.position, Quaternion.identity);
+            //Instantiate(placedGenerator, transform.position, Quaternion.identity);
+            placedGenerator.SetActive(true);
         }
     }
 }
