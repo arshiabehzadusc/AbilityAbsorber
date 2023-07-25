@@ -19,8 +19,17 @@ public class FireEnemyRadius : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") && abilityManager.getSelectedAbility() != "ram") {
-            playerController.TakeDamage(0.05f ,"fire-enemy");
+        if (other.gameObject.CompareTag("Player") && abilityManager.getSelectedAbility() != "ram")
+        {
+            StartCoroutine(DecreaseHealthGradually());
         }
     }
+    
+    IEnumerator DecreaseHealthGradually()
+    {
+        playerController.TakeDamage(0.01f ,"fire-enemy");
+        yield return new WaitForSeconds(0.01f);
+    }
+        
 }
+

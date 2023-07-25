@@ -11,7 +11,8 @@ public class GhostAbility : MonoBehaviour
     private bool usingStealth = false;
     private Coroutine myCoroutine;
 
-    public bool getUsingStealth() {
+    public bool getUsingStealth()
+    {
         return usingStealth;
     }
 
@@ -31,7 +32,7 @@ public class GhostAbility : MonoBehaviour
             myCoroutine = StartCoroutine(DecreaseHealthGradually());
 
         }
-        
+
         // Stop coroutine when spacebar is released
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -66,6 +67,6 @@ public class GhostAbility : MonoBehaviour
             GetComponent<SpriteRenderer>().color = c;
             yield return new WaitForSeconds(0.01f);
         }
-        
+
     }
 }

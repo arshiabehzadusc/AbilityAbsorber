@@ -86,9 +86,14 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("FireEnemy") && abilityManager.getSelectedAbility() != "ram") {
             TakeDamage(1f, "fire-enemy");
         }
-        if (other.gameObject.CompareTag("Water") && abilityManager.getSelectedAbility() == "electric") {
-            TakeDamage(10f, "water");
-            print("killed by self-electrocution in water");
+    }
+    
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Water") && abilityManager.getSelectedAbility() == "electric")
+        {
+            float damage = 0.01f * Time.deltaTime;
+            TakeDamage(damage, "water");        
         }
         // Check if the player enters the collider of an object with the "bridge" tag
         if (other.gameObject.CompareTag("Bridge"))
