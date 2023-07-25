@@ -183,7 +183,7 @@ public class AbilityManager : MonoBehaviour
                 Debug.Log("selected ability changed to " + selectedAbility);
                 glueForm.SetActive(true);
                 UIActiveGlue.SetActive(true);
-                playerMovement.setSpeed(1f); // slow down
+                playerMovement.setSpeed(3f); // slow down
                 break;
             case "ram":
                 setAllFormsFalse();
