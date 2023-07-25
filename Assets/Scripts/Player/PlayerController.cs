@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public Healthbar healthBarScript;
     public bool isOnBridge = false; // Bool flag to track if the player is on the bridge
     public ControlsGuide controlsGuide;
+    public AbilityGuide abilityGuide;
     // Start is called before the first frame update
     void Awake()
     {
@@ -82,42 +83,72 @@ public class PlayerController : MonoBehaviour
     }
 
     private int clickCount = 0; // To count the clicks
+    private int selection;
 
-private void OnTriggerEnter2D(Collider2D other)
-{
-    if (other.gameObject.CompareTag("FireEnemy") && abilityManager.getSelectedAbility() != "ram") 
-    {
-        TakeDamage(1f, "fire-enemy");
-    }
-    if (other.gameObject.tag == "ControlsGuide")
-    {   
-        Debug.Log("Player collided with controls guide trigger");
-        controlsGuide.ShowControls();
-        
-        // Start listening for button clicks
-        StartCoroutine(CheckForDoubleClick());
-    }
-}
+    // Add flags at the class level to track collisions
+    private bool hasCollidedWithControlsGuide = false;
+    private bool hasCollidedWithAbilityGuide = false;
 
-private IEnumerator CheckForDoubleClick()
-{
-    // Reset click count
-    clickCount = 0;
-    
-    // Add a listener to the mouse button click
-    // This assumes you're using the left mouse button; change 0 to 1 for right button
-    while (clickCount < 2)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (Input.GetMouseButtonDown(0))
+        if (other.gameObject.CompareTag("FireEnemy") && abilityManager.getSelectedAbility() != "ram") 
         {
-            clickCount++;
+            TakeDamage(1f, "fire-enemy");
         }
-        yield return null;
+        
+        // Check collision with ControlsGuide and if it hasn't collided before
+        if (other.gameObject.tag == "ControlsGuide" && !hasCollidedWithControlsGuide)
+        {   
+            Debug.Log("Player collided with controls guide trigger");
+            controlsGuide.ShowControls();
+            selection = 1;
+            
+            // Mark that the collision has happened
+            hasCollidedWithControlsGuide = true;
+
+            // Start listening for button clicks
+            StartCoroutine(CheckForDoubleClick());
+        }
+
+        // Check collision with AbilityGuide and if it hasn't collided before
+        if (other.gameObject.tag == "AbilityGuide" && !hasCollidedWithAbilityGuide)
+        {   
+            Debug.Log("Player collided with ability guide trigger");
+            abilityGuide.ShowControls();
+            selection = 2;
+            
+            // Mark that the collision has happened
+            hasCollidedWithAbilityGuide = true;
+
+            // Start listening for button clicks
+            StartCoroutine(CheckForDoubleClick());
+        }
     }
 
-    // If we got here, two clicks were registered
-    controlsGuide.ToggleControls();
-}
+    private IEnumerator CheckForDoubleClick()
+    {
+        // Reset click count
+        clickCount = 0;
+        
+        // Add a listener to the mouse button click
+        // This assumes you're using the left mouse button; change 0 to 1 for right button
+        while (clickCount < 2)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                clickCount++;
+                controlsGuide.controlsBanner.SetActive(false);
+                abilityGuide.abilityGuideBanner.SetActive(false);
+            }
+            yield return null;
+        }
+
+        // If we got here, two clicks were registered
+        if(selection==1)
+        {controlsGuide.ToggleControls();}
+        if(selection == 2)
+        {abilityGuide.ToggleControls();}
+    }
 
     
     private void OnTriggerStay2D(Collider2D other)

@@ -24,16 +24,21 @@ public class PulsateButton : MonoBehaviour
     }
 
     void Update()
+{
+    if (glow)
     {
-        if (glow)
-        {
-            float glowNum = Mathf.Sin(Time.time * glowSpeed) * glowAmount;
-            
-            buttonTransform.localScale = originalScale * (1.0f + glowNum);
-            
-            buttonImage.color = Color.Lerp(Color.white, glowColor, (glowNum + 5.0f) / 2.0f); // Use buttonImage.color
-        }
+        float glowNum = Mathf.Sin(Time.time * glowSpeed) * glowAmount;
+
+        buttonTransform.localScale = originalScale * (1.0f + glowNum);
+
+        buttonImage.color = Color.Lerp(Color.white, glowColor, (glowNum + 5.0f) / 2.0f); 
     }
+    else
+    {
+        ResetButton();
+    }
+}
+
 
     public void ResetButton()
     {

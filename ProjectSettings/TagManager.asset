@@ -41,6 +41,7 @@ TagManager:
   - PressurePlate
   - Bridge
   - ControlsGuide
+  - AbilityGuide
   layers:
   - Default
   - TransparentFX
