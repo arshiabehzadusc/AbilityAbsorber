@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public PlayerMovement playerMov;
     private AbilityManager abilityManager;
     public Healthbar healthBarScript;
-    
+    public bool isOnBridge = false; // Bool flag to track if the player is on the bridge
 
     // Start is called before the first frame update
     void Awake()
@@ -90,6 +90,12 @@ public class PlayerController : MonoBehaviour
             TakeDamage(10f, "water");
             print("killed by self-electrocution in water");
         }
+        // Check if the player enters the collider of an object with the "bridge" tag
+        if (other.gameObject.CompareTag("Bridge"))
+        {
+            isOnBridge = true;
+            Debug.Log("Player in contact with bridge");
+        }
     }
     
     void Update()
@@ -122,4 +128,18 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+
+     
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        // Check if the player exits the collider of an object with the "bridge" tag
+        if (other.gameObject.tag == "Bridge")
+        {
+            isOnBridge = false;
+        }
+    }
+
+
 }

@@ -39,6 +39,7 @@ TagManager:
   - Torch2
   - Water
   - PressurePlate
+  - Bridge
   layers:
   - Default
   - TransparentFX
