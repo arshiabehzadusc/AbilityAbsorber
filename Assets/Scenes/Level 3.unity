@@ -38672,6 +38672,7 @@ GameObject:
   - component: {fileID: 2018263880}
   - component: {fileID: 2018263881}
   - component: {fileID: 2018263882}
+  - component: {fileID: 2018263883}
   m_Layer: 0
   m_Name: Water
   m_TagString: Water
@@ -38772,6 +38773,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2018263883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018263879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7d059fa89e72b458660ee34c823ded, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flame: {fileID: 1510237761}
+  electricform: {fileID: 340107423}
+  playerController: {fileID: 1702251464}
 --- !u!1 &2019919747
 GameObject:
   m_ObjectHideFlags: 0

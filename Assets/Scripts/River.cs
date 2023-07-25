@@ -52,14 +52,14 @@ public class River : MonoBehaviour
             // If the flame is active
             if (flame.activeInHierarchy)
             {
-                playerController.TakeDamage(0.1f, "river");
+                playerController.TakeDamage(0.01f, "river");
                 Debug.Log("river dealt damage to player in fire form");
             }
 
             // If electric form is active and player is NOT on the bridge
             if (electricform.activeInHierarchy && !playerController.isOnBridge)
             {
-                playerController.TakeDamage(0.7f, "river");
+                playerController.TakeDamage(0.04f, "river");
                 Debug.Log("river dealt damage to player in electricity form");
             }
         }
