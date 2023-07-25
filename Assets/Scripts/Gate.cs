@@ -13,6 +13,7 @@ public class Gate : MonoBehaviour
     private Vector3 initialScale;
     private Vector3 targetScale;
     public GameObject exitDoor;
+    public GameObject exitDoorOpen;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class Gate : MonoBehaviour
         animator.SetBool("genTurnedOn", true);
         StartCoroutine(ReleaseWater());
         StartCoroutine(DeactivateAfterDelay(fireEnemy, 3f));
-        exitDoor.SetActive(false);
+        exitDoor.SetActive(false); exitDoorOpen.SetActive(true);
     }
 
     IEnumerator DeactivateAfterDelay(GameObject target, float delay)
