@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private AbilityManager abilityManager;
     public Healthbar healthBarScript;
     public bool isOnBridge = false; // Bool flag to track if the player is on the bridge
-
+    public ControlsGuide controlsGuide;
     // Start is called before the first frame update
     void Awake()
     {
@@ -81,12 +81,44 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private int clickCount = 0; // To count the clicks
+
+private void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.gameObject.CompareTag("FireEnemy") && abilityManager.getSelectedAbility() != "ram") 
     {
-        if (other.gameObject.CompareTag("FireEnemy") && abilityManager.getSelectedAbility() != "ram") {
-            TakeDamage(1f, "fire-enemy");
-        }
+        TakeDamage(1f, "fire-enemy");
     }
+    if (other.gameObject.tag == "ControlsGuide")
+    {   
+        Debug.Log("Player collided with controls guide trigger");
+        controlsGuide.ShowControls();
+        
+        // Start listening for button clicks
+        StartCoroutine(CheckForDoubleClick());
+    }
+}
+
+private IEnumerator CheckForDoubleClick()
+{
+    // Reset click count
+    clickCount = 0;
+    
+    // Add a listener to the mouse button click
+    // This assumes you're using the left mouse button; change 0 to 1 for right button
+    while (clickCount < 2)
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            clickCount++;
+        }
+        yield return null;
+    }
+
+    // If we got here, two clicks were registered
+    controlsGuide.ToggleControls();
+}
+
     
     private void OnTriggerStay2D(Collider2D other)
     {
