@@ -61,7 +61,8 @@ public class MagnetAbility : MonoBehaviour
             //print(distance);
             if (distance < radius)
             {
-                metalObject.GetComponent<Rigidbody2D>().mass = 1f;
+                if (metalObject.name == "Metal_Block")
+                    metalObject.GetComponent<Rigidbody2D>().mass = 1f;
                 //print("found metal object to attract");
                 Vector2 direction = currentPosition - metalObjectPosition;
                 Rigidbody2D rb = metalObject.GetComponent<Rigidbody2D>();
