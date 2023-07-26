@@ -20,7 +20,8 @@ public class PulsateButton : MonoBehaviour
         buttonTransform = GetComponent<Transform>();
         originalScale = buttonTransform.localScale;
         glowColor = Color.yellow;
-        originalColor = buttonImage.color; // Use buttonImage.color instead
+        if (buttonImage != null)
+            originalColor = buttonImage.color; // Use buttonImage.color instead
     }
 
     void Update()
@@ -43,6 +44,7 @@ public class PulsateButton : MonoBehaviour
     public void ResetButton()
     {
         buttonTransform.localScale = originalScale;
-        buttonImage.color = originalColor;
+        if (buttonImage != null)
+            buttonImage.color = originalColor;
     }
 }

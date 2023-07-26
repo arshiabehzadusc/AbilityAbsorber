@@ -42,7 +42,8 @@ public class ControlPanelButton : MonoBehaviour
     {
         // Initially, we assume Controls Tab is not visible
         isTabVisible = false;
-        controlTab.SetActive(isTabVisible);
+        if (controlTab != null)
+            controlTab.SetActive(isTabVisible);
 
         // Initialize the EventSystem
         eventSystem = EventSystem.current;
@@ -51,7 +52,8 @@ public class ControlPanelButton : MonoBehaviour
     public void OnControlPanelClick() // Method to be called on button click
     {
         isTabVisible = !isTabVisible; // Toggle visibility state
-        controlTab.SetActive(isTabVisible); // Set the new state
+        if (controlTab != null)
+            controlTab.SetActive(isTabVisible); // Set the new state
 
         // Deselect the button to prevent SPACE key from re-activating it
         eventSystem.SetSelectedGameObject(null);
