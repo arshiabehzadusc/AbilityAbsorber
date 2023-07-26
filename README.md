@@ -13,4 +13,8 @@ Beta Check-In Build: https://arshiabehzadusc.github.io/BetaProgressCheckBuild/
 
 Beta Build: https://sameerchannar.github.io/
 
+Beta Demo: https://youtu.be/os_4AvNjyM4
+
 Gold Build: https://sameerchannar.github.io/sameerchannar.github.io-gold/
+
+Gold Demo: https://youtu.be/-BN87XSn0Go
